@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { siteConfig } from "@/config/site";
+import { siteConfig, siteIndexable } from "@/config/site";
 import { Analytics } from "@/components/seo/Analytics";
 import "../globals.css";
 
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: siteConfig.descriptionEn,
   keywords: ["web development Egypt", "website design", "web design Cairo", "online store development", "booking system", "custom web applications", "Next.js agency", "Arabic website design", "Holoolk Tech"],
   authors: [{ name: siteConfig.nameEn }],
-  robots: { index: true, follow: true },
+  robots: { index: siteIndexable, follow: siteIndexable },
 };
 
 /** الجذر الإنجليزي (LTR) — كل الصفحات تحت /en */

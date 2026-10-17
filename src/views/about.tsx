@@ -83,11 +83,11 @@ export default function AboutView({ locale }: { locale: Locale }) {
             )}
           </p>
         </div>
-        <ul className="mt-12 grid gap-5 md:grid-cols-3">
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {expertise.map(({ icon: Icon, title, text, points }, i) => (
             <li
               key={title}
-              className="group relative flex flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-slate-900/[0.06] sm:p-8"
+              className="group relative flex flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-7 sm:last:col-span-2 lg:last:col-span-1 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-slate-900/[0.06] sm:p-8"
             >
               <span aria-hidden className="absolute inset-x-0 top-0 h-1 origin-right scale-x-0 ltr:origin-left bg-linear-to-r from-brand-600 to-accent-500 transition-transform duration-500 group-hover:scale-x-100 rtl:bg-linear-to-l" />
               <div className="flex items-start justify-between">

@@ -66,13 +66,14 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
       />
 
       <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {highlights.map(({ image, title: tt, tag, description: ds, points: pt, href: h }) => {
+        {highlights.map(({ image, title: tt, tag, description: ds, points: pt, href: h }, i) => {
           const title = tt[locale];
           const description = ds[locale];
           const points = pt[locale];
           const href = lp(locale, h);
           return (
-          <li key={title}>
+          // على الموبايل: 3 خدمات بس، والباقي في صفحة الخدمات
+          <li key={title} className={i >= 3 ? "max-sm:hidden" : undefined}>
             <Link
               href={href}
               className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-800/[0.07] focus-visible:-translate-y-1"
@@ -117,9 +118,9 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
         })}
       </ul>
 
-      <div className="mt-12 flex justify-center">
-        <ButtonLink href={lp(locale, "/services")} size="lg" className="shadow-lg shadow-brand-600/20">
-          {t("عرض كافة الخدمات والحلول", "View all services and solutions")}
+      <div className="mt-8 flex justify-center sm:mt-12">
+        <ButtonLink href={lp(locale, "/services")} size="lg" className="w-full shadow-lg shadow-brand-600/20 sm:w-auto">
+          {t("عرض كافة الخدمات", "View all services")}
           <ArrowLeft className="size-5" aria-hidden />
         </ButtonLink>
       </div>

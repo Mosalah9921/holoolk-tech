@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
-import { siteConfig } from "@/config/site";
+import { siteConfig, siteIndexable } from "@/config/site";
 import { Analytics } from "@/components/seo/Analytics";
 import "../globals.css";
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: ["تصميم مواقع", "تطوير مواقع", "برمجة مواقع مصر", "متجر إلكتروني", "نظام حجز", "لوحات تحكم", "تطوير أنظمة ويب", "Holoolk Tech", "حلولك تيك"],
   authors: [{ name: siteConfig.nameEn }],
-  robots: { index: true, follow: true },
+  robots: { index: siteIndexable, follow: siteIndexable },
 };
 
 /** الجذر العربي (RTL) — كل الصفحات بدون بادئة + المواقع النموذجية */

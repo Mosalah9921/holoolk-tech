@@ -62,7 +62,7 @@ export function SolutionFinder({ open, onClose, locale = "ar" }: { open: boolean
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
       aria-labelledby="finder-title"
-      className="fixed inset-x-0 top-auto bottom-0 m-0 max-h-[92dvh] w-full max-w-none overflow-hidden rounded-t-[1.75rem] bg-white p-0 text-slate-900 shadow-2xl backdrop:bg-slate-900/50 backdrop:backdrop-blur-sm open:animate-[sheet-in_0.4s_cubic-bezier(0.22,1,0.36,1)] sm:inset-0 sm:m-auto sm:h-fit sm:max-h-[88dvh] sm:max-w-2xl sm:rounded-[1.75rem]"
+      className="fixed inset-0 m-auto h-fit max-h-[min(86dvh,46rem)] w-[calc(100%-1.5rem)] max-w-2xl overflow-hidden rounded-3xl bg-white p-0 text-slate-900 shadow-2xl ring-1 ring-slate-900/5 backdrop:bg-slate-900/55 backdrop:backdrop-blur-sm open:animate-[dialog-in_0.35s_cubic-bezier(0.22,1,0.36,1)] sm:max-h-[88dvh] sm:w-[calc(100%-3rem)] sm:rounded-[1.75rem]"
     >
       <div className="flex max-h-[inherit] flex-col">
         {/* الرأس */}

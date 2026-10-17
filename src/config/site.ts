@@ -11,7 +11,8 @@ export const siteConfig = {
     "استوديو تقني متخصص في تطوير المواقع والمتاجر الإلكترونية والأنظمة السحابية: أنظمة حجز ولوحات تحكم وبوابات أعمال آمنة لنمو أعمالك.",
   descriptionEn:
     "A web studio building fast, secure websites, online stores and cloud systems: booking systems, dashboards and business portals that help your business grow.",
-  url: "https://holoolk.com",
+  /** بيتحدد تلقائياً من next.config.ts (الدومين الحقيقي على Vercel، أو holoolk.com محلياً) */
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://holoolk.com",
   locale: "ar_EG",
   /** سنة الإطلاق — تظهر في حقوق الملكية بالفوتر */
   launchYear: 2026,
@@ -44,3 +45,9 @@ export const ogImage = {
   type: "image/png",
   alt: "حلولك تيك — نبتكر حلولاً رقمية تقود نمو عملك نحو المستقبل",
 };
+
+/**
+ * الظهور في جوجل: مقفول طول ما الموقع على رابط مؤقت (*.vercel.app)،
+ * وبيفتح لوحده أول ما الدومين الحقيقي يتربط في Vercel.
+ */
+export const siteIndexable = !/\.vercel\.app$/i.test(new URL(siteConfig.url).host);

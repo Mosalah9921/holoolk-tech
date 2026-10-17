@@ -62,13 +62,14 @@ export function IndustriesGrid({ locale = "ar" }: { locale?: Locale }) {
       />
 
       <ul className="grid gap-5 md:grid-cols-2">
-        {industries.map(({ image, name: nm, description: ds, points: pt, href: h }) => {
+        {industries.map(({ image, name: nm, description: ds, points: pt, href: h }, i) => {
           const name = nm[locale];
           const description = ds[locale];
           const points = pt[locale];
           const href = lp(locale, h);
           return (
-          <li key={name}>
+          // على الموبايل: 3 مجالات بس، والباقي في صفحة الحلول
+          <li key={name} className={i >= 3 ? "max-md:hidden" : undefined}>
             <Link
               href={href}
               className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-800/[0.07] focus-visible:-translate-y-1 sm:p-8"
@@ -89,7 +90,7 @@ export function IndustriesGrid({ locale = "ar" }: { locale?: Locale }) {
 
               <p className="mt-4 text-sm leading-7 text-slate-600">{description}</p>
 
-              <ul className="mt-5 grid flex-1 content-start gap-2.5 border-t border-slate-100 pt-5 sm:grid-cols-2 sm:gap-x-4">
+              <ul className="mt-5 grid flex-1 content-start gap-2.5 border-t border-slate-100 pt-5 xl:grid-cols-2 xl:gap-x-4">
                 {points.map((p) => (
                   <li key={p} className="flex items-start gap-2.5 text-sm leading-6 font-medium text-slate-700">
                     <Check className="mt-1 size-4 shrink-0 text-brand-500" aria-hidden />
@@ -108,8 +109,15 @@ export function IndustriesGrid({ locale = "ar" }: { locale?: Locale }) {
         })}
       </ul>
 
+      <div className="mt-8 flex justify-center sm:mt-10">
+        <ButtonLink href={lp(locale, "/solutions")} size="lg" className="w-full shadow-lg shadow-brand-600/20 sm:w-auto">
+          {t("عرض كافة الحلول", "View all solutions")}
+          <ArrowLeft className="size-5" aria-hidden />
+        </ButtonLink>
+      </div>
+
       {/* شريط هادئ للمجالات الأخرى */}
-      <div className="mt-6 flex flex-col items-start gap-5 rounded-3xl border border-brand-100 bg-brand-50/60 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+      <div className="mt-10 flex flex-col items-start gap-5 rounded-3xl border border-brand-100 bg-brand-50/60 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
         <div className="flex items-start gap-4">
           <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-white text-brand-600 ring-1 ring-brand-100">
             <Sparkles className="size-5" aria-hidden />

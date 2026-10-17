@@ -51,10 +51,10 @@ export function SolutionsExplorer({ groups, items, locale = "ar" }: { groups: { 
     <div>
       <h2 className="sr-only">{t("المجالات التي نخدمها", "Industries we serve")}</h2>
       {/* شريط الفلترة — يثبت أسفل الهيدر أثناء التصفح */}
-      <div className="sticky top-[5.25rem] z-30 -mx-4 mb-8 px-4 sm:top-24 sm:mx-0 sm:px-0">
-        <div className="flex flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white/85 p-2 shadow-[0_8px_30px_-12px_rgb(16_39_74/0.18)] backdrop-blur-xl lg:flex-row lg:items-center">
-          <div role="group" aria-label={t("تصفية حسب القطاع", "Filter by industry")} className="-mb-1 flex gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] lg:mb-0 lg:flex-1 lg:pb-0">
-            {tabs.map((tab) => {
+      <div className="mb-8 lg:sticky lg:top-24 lg:z-30">
+        <div className="flex flex-col gap-2.5 rounded-2xl border border-slate-200/80 bg-white/90 p-2.5 shadow-[0_8px_30px_-12px_rgb(16_39_74/0.18)] backdrop-blur-xl lg:flex-row lg:items-center lg:gap-3 lg:p-2">
+          <div role="group" aria-label={t("تصفية حسب القطاع", "Filter by industry")} className="grid grid-cols-2 gap-1.5 lg:flex lg:flex-1 lg:overflow-x-auto lg:[scrollbar-width:none]">
+            {tabs.map((tab, i) => {
               const active = group === tab.id;
               return (
                 <button
@@ -63,17 +63,20 @@ export function SolutionsExplorer({ groups, items, locale = "ar" }: { groups: { 
                   aria-pressed={active}
                   onClick={() => setGroup(tab.id)}
                   className={cn(
-                    "inline-flex h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm font-bold transition-all duration-200",
-                    active ? "bg-brand-600 text-white shadow-md shadow-brand-600/25" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+                    "inline-flex min-h-11 min-w-0 items-center justify-between gap-2 rounded-xl px-3 py-2 text-start text-[13px] leading-snug font-bold transition-all duration-200 lg:h-10 lg:min-h-0 lg:shrink-0 lg:justify-center lg:px-4 lg:py-0 lg:text-sm lg:whitespace-nowrap",
+                    i === 0 && "col-span-2 lg:col-span-1",
+                    active
+                      ? "bg-brand-600 text-white shadow-md shadow-brand-600/25"
+                      : "bg-slate-50 text-slate-600 ring-1 ring-slate-200/70 hover:bg-slate-100 hover:text-slate-900 lg:bg-transparent lg:ring-0",
                   )}
                 >
-                  {tab.label}
-                  <span className={cn("rounded-md px-1.5 text-[11px] tabular-nums", active ? "bg-white/20" : "bg-slate-100 text-slate-500")}>{count(tab.id)}</span>
+                  <span className="min-w-0">{tab.label}</span>
+                  <span className={cn("shrink-0 rounded-md px-1.5 text-[11px] tabular-nums", active ? "bg-white/20" : "bg-white text-slate-500 ring-1 ring-slate-200 lg:bg-slate-100 lg:ring-0")}>{count(tab.id)}</span>
                 </button>
               );
             })}
           </div>
-          <label className="relative block lg:w-64">
+          <label className="relative order-first block lg:order-none lg:w-64">
             <span className="sr-only">{t("ابحث عن مجالك", "Search for your industry")}</span>
             <Search className="pointer-events-none absolute inset-y-0 start-3 my-auto size-4 text-slate-400" aria-hidden />
             <input
@@ -81,7 +84,7 @@ export function SolutionsExplorer({ groups, items, locale = "ar" }: { groups: { 
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("ابحث عن مجالك… مثل: عيادة", "Search your industry… e.g. clinic")}
-              className="h-10 w-full rounded-xl border border-slate-200 bg-slate-50 ps-9 pe-9 text-sm text-slate-900 transition-colors outline-none placeholder:text-slate-400 focus:border-brand-300 focus:bg-white focus:ring-4 focus:ring-brand-100 [&::-webkit-search-cancel-button]:hidden"
+              className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50 ps-9 lg:h-10 pe-9 text-sm text-slate-900 transition-colors outline-none placeholder:text-slate-400 focus:border-brand-300 focus:bg-white focus:ring-4 focus:ring-brand-100 [&::-webkit-search-cancel-button]:hidden"
             />
             {query && (
               <button type="button" onClick={() => setQuery("")} aria-label={t("مسح البحث", "Clear search")} className="absolute inset-y-0 end-2 my-auto flex size-6 items-center justify-center rounded-md text-slate-400 hover:bg-slate-100 hover:text-slate-700">

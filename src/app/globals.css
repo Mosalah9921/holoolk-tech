@@ -185,6 +185,11 @@ details > summary::-webkit-details-marker { display: none; }
   from { opacity: 0; transform: translateY(32px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* نافذة في منتصف الشاشة (موبايل وكمبيوتر) */
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 @keyframes shine {
   0%, 60% { transform: translateX(0); }
   100% { transform: translateX(-420%); }

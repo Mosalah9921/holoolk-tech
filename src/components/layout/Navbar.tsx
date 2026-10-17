@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowLeft, ChevronDown, Languages, Menu, Search, X } from "lucide-react";
+import { ArrowLeft, ChevronDown, Menu, Search, X } from "lucide-react";
 import { getMainNav, type NavGroup } from "@/config/navigation";
 import { lp, switchLocalePath, tr, type Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
@@ -145,9 +145,12 @@ export function Navbar({ locale = "ar" }: { locale?: Locale }) {
                 hrefLang={other.locale}
                 lang={other.locale}
                 title={t("English version", "النسخة العربية")}
-                className="hidden size-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-sm font-bold text-slate-600 transition-all duration-200 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700 active:scale-95 md:inline-flex"
+                aria-label={t("Switch to English", "التبديل إلى العربية")}
+                className="inline-flex size-10 items-center justify-center rounded-xl border border-slate-200 bg-white font-bold text-slate-600 transition-all duration-200 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700 active:scale-95"
               >
-                {t("EN", "ع")}
+                <span aria-hidden className={locale === "ar" ? "text-[13px] tracking-wide" : "text-base leading-none"}>
+                  {t("EN", "ع")}
+                </span>
               </a>
               <Link
                 href={lp(locale, "/start")}
@@ -437,23 +440,14 @@ function MobileDrawer({
           </ul>
         </div>
 
-        <div className="grid grid-cols-[auto_1fr] gap-2 border-t border-slate-100 p-4">
-          <a
-            href={other.href}
-            hrefLang={other.locale}
-            lang={other.locale}
-            tabIndex={open ? 0 : -1}
-            className="flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 font-bold text-slate-700"
-          >
-            <Languages className="size-4" aria-hidden />
-            {t("English", "العربية")}
-          </a>
+        <div className="border-t border-slate-100 p-4">
           <Link
             href={lp(locale, "/start")}
             tabIndex={open ? 0 : -1}
-            className="flex h-12 w-full items-center justify-center rounded-xl bg-brand-600 font-bold text-white"
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-600 font-bold text-white shadow-md shadow-brand-600/20 transition-colors hover:bg-brand-700"
           >
             {t("ابدأ مشروعك", "Start a project")}
+            <ArrowLeft className="size-4" aria-hidden />
           </Link>
         </div>
       </div>
