@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+/* =========================================================
+   Holoolk Tech — Design Tokens (Tailwind v4)
+   مستمدة من الشعار: كحلي عميق + فضي معدني
+
+   الخلفية:       #F8FAFC  → bg-slate-50
+   الكروت:        #FFFFFF  → bg-white + border-slate-200
+   العناوين:      #0F172A  → text-slate-900
+   النصوص:        #475569  → text-slate-600
+   الأساسي:       #1E3F6E  → bg-brand-600 (Navy — لون الشعار)
+   ثانوي:         Steel Blue → accent-*
+   لمسات معدنية:  Silver → silver-*
+   ========================================================= */
+@theme {
+  /* الخط: Cairo للعربي و Inter للإنجليزي — بيتحمّلوا من next/font في layouts (متغير --font-base) */
+  --font-sans: var(--font-base), ui-sans-serif, system-ui, "Segoe UI", Tahoma, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Menlo, monospace;
+
+  /* لون البراند: كحلي الشعار — الأزرار والروابط والعناصر المهمة */
+  --color-brand-50: #f1f5fa;
+  --color-brand-100: #e2eaf4;
+  --color-brand-200: #c5d4e8;
+  --color-brand-300: #98b2d3;
+  --color-brand-400: #6286b6;
+  --color-brand-500: #3c6297;
+  --color-brand-600: #1e3f6e; /* الأساسي — الأزرار */
+  --color-brand-700: #17325a; /* hover */
+  --color-brand-800: #10274a; /* كحلي الشعار الأصلي */
+
+  /* ثانوي: أزرق فولاذي — للتدرجات واللمسات */
+  --color-accent-50: #f2f6fb;
+  --color-accent-100: #e3ecf6;
+  --color-accent-200: #c8d9ed;
+  --color-accent-300: #a2bfe0;
+  --color-accent-400: #779fcd;
+  --color-accent-500: #5583ba;
+  --color-accent-600: #416a9e;
+  --color-accent-700: #355681;
+  --color-accent-800: #2d4869;
+
+  /* فضي معدني — مستوحى من الشعار */
+  --color-silver-200: #dfe4ea;
+  --color-silver-300: #c5ccd6;
+  --color-silver-400: #a3adbb;
+
+  /* الحركات */
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* حركة دخول بدون إخفاء النص — للعناصر الأهم أعلى الصفحة (لا تؤخر ظهورها LCP) */
+  --animate-rise: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-progress: progress 6s linear forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes rise {
+    from { transform: translateY(14px); }
+    to { transform: translateY(0); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ========================= Base ========================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-600 antialiased;
+    font-feature-settings: "kern";
+    text-rendering: optimizeLegibility;
+    /* الزخارف الخلفية الكبيرة (الدوائر المضيئة) متعملش تمرير أفقي — خصوصاً في الإنجليزي LTR */
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4 {
+    /* المواقع النموذجية بتلغي اللون الافتراضي (--heading-color: currentColor) عشان العناوين تاخد لون القسم */
+    color: var(--heading-color, var(--color-slate-900));
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-brand-100 text-brand-800;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  /* شريط التمرير */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-slate-50); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-slate-300);
+    border-radius: 999px;
+    border: 2px solid var(--color-slate-50);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-slate-400); }
+}
+
+/* ===================== Custom utilities ===================== */
+
+/* شبكة خلفية خفيفة جداً */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(15 23 42 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* تلاشي الشبكة من الأطراف */
+@utility mask-fade {
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* نص بتدرج البراند: كحلي → أزرق فولاذي */
+@utility text-gradient {
+  background-image: linear-gradient(to left, var(--color-brand-600), var(--color-accent-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* كارت شبه شفاف فوق الخلفيات */
+@utility glass {
+  background-color: rgb(255 255 255 / 0.8);
+  border: 1px solid var(--color-slate-200);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* إطار متدرج حوالين الكارت المميز */
+@utility ring-gradient {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
+    background: linear-gradient(160deg, var(--color-brand-500), var(--color-accent-400) 45%, transparent 70%, var(--color-silver-300));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+}
+
+/* ظهور السكاشن مع السكرول (components/ui/Reveal.tsx) */
+.reveal {
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+@media (scripting: none) {
+  .reveal[data-reveal="hidden"] { opacity: 1; transform: none; }
+}
+
+/* سهم الأكورديون في الأسئلة الشائعة */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+/* احترام إعداد تقليل الحركة */
+/* المستشار الذكي: دخول النافذة والخطوات */
+@keyframes sheet-in {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shine {
+  0%, 60% { transform: translateX(0); }
+  100% { transform: translateX(-420%); }
+}
+/* هيرو الخدمات: طفو انسيابي، ملء شريط التقدم، ونمو الأعمدة */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(3px, -9px); }
+  66% { transform: translate(-3px, -4px); }
+}
+@keyframes fill {
+  from { width: 0; }
+}
+@keyframes grow {
+  from { transform: scaleY(0); }
+}
+@keyframes step-in {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* هيرو الصفحات الداخلية: مدار يدور، وعداد يمتلئ */
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+@keyframes gauge {
+  from { stroke-dashoffset: var(--gauge-len, 160); }
+}
+
+/* ========================= English (LTR) =========================
+   الأيقونات الاتجاهية مرسومة للعربي (سهم لليسار = للأمام).
+   في الإنجليزي بنقلبها أفقياً، وبنعكس حركة الـ hover كمان. */
+[dir="ltr"] :is(.lucide-arrow-left, .lucide-arrow-right, .lucide-chevron-left, .lucide-chevron-right, .lucide-arrow-up-left, .lucide-move-left) {
+  transform: scaleX(-1);
+}
+[dir="ltr"] .group:hover :is(.lucide-arrow-left, .lucide-chevron-left)[class*="group-hover:-translate-x-1"] {
+  translate: 0.25rem 0;
+}
+[dir="ltr"] .group:hover :is(.lucide-arrow-left, .lucide-chevron-left)[class*="group-hover:-translate-x-0.5"] {
+  translate: 0.125rem 0;
+}
+/* الإنجليزي محتاج تباعد أسطر أقل شوية من العربي عشان يبان أنضف */
+[dir="ltr"] body {
+  letter-spacing: -0.005em;
+}
+/* الإنجليزي بيتقري أريح بتباعد أسطر أقل من العربي */
+[dir="ltr"] :is(p, li, dd, span).leading-9 { line-height: 1.75; }
+[dir="ltr"] :is(p, li, dd, span).leading-8 { line-height: 1.7; }
+
+/* ========================= Typography system =========================
+   نظام خطوط موحّد: العربي (Cairo) محتاج تباعد أسطر أوسع للحروف الصاعدة والنازلة،
+   والإنجليزي (Inter) بيبان أنضف وأفخم بتباعد أسطر أقل وتقريب خفيف بين الحروف في العناوين.
+   (المواقع النموذجية عربي بس وليها خطوطها، فمش متأثرة بقواعد LTR) */
+h1, h2, h3, h4 {
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+}
+/* الأرقام في الإحصائيات والأسعار والتواريخ بعرض ثابت — ميتحركش النص لما الرقم يتغير */
+:where(time, .tabular-nums, [data-stat]) {
+  font-variant-numeric: tabular-nums;
+}
+
+/* English headings: tight, confident, editorial */
+[dir="ltr"] h1 {
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+}
+[dir="ltr"] h2 {
+  letter-spacing: -0.014em;
+  line-height: 1.22;
+}
+[dir="ltr"] h3 {
+  letter-spacing: -0.008em;
+  line-height: 1.35;
+}
+/* Inter: أرقام وحروف أوضح على الشاشات (a بشكل مفتوح + أرقام ثابتة الشكل) */
+[dir="ltr"] body {
+  font-feature-settings: "kern", "calt", "cv11";
+}
+/* English body copy: slightly smaller line-height than Arabic for a cleaner rhythm */
+[dir="ltr"] :is(p, li).leading-\[2\] { line-height: 1.75; }
+[dir="ltr"] :is(p, li).leading-7 { line-height: 1.7; }
+
+/* Arabic headings: مساحة كفاية فوق وتحت الحروف عشان التشكيل والهمزات متتلمسش */
+@layer base {
+  [dir="rtl"] h1 { line-height: 1.35; }
+  [dir="rtl"] h2 { line-height: 1.45; }
+  [dir="rtl"] h3 { line-height: 1.55; }
+}
