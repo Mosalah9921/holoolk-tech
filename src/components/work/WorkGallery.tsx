@@ -44,7 +44,7 @@ export function WorkGallery({ locale = "ar" }: { locale?: Locale }) {
         })}
       </div>
 
-      <ul className="grid gap-x-6 gap-y-12 md:grid-cols-2">
+      <ul className="grid gap-x-6 gap-y-8 sm:gap-y-10 md:grid-cols-2">
         {list.map((p) => (
           <ProjectCard key={p.slug} project={p} locale={locale} />
         ))}

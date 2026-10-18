@@ -179,7 +179,7 @@ export function TryPreview({ bare = false, locale = "ar" }: { bare?: boolean; lo
   );
 
   return (
-    <Section id="try" aria-labelledby={bare ? undefined : "try-title"} className={bare ? "pt-0 sm:pt-0" : undefined} containerClassName="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <Section id="try" aria-labelledby={bare ? undefined : "try-title"} className={bare ? "pt-0 sm:pt-0 lg:pt-0" : undefined} containerClassName="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 [&>*]:min-w-0">
         {/* النص + التحكم */}
         <div>
 {!bare && (
@@ -302,11 +302,11 @@ function SitePreview({ kind, name, locale }: { kind: Kind; name: string; locale:
             </span>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 p-4">
+          <div className="grid grid-cols-3 gap-2 p-3 sm:gap-3 sm:p-4">
             {kind.tiles.map(({ icon: TileIcon, label }) => (
-              <div key={label} className="rounded-xl border border-slate-100 p-3">
+              <div key={label} className="min-w-0 rounded-xl border border-slate-100 p-2.5 sm:p-3">
                 <TileIcon className="size-5" style={{ color: kind.accent }} aria-hidden />
-                <p className="mt-2 text-xs font-bold text-slate-800">{label}</p>
+                <p className="mt-2 text-[11px] leading-4 font-bold break-words hyphens-auto text-slate-800 sm:text-xs">{label}</p>
                 <div className="mt-1.5 h-1.5 w-3/4 rounded-full bg-slate-100" />
               </div>
             ))}

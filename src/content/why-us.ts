@@ -12,7 +12,7 @@ export const reasons: Reason[] = [
   {
     icon: Code2,
     title: "تطوير مخصص لا قوالب جاهزة",
-    description: "نعتمد على تقنيات حديثة مثل Next.js، وهي ذاتها التي تستخدمها كبرى الشركات التقنية.",
+    description: "نصمم موقعك ونبرمجه من الصفر حول طبيعة نشاطك، بتقنيات حديثة مثل Next.js تمنحه السرعة والأمان.",
   },
   {
     icon: Languages,
@@ -40,7 +40,7 @@ export const reasons: Reason[] = [
 
 const reasonsEnText: Pick<Reason, "title" | "description">[] = [
   { title: "Direct access to your delivery team", description: "No middlemen or layers of account managers: the team that hears your requirements is the team that builds them." },
-  { title: "Custom-built, never templates", description: "We build with Next.js and React, the same technologies used by the world's leading tech companies." },
+  { title: "Custom-built, never templates", description: "We design and code your site from scratch around your business, using modern tech like Next.js for speed and security." },
   { title: "Truly Arabic-first", description: "Proper right-to-left layouts and carefully chosen Arabic typography, not a translated foreign website." },
   { title: "High performance from day one", description: "Speed is part of the design, not a patch applied after delivery." },
   { title: "A clear, written agreement", description: "Scope and timeline agreed in writing before we start, so there are no surprises later." },

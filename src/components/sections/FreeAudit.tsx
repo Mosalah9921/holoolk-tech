@@ -39,8 +39,8 @@ export function FreeAudit({ bare = false, locale = "ar" }: { bare?: boolean; loc
   }
 
   return (
-    <Section id="audit" aria-labelledby="audit-title" className={bare ? "pt-0 sm:pt-0" : "bg-white"}>
-      <div className="grid items-center gap-10 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+    <Section id="audit" aria-labelledby="audit-title" className={bare ? "pt-0 sm:pt-0 lg:pt-0" : "bg-white"}>
+      <div className="grid items-center gap-8 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
         <div>
           {bare ? (
             <h2 id="audit-title" className="text-2xl font-black">{t("ماذا يشمل التقييم؟", "What does the audit cover?")}</h2>

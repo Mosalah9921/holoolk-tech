@@ -68,7 +68,7 @@ export default function ContactView({ locale }: { locale: Locale }) {
           ]}
         />
       </PageHeader>
-      <Section id="channels" className="pt-0 pb-6 sm:pt-0 sm:pb-8">
+      <Section id="channels" className="pt-0 pb-6 sm:pt-0 sm:pb-8 lg:pt-0 lg:pb-8">
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {channels.map(({ icon: Icon, title, text, value, href, ltr }) => {
             const body = (

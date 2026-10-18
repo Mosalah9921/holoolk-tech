@@ -45,10 +45,11 @@ export const services: Service[] = [
     idealFor: ["الشركات والمكاتب الهندسية والقانونية", "العيادات والمراكز الطبية والتعليمية", "كل نشاط يحتاج إلى حضور رقمي رسمي"],
     packageId: "business",
     features: [
-      "تصميم عصري متجاوب 100% مع كافة الشاشات",
+      "تصميم عصري متجاوب مع كل الشاشات",
       "سرعة تحميل قياسية متوافقة مع Google PageSpeed",
       "تهيئة تقنية متقدمة لمحركات البحث (SEO)\u200F",
       "ربط مباشر وسهل مع WhatsApp ونماذج التواصل",
+      "بالعربية والإنجليزية أو أي لغة يحتاجها سوقك",
     ],
   },
   {
@@ -69,6 +70,7 @@ export const services: Service[] = [
       "تكامل مباشر مع شركات الشحن والتوصيل",
       "لوحة تحكم كاملة بالعربي لإدارة المنتجات والطلبات",
       "نظام إشعارات تلقائية عبر الواتساب والبريد",
+      "متجر بلغة واحدة أو عدة لغات حسب أسواقك",
     ],
   },
   {
@@ -78,7 +80,7 @@ export const services: Service[] = [
     icon: Target,
     title: "صفحات الهبوط الإعلانية",
     description:
-      "صفحات فردية مركزة ومهيأة خصيصاً للحملات الإعلانية ومصممة لرفع معدل التحويل (High-Conversion)\u200F.",
+      "صفحات فردية مركزة ومهيأة خصيصاً للحملات الإعلانية ومصممة لتحويل أكبر عدد من الزوار إلى عملاء.",
     details:
       "صفحة الهبوط هي ما يحدد العائد الفعلي من إنفاقك الإعلاني. نبني صفحة واحدة فائقة السرعة، برسالة واضحة، وكل عنصر فيها يقود الزائر إلى إجراء واحد: الطلب أو التسجيل أو التواصل.",
     idealFor: ["الحملات الإعلانية على فيسبوك وتيك توك وجوجل", "إطلاق منتج أو خدمة جديدة", "الدورات التدريبية والفعاليات والعروض محدودة المدة"],
@@ -121,9 +123,9 @@ export const services: Service[] = [
       "قبل كتابة أي سطر برمجي، نصمم الموقع أو التطبيق كاملاً على Figma كنموذج تفاعلي يمكنك تجربته. بذلك ترى النتيجة النهائية وتعتمدها مبكراً، مما يوفّر كثيراً من الوقت والجهد في مرحلة التطوير.",
     idealFor: ["أصحاب الأفكار الراغبين في رؤيتها قبل تنفيذها", "الشركات التي تمتلك فريق تطوير وتحتاج إلى تصميم احترافي", "تحديث واجهة موقع أو تطبيق قائم"],
     features: [
-      "نماذج تفاعلية حية (Clickable Prototype)\u200F",
+      "نموذج تفاعلي تجرّبه قبل التنفيذ",
       "اختيار متقن للألوان والخطوط المتناسقة",
-      "تجربة مستخدم سهلة وبديهية (Zero Friction)\u200F",
+      "تجربة مستخدم سهلة وبديهية",
       "تسليم ملفات التصميم المنظمة للمطورين",
     ],
   },
@@ -134,7 +136,7 @@ export const services: Service[] = [
     icon: ShieldCheck,
     title: "الصيانة السحابية والدعم الفني",
     description:
-      "خدمات حماية وتحديثات مستمرة لضمان بقاء موقعك آمناً، سريعاً، وخالياً من أي أعطال على مدار الساعة.",
+      "متابعة وتحديثات وحماية مستمرة تحافظ على موقعك آمناً وسريعاً ومستقراً.",
     details:
       "موقعك أصل من أصول عملك ويحتاج إلى رعاية مستمرة. نتابع أمانه وأداءه، ونُجري النسخ الاحتياطي، ونحدّث المكتبات البرمجية، وننفّذ التعديلات التي تحتاجها، لتتفرغ أنت لإدارة أعمالك.",
     idealFor: ["أصحاب المواقع الذين يفضّلون التفرغ لأعمالهم", "المواقع التي يتجدد محتواها باستمرار", "المتاجر التي يعني أي توقف فيها خسارة في المبيعات"],
@@ -165,6 +167,7 @@ const servicesEnText: Record<string, ServiceText> = {
       "Top-tier loading speed, tuned for Google PageSpeed",
       "Advanced technical SEO from day one",
       "Direct WhatsApp integration and contact forms",
+      "In Arabic, English or any language your market needs",
     ],
   },
   "e-commerce": {
@@ -180,6 +183,7 @@ const servicesEnText: Record<string, ServiceText> = {
       "Direct integration with shipping and delivery companies",
       "A full Arabic dashboard for products and orders",
       "Automatic order notifications by WhatsApp and email",
+      "A store in one language or several, depending on your markets",
     ],
   },
   "landing-pages": {
@@ -228,7 +232,7 @@ const servicesEnText: Record<string, ServiceText> = {
   "maintenance-support": {
     short: "Care & support",
     title: "Maintenance & Technical Support",
-    description: "Ongoing protection and updates that keep your website secure, fast and running smoothly around the clock.",
+    description: "Ongoing monitoring, updates and protection that keep your website secure, fast and stable.",
     details:
       "Your website is a business asset and deserves ongoing care. We monitor its security and performance, run backups, update libraries and make the changes you need, so you can focus on running your business.",
     idealFor: ["Owners who would rather focus on their business", "Websites with frequently updated content", "Stores where any downtime means lost sales"],

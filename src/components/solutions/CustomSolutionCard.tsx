@@ -1,42 +1,67 @@
-import Link from "next/link";
-import { ArrowLeft, Compass } from "lucide-react";
-import { Container } from "@/components/ui/Container";
+import { ArrowLeft, Compass, Clock3, ListChecks, PencilRuler } from "lucide-react";
 import { SolutionFinderButton } from "@/components/finder/SolutionFinderButton";
+import { ButtonLink } from "@/components/ui/Button";
 import { lp, tr, type Locale } from "@/i18n";
 
-/** ختام صفحة الحلول: مجالك غير موجود؟ المستشار الذكي أو حل مخصص */
+/**
+ * «مجالك غير موجود؟» — آخر خانة في شبكة الحلول (بيملا الفراغ في آخر صف).
+ * التصميم بيتغير حسب عرض الخانة نفسها (container queries):
+ * - خانة ضيقة (موبايل أو عمود واحد): كارت رأسي، الزرين تحت بعض.
+ * - خانة عريضة (عمودين أو الصف كله): أيقونة + نص + زرين في سطر واحد.
+ */
 export function CustomSolutionCard({ locale = "ar" }: { locale?: Locale }) {
   const t = tr(locale);
+  const perks = [
+    { icon: ListChecks, label: t("3 أسئلة فقط", "Just 3 questions") },
+    { icon: Clock3, label: t("أقل من دقيقة", "Under a minute") },
+    { icon: PencilRuler, label: t("تصميم من الصفر", "Built from scratch") },
+  ];
   return (
-    <section aria-labelledby="custom-title" className="pt-16 sm:pt-24">
-      <Container>
-        <div className="relative isolate mx-auto max-w-4xl overflow-hidden rounded-3xl border border-slate-200 bg-linear-to-l ltr:bg-linear-to-r from-slate-50 to-white px-6 py-8 shadow-[0_4px_20px_-2px_rgb(0_0_0/0.05)] sm:px-8">
-          <span aria-hidden className="absolute -top-20 -start-20 -z-10 size-56 rounded-full bg-brand-100/50 blur-3xl" />
-          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:gap-7 md:text-start">
-            <span className="relative flex size-20 shrink-0 items-center justify-center rounded-3xl bg-linear-to-br from-brand-600 to-accent-500 text-white shadow-xl shadow-brand-600/25">
-              <Compass className="size-10" aria-hidden />
-            </span>
-            <div className="min-w-0 flex-1">
-              <span className="inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700 ring-1 ring-brand-100">
-                {t("حل مخصص لأي نشاط", "A custom solution for any business")}
-              </span>
-              <h2 id="custom-title" className="mt-3 text-xl leading-8 font-bold text-slate-900">
-                {t("مجالك غير موجود في القائمة؟", "Don’t see your industry?")}
-              </h2>
-              <p className="mt-1.5 text-sm leading-7 text-[#64748B]">
-                {t("أجب عن 3 أسئلة سريعة، والمستشار الذكي يقترح عليك الحل المناسب في أقل من دقيقة. أو صف لنا نشاطك ونصمم لك نظاماً من الصفر.", "Answer 3 quick questions and our smart advisor will suggest the right solution in under a minute. Or describe your business and we’ll design a system for you from scratch.")}
-              </p>
-            </div>
-            <div className="flex w-full shrink-0 flex-col items-center gap-2 md:w-auto">
-              <SolutionFinderButton locale={locale} className="w-full shadow-lg shadow-brand-600/20 md:w-auto" />
-              <Link href={lp(locale, "/start")} className="group inline-flex items-center gap-1 text-sm font-bold text-brand-700 hover:text-brand-800">
-                {t("أو اطلب حلاً مخصصاً", "Or request a custom solution")}
-                <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" aria-hidden />
-              </Link>
-            </div>
+    <section
+      aria-labelledby="custom-title"
+      className="@container relative isolate h-full overflow-hidden rounded-3xl border border-brand-100 bg-linear-to-b from-brand-50/80 via-white to-white p-5 shadow-[0_10px_30px_-18px_rgb(16_39_74/0.25)] sm:p-7"
+    >
+      <span aria-hidden className="absolute -top-24 -start-24 -z-10 size-64 rounded-full bg-brand-200/40 blur-3xl" />
+      <span aria-hidden className="bg-grid mask-fade absolute inset-0 -z-10 opacity-60" />
+
+      <div className="flex h-full flex-col justify-center gap-6 @2xl:flex-row @2xl:items-center @2xl:gap-8">
+        <div className="flex min-w-0 flex-1 flex-col items-start gap-4 @md:flex-row">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-brand-600 to-accent-500 text-white shadow-lg shadow-brand-600/25 @2xl:size-14">
+            <Compass className="size-6 @2xl:size-7" aria-hidden />
+          </span>
+          <div className="min-w-0">
+            <p className="text-xs font-bold text-brand-700">{t("حل مخصص لأي نشاط", "A custom solution for any business")}</p>
+            <h2 id="custom-title" className="mt-1 text-xl leading-8 font-black text-slate-900">
+              {t("مجالك غير موجود في القائمة؟", "Don’t see your industry?")}
+            </h2>
+            <p className="mt-1.5 max-w-2xl text-sm leading-7 text-slate-600">
+              {t(
+                "المستشار الذكي يقترح عليك الحل المناسب لنشاطك، أو صف لنا فكرتك ونصمم لك نظاماً خاصاً بك من الصفر.",
+                "Our smart advisor suggests the right fit for your business, or describe your idea and we’ll design a system around it from scratch.",
+              )}
+            </p>
+            {/* خانة ضيقة: قايمة زي باقي الكروت — خانة عريضة: سطر واحد صغير */}
+            <ul className="mt-4 space-y-2.5 border-t border-slate-200/80 pt-4 text-sm font-semibold text-slate-700 @2xl:mt-3 @2xl:flex @2xl:flex-wrap @2xl:gap-x-4 @2xl:gap-y-1.5 @2xl:space-y-0 @2xl:border-0 @2xl:pt-0 @2xl:text-xs @2xl:text-slate-600">
+              {perks.map(({ icon: Icon, label }) => (
+                <li key={label} className="flex items-center gap-2.5 @2xl:gap-1.5">
+                  <span className="flex size-6 shrink-0 items-center justify-center rounded-lg bg-white text-brand-600 ring-1 ring-brand-100 @2xl:size-auto @2xl:bg-transparent @2xl:ring-0">
+                    <Icon className="size-3.5" aria-hidden />
+                  </span>
+                  {label}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </Container>
+
+        <div className="grid shrink-0 gap-2.5 @lg:grid-cols-2 @2xl:flex @2xl:flex-col">
+          <SolutionFinderButton locale={locale} size="md" className="w-full shadow-md shadow-brand-600/20 @2xl:min-w-52" />
+          <ButtonLink href={lp(locale, "/start")} variant="secondary" size="md" className="group w-full bg-white @2xl:min-w-52">
+            {t("اطلب حلاً مخصصاً", "Request a custom solution")}
+            <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" aria-hidden />
+          </ButtonLink>
+        </div>
+      </div>
     </section>
   );
 }

@@ -140,7 +140,7 @@ export function Process({ className = "bg-white", withCta = true, locale = "ar" 
       </ol>
 
       {withCta && (
-        <div className="relative isolate mx-auto mt-14 max-w-4xl overflow-hidden rounded-3xl border border-slate-200 bg-linear-to-l from-slate-50 to-white px-6 py-7 shadow-[0_4px_20px_-2px_rgb(0_0_0/0.05)] sm:px-8">
+        <div className="relative isolate mx-auto mt-10 max-w-4xl overflow-hidden rounded-3xl border border-slate-200 bg-linear-to-l from-slate-50 to-white px-6 py-7 shadow-[0_4px_20px_-2px_rgb(0_0_0/0.05)] sm:px-8">
           <span aria-hidden className="absolute -top-20 -start-20 -z-10 size-56 rounded-full bg-brand-100/50 blur-3xl" />
           <div className="flex flex-col items-center gap-6 text-center md:flex-row md:gap-7 md:text-start">
             <Image

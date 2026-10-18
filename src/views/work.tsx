@@ -15,7 +15,10 @@ export function workMeta(locale: Locale) {
   return pageMeta(locale, {
     path: "/work",
     title: t("أعمالنا", "Our work"),
-    description: t("مشاريع ومواقع نموذجية متكاملة يمكنك تصفّحها وتجربتها بنفسك.", "Projects and fully working sample websites you can browse and try for yourself."),
+    description: t(
+      "مشاريع ومواقع نموذجية متكاملة لمتاجر ومطاعم وعيادات ومنصات تعليمية، صُمّم كلٌّ منها بهوية مستقلة، ويمكنك تصفّحها وتجربتها بنفسك.",
+      "Projects and fully working sample websites for stores, restaurants, clinics and learning platforms, each with its own identity, ready for you to browse and try.",
+    ),
   });
 }
 
@@ -47,7 +50,7 @@ export default function WorkView({ locale }: { locale: Locale }) {
           {t("عاين موقع نشاطك", "Preview your website")}
         </ButtonLink>
       </PageHeader>
-      <Section id="work" className="pt-0 sm:pt-0">
+      <Section id="work" className="pt-0 sm:pt-0 lg:pt-0">
         <WorkGallery locale={locale} />
       </Section>
       <FoundingClients locale={locale} />

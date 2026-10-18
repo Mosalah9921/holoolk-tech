@@ -34,7 +34,7 @@ export function FaqExplorer({ locale = "ar" }: { locale?: Locale }) {
   }, [query, category]);
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14">
+    <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14">
       <aside className="lg:sticky lg:top-28 lg:self-start">
         <label className="relative block">
           <span className="sr-only">{t("ابحث في الأسئلة", "Search the questions")}</span>

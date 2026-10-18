@@ -29,8 +29,8 @@ const FRAME_WIDTH = 1280; // عرض الصفحة الحقيقي اللي بنص�
 
 const promises = [
   { icon: Cloud, label: { ar: "بنية سحابية قابلة للتوسع", en: "Scalable cloud architecture" } },
-  { icon: ShieldCheck, label: { ar: "أمان وحماية عالية", en: "Built-in security" } },
-  { icon: LifeBuoy, label: { ar: "دعم وضمان مستمر", en: "Ongoing support" } },
+  { icon: ShieldCheck, label: { ar: "أمان مدمج منذ البداية", en: "Built-in security" } },
+  { icon: LifeBuoy, label: { ar: "دعم مستمر بعد الإطلاق", en: "Support after launch" } },
 ];
 
 export function Hero({ locale = "ar" }: { locale?: Locale }) {
@@ -54,14 +54,14 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
   const active = showcase[index];
 
   return (
-    <section id="home" aria-labelledby="hero-title" className="relative isolate overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
+    <section id="home" aria-labelledby="hero-title" className="relative isolate overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pb-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="bg-grid mask-fade absolute inset-0" />
         <div className="absolute top-20 -start-40 h-[360px] w-[420px] rounded-full bg-brand-200/45 blur-[80px] sm:h-[560px] sm:w-[760px] sm:blur-[130px] lg:start-auto lg:-end-20" />
         <div className="absolute top-72 end-1/3 hidden h-[300px] w-[420px] rounded-full bg-accent-200/50 blur-[110px] sm:block" />
       </div>
 
-      <Container className="grid items-center gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+      <Container className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
         {/* النص */}
         <div className="min-w-0 animate-rise">
           <p className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 py-1.5 ps-2 pe-4 text-sm font-semibold text-brand-700 shadow-sm backdrop-blur">
@@ -72,14 +72,15 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
             {t("شريكك التقني في التحول الرقمي", "Your technology partner for digital growth")}
           </p>
 
+          {/* min-h للعربي على الموبايل: بيحجز مساحة الخط Cairo قبل ما يحمّل، فالأزرار متتحركش (CLS) */}
           <h1
             id="hero-title"
-            className="mt-6 text-[2.3rem] leading-[1.3] font-black tracking-tight text-balance text-slate-900 sm:text-5xl sm:leading-[1.25] lg:text-[3.2rem]"
+            className="mt-6 text-[2.3rem] leading-[1.3] font-black tracking-tight text-balance text-slate-900 rtl:max-[479px]:min-h-[3lh] sm:text-5xl sm:leading-[1.25] lg:text-[3.2rem]"
           >
             {t("نبتكر حلولاً رقمية تقود نمو عملك", "Digital solutions that drive your business")}{" "}
             <span className="text-gradient">{t("نحو المستقبل", "forward")}</span>
           </h1>
-          <p className="mt-5 max-w-[34rem] text-lg leading-[2] text-pretty text-slate-600 sm:text-[1.15rem]">
+          <p className="mt-5 max-w-[34rem] text-lg leading-[2] text-pretty text-slate-600 rtl:max-[429px]:min-h-[3lh] rtl:min-[430px]:max-sm:min-h-[2lh] sm:text-[1.15rem]">
             {t(
               "نحوّل أفكارك إلى منصات رقمية وحلول برمجية متكاملة، مصممة خصيصاً لزيادة مبيعاتك وتسريع وتيرة أعمالك.",
               "We turn your ideas into complete digital platforms and custom software, built to grow your sales and streamline the way you work.",
@@ -149,7 +150,7 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
           <div
             role="tablist"
             aria-label={t("أعمالنا", "Our work")}
-            className="mt-14 hidden gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] md:flex lg:overflow-visible"
+            className="mt-12 hidden gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] md:flex lg:overflow-visible"
           >
             {showcase.map((p, i) => {
               const isActive = i === index;

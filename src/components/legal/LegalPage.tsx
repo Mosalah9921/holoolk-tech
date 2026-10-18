@@ -24,7 +24,7 @@ export function LegalPage({
     .map((l) => l.slice(3).trim());
   return (
     <>
-      <header className="relative overflow-hidden pt-32 pb-10 sm:pt-40">
+      <header className="relative overflow-hidden pt-28 pb-8 sm:pt-32">
         <div aria-hidden className="bg-grid mask-fade pointer-events-none absolute inset-0 -z-10" />
         <Container className="max-w-3xl">
           <nav aria-label={tt("مسار التنقل", "Breadcrumb")} className="text-sm text-slate-500">
@@ -41,7 +41,7 @@ export function LegalPage({
           <p className="mt-5 text-lg leading-8 text-slate-600">{intro}</p>
         </Container>
       </header>
-      <Container className="max-w-3xl pb-20">
+      <Container className="max-w-3xl pb-14">
         <nav aria-label={tt("المحتويات", "Contents")} className="rounded-2xl border border-slate-200 bg-white p-6">
           <p className="text-sm font-black text-slate-900">{tt("المحتويات", "Contents")}</p>
           <ol className="mt-3 grid gap-2 text-sm sm:grid-cols-2">

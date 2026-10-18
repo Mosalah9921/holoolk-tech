@@ -20,7 +20,7 @@ export function SolutionsFoundation({ locale = "ar" }: { locale?: Locale }) {
   const t = tr(locale);
   const list = locale === "en" ? itemsEn : items;
   return (
-    <section aria-labelledby="foundation-title" className="pb-16 sm:pb-24">
+    <section aria-labelledby="foundation-title" className="pb-12 sm:pb-16">
       <Container>
         <div className="relative isolate overflow-hidden rounded-[2rem] bg-brand-800 px-6 py-10 text-white sm:px-10 sm:py-12">
           <span aria-hidden className="absolute -top-32 -end-32 -z-10 size-80 rounded-full bg-accent-500/25 blur-[100px]" />

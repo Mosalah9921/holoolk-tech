@@ -16,7 +16,7 @@ export function Section({
   "aria-labelledby"?: string;
 }) {
   return (
-    <section id={id} aria-labelledby={labelledBy} className={cn("relative scroll-mt-24 py-20 sm:py-28", className)}>
+    <section id={id} aria-labelledby={labelledBy} className={cn("relative scroll-mt-24 py-14 sm:py-[4.5rem] lg:py-[5.5rem]", className)}>
       <Container className={containerClassName}>{children}</Container>
     </section>
   );

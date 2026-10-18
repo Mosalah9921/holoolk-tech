@@ -19,7 +19,7 @@ const delays = ["-1s", "-3.5s", "-5.5s"];
  */
 export function HeroVisual({ image, cards, className }: { image?: string; cards: HeroCard[]; className?: string }) {
   return (
-    <div aria-hidden className={cn("relative mx-auto mt-4 w-full max-w-[320px] sm:max-w-[420px] lg:mt-0 lg:max-w-[480px]", className)}>
+    <div aria-hidden className={cn("relative mx-auto mt-0 w-full max-w-[270px] sm:max-w-[380px] lg:max-w-[460px]", className)}>
       <div className="relative aspect-square">
         {/* توهج + ظل أرضي */}
         <div className="absolute inset-[-8%] -z-10 rounded-full bg-[radial-gradient(closest-side,rgb(85_131_186/0.34),rgb(163_191_224/0.16)_60%,transparent)]" />

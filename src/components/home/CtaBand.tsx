@@ -14,7 +14,7 @@ export function CtaBand({ locale = "ar", title, text }: { locale?: Locale; title
   );
   return (
     <section data-cta-band aria-label={t("ابدأ مشروعك", "Start your project")} className="px-3 py-6 sm:px-6 sm:py-10">
-      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-900 px-6 py-14 sm:rounded-[2.5rem] sm:px-14 sm:py-20">
+      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-900 px-6 py-10 sm:rounded-[2.5rem] sm:px-14 sm:py-14 lg:py-16">
         <div aria-hidden className="absolute -top-40 -end-40 -z-10 size-[520px] rounded-full bg-brand-600/40 blur-[120px]" />
         <div aria-hidden className="absolute -bottom-40 -start-20 -z-10 size-[420px] rounded-full bg-accent-500/25 blur-[120px]" />
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">

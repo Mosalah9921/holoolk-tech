@@ -7,7 +7,7 @@ export function PaymentTerms({ locale = "ar" }: { locale?: Locale }) {
   const t = tr(locale);
   const paymentStages = getPaymentStages(locale);
   return (
-    <div className="mt-6 rounded-3xl border border-brand-100 bg-brand-50/60 p-5 sm:p-6">
+    <div className="mx-auto mt-6 max-w-5xl rounded-3xl border border-brand-100 bg-brand-50/60 p-5 sm:p-6">
       <p className="flex items-center gap-2.5 text-sm font-bold text-slate-900">
         <WalletCards className="size-5 text-brand-600" aria-hidden />
         {t("نظام الدفع: على مراحل واضحة مرتبطة بالإنجاز", "Payment terms: clear milestones tied to delivery")}

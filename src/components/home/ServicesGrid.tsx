@@ -118,7 +118,7 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
         })}
       </ul>
 
-      <div className="mt-8 flex justify-center sm:mt-12">
+      <div className="mt-8 flex justify-center sm:mt-10">
         <ButtonLink href={lp(locale, "/services")} size="lg" className="w-full shadow-lg shadow-brand-600/20 sm:w-auto">
           {t("عرض كافة الخدمات", "View all services")}
           <ArrowLeft className="size-5" aria-hidden />

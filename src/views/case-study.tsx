@@ -26,7 +26,7 @@ export function caseStudyMeta(locale: Locale, slug: string) {
   return pageMeta(locale, {
     path: `/work/${p.slug}`,
     title: `${p.title} — ${p.status === "demo" ? t("موقع نموذجي", "Sample website") : t("دراسة حالة", "Case study")}`,
-    description: p.caseStudy.headline,
+    description: `${p.caseStudy.headline} ${p.description}`,
   });
 }
 
@@ -58,7 +58,7 @@ export default function CaseStudyView({ locale, slug }: { locale: Locale; slug: 
         </ButtonLink>
       </PageHeader>
 
-      <Section id="facts" className="pt-0 pb-10 sm:pt-0 sm:pb-12">
+      <Section id="facts" className="pt-0 pb-10 sm:pt-0 sm:pb-12 lg:pt-0 lg:pb-12">
         <dl className="grid gap-px overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           <div className="bg-white p-5">
             <dt className="text-xs font-bold text-slate-500">{t("المشروع", "Project")}</dt>
@@ -82,7 +82,7 @@ export default function CaseStudyView({ locale, slug }: { locale: Locale; slug: 
         </dl>
       </Section>
 
-      <Section id="preview" className="bg-white py-14 sm:py-16">
+      <Section id="preview" className="bg-white py-12 sm:py-14 lg:py-16">
         {p.image && p.href ? (
           <a
             href={p.href}

@@ -74,19 +74,21 @@ export const packages: Package[] = [
  * جدول المقارنة بين الباقات — القيم بنفس ترتيب packages:
  * true = متوفر، false = غير متوفر، أو نص قصير.
  */
-export const comparison: { label: string; values: (boolean | string)[] }[] = [
-  { label: "عدد الصفحات", values: ["صفحة واحدة", "حتى 6 صفحات", "متجر متكامل"] },
+export type ComparisonRow = { label: string; values: (boolean | string)[]; /** أول صف في كل مجموعة بيحمل اسمها */ group?: string };
+
+export const comparison: ComparisonRow[] = [
+  { group: "التصميم والتطوير", label: "عدد الصفحات", values: ["صفحة واحدة", "حتى 6 صفحات", "متجر متكامل"] },
   { label: "تصميم مخصص بالكامل", values: [true, true, true] },
   { label: "توافق كامل مع الجوال", values: [true, true, true] },
-  { label: "تهيئة لمحركات البحث", values: ["أساسية", "متقدمة", "متقدمة"] },
+  { group: "التسويق والتواصل", label: "تهيئة لمحركات البحث", values: ["أساسية", "متقدمة", "متقدمة"] },
   { label: "ربط واتساب ونماذج التواصل", values: [true, true, true] },
-  { label: "لوحة تحكم بالمحتوى", values: [false, true, true] },
-  { label: "معرض أعمال وكتالوج خدمات", values: [false, true, true] },
+  { label: "ربط أدوات التحليل والقياس", values: [true, true, true] },
   { label: "بريد إلكتروني رسمي باسم الشركة", values: [false, true, true] },
+  { group: "الإدارة والمتجر", label: "لوحة تحكم بالمحتوى", values: [false, true, true] },
+  { label: "معرض أعمال وكتالوج خدمات", values: [false, true, true] },
   { label: "إدارة المنتجات والطلبات", values: [false, false, true] },
   { label: "بوابات الدفع والشحن", values: [false, false, true] },
-  { label: "ربط أدوات التحليل والقياس", values: [true, true, true] },
-  { label: "تدريب على إدارة الموقع", values: [false, true, true] },
+  { group: "التسليم والدعم", label: "تدريب على إدارة الموقع", values: [false, true, true] },
   { label: "الدعم الفني بعد التسليم", values: ["30 يوماً", "شهران", "3 أشهر"] },
 ];
 
@@ -154,19 +156,19 @@ const packagesEnText: Record<string, Pick<Package, "name" | "description" | "ide
 
 export const packagesEn: Package[] = packages.map((p) => ({ ...p, ...packagesEnText[p.id] }));
 
-export const comparisonEn: { label: string; values: (boolean | string)[] }[] = [
-  { label: "Pages", values: ["One page", "Up to 6 pages", "Full store"] },
+export const comparisonEn: ComparisonRow[] = [
+  { group: "Design & build", label: "Pages", values: ["One page", "Up to 6 pages", "Full store"] },
   { label: "Fully custom design", values: [true, true, true] },
   { label: "Fully mobile-friendly", values: [true, true, true] },
-  { label: "Search engine optimization", values: ["Essential", "Advanced", "Advanced"] },
+  { group: "Marketing & contact", label: "Search engine optimization", values: ["Essential", "Advanced", "Advanced"] },
   { label: "WhatsApp & contact forms", values: [true, true, true] },
-  { label: "Content dashboard", values: [false, true, true] },
-  { label: "Portfolio & service catalog", values: [false, true, true] },
+  { label: "Analytics (Pixel & GA4)", values: [true, true, true] },
   { label: "Branded business email", values: [false, true, true] },
+  { group: "Management & commerce", label: "Content dashboard", values: [false, true, true] },
+  { label: "Portfolio & service catalog", values: [false, true, true] },
   { label: "Product & order management", values: [false, false, true] },
   { label: "Payment & shipping gateways", values: [false, false, true] },
-  { label: "Analytics (Pixel & GA4)", values: [true, true, true] },
-  { label: "Website management training", values: [false, true, true] },
+  { group: "Delivery & support", label: "Website management training", values: [false, true, true] },
   { label: "Support after launch", values: ["30 days", "2 months", "3 months"] },
 ];
 

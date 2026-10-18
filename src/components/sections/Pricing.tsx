@@ -11,7 +11,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export function Pricing({ withHeading = true, locale = "ar" }: { withHeading?: boolean; locale?: Locale }) {
   const t = tr(locale);
   return (
-    <Section id="pricing" aria-labelledby={withHeading ? "pricing-title" : undefined} className={withHeading ? undefined : "pt-0 sm:pt-0"}>
+    <Section id="pricing" aria-labelledby={withHeading ? "pricing-title" : undefined} className={withHeading ? undefined : "pt-0 sm:pt-0 lg:pt-0"}>
       {!withHeading && <h2 className="sr-only">{t("الباقات", "Packages")}</h2>}
       {withHeading && (
         <SectionHeading

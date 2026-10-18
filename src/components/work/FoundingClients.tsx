@@ -17,7 +17,7 @@ export function FoundingClients({ locale = "ar" }: { locale?: Locale }) {
     { icon: MessageSquareQuote, title: "شراكة متبادلة", text: "تقييمك بعد الإطلاق، وعرض مشروعك ضمن دراسات الحالة المختارة." },
   ];
   return (
-    <Section id="partner-program" aria-labelledby="partner-title" className="pt-0 sm:pt-0">
+    <Section id="partner-program" aria-labelledby="partner-title" className="pt-0 sm:pt-0 lg:pt-0">
       <div className="ring-gradient overflow-hidden rounded-[2rem] bg-white p-8 sm:p-12">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>

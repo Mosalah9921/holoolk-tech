@@ -50,8 +50,8 @@ export function SolutionCard({ solution: s, locale = "ar" }: { solution: Solutio
         ))}
       </ul>
 
-      <div className="mt-6 flex items-center justify-between gap-3">
-        <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-700">
+      <div className="mt-6 flex min-h-9 flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <span className="inline-flex items-center gap-1.5 text-sm font-bold whitespace-nowrap text-brand-700">
           {t("استكشف الحل", "Explore the solution")}
           <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-1" aria-hidden />
         </span>
@@ -59,7 +59,7 @@ export function SolutionCard({ solution: s, locale = "ar" }: { solution: Solutio
           <Link
             href={s.demo.href}
             target="_blank"
-            className="relative z-10 inline-flex h-9 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
+            className="relative z-10 inline-flex h-9 shrink-0 items-center gap-1.5 rounded-xl whitespace-nowrap border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
           >
             {t("جرّبه الآن", "Try it live")}
             <ArrowUpLeft className="size-3.5" aria-hidden />

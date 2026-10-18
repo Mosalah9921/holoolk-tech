@@ -58,7 +58,7 @@ export function Footer({ locale = "ar" }: { locale?: Locale }) {
     <footer className="relative isolate overflow-hidden bg-brand-800 text-white">
       <div aria-hidden className="absolute -top-40 -start-40 -z-10 size-[460px] rounded-full bg-accent-500/15 blur-[120px]" />
 
-      <Container className="pt-14 pb-8 sm:pt-16">
+      <Container className="pt-12 pb-8 sm:pt-14">
         {/* الهوية + السوشيال */}
         <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-sm">

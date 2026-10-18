@@ -47,7 +47,7 @@ export default function ArticleView({ locale, slug }: { locale: Locale; slug: st
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <header className="relative overflow-hidden pt-32 pb-12 sm:pt-40">
+      <header className="relative overflow-hidden pt-28 pb-10 sm:pt-32">
         <div aria-hidden className="bg-grid mask-fade pointer-events-none absolute inset-0 -z-10" />
         <Container className="max-w-3xl">
           <nav aria-label={t("مسار التنقل", "Breadcrumb")} className="text-sm text-slate-500">
@@ -78,7 +78,7 @@ export default function ArticleView({ locale, slug }: { locale: Locale; slug: st
         </Container>
       </header>
 
-      <Container className="max-w-3xl pb-16">
+      <Container className="max-w-3xl pb-12">
         {toc.length > 2 && (
           <nav aria-label={t("محتويات المقال", "Table of contents")} className="rounded-2xl border border-slate-200 bg-white p-6">
             <p className="text-sm font-black text-slate-900">{t("في هذا المقال", "In this article")}</p>
@@ -98,7 +98,7 @@ export default function ArticleView({ locale, slug }: { locale: Locale; slug: st
           <ArticleBody body={a.body} />
         </article>
 
-        <aside aria-label={t("عن الكاتب", "About the author")} className="mt-14 flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6">
+        <aside aria-label={t("عن الكاتب", "About the author")} className="mt-10 flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6">
           <span className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-brand-50 to-accent-100 ring-1 ring-brand-100">
             <LogoMark className="size-11" />
           </span>

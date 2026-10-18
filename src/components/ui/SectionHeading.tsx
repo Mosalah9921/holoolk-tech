@@ -20,7 +20,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-12 flex flex-col gap-6 sm:mb-14",
+        "mb-8 flex flex-col gap-4 sm:mb-10 md:gap-6",
         align === "center" ? "mx-auto max-w-2xl items-center text-center" : "md:flex-row md:items-end md:justify-between",
         className,
       )}

@@ -21,7 +21,7 @@ export function FinderBand({ locale = "ar" }: { locale?: Locale }) {
             <div className="max-w-xl">
               <p className="text-sm font-bold text-accent-600">{t("المستشار الذكي", "Solution Advisor")}</p>
               <h2 id="finder-band-title" className="mt-2 text-2xl leading-[1.35] font-black tracking-tight text-slate-900 sm:text-3xl">
-                {t("محتار تختار الحل المناسب لنشاطك؟", "Not sure which solution fits your business?")}
+                {t("لست متأكداً من الحل المناسب لنشاطك؟", "Not sure which solution fits your business?")}
               </h2>
               <p className="mt-3 text-base leading-8 text-slate-600">{t("أجب عن 3 أسئلة سريعة، ونقترح عليك الحل الأنسب مع المدة التقديرية، ثم ابدأ النقاش معنا مباشرة.", "Answer 3 quick questions and we'll suggest the right solution with an estimated timeline, then start the conversation with us directly.")}</p>
               <ul className="mt-5 flex flex-wrap gap-2">

@@ -28,7 +28,7 @@ export function ArticleBody({ body }: { body: string }) {
         if (block.startsWith("## ")) {
           const t = block.slice(3);
           return (
-            <h2 key={i} id={slugifyHeading(t)} className="mt-12 mb-4 scroll-mt-28 text-2xl font-black sm:text-[1.7rem]">
+            <h2 key={i} id={slugifyHeading(t)} className="mt-10 mb-4 scroll-mt-28 text-2xl font-black sm:text-[1.7rem]">
               {t}
             </h2>
           );

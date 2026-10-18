@@ -46,7 +46,7 @@ export default function SolutionView({ locale, id }: { locale: Locale; id: strin
         title={solution.headline}
         description={solution.intro}
         aside={
-          <div aria-hidden className="relative mx-auto mt-2 w-full max-w-[280px] sm:max-w-[380px] lg:mt-0 lg:max-w-[440px]">
+          <div aria-hidden className="relative mx-auto w-full max-w-[250px] sm:max-w-[360px] lg:max-w-[440px]">
             <div className="absolute inset-[-10%] -z-10 rounded-full bg-[radial-gradient(closest-side,rgb(85_131_186/0.35),rgb(163_191_224/0.15)_60%,transparent)]" />
             <div className="absolute inset-x-[14%] bottom-[2%] -z-10 h-[12%] rounded-[50%] bg-brand-800/15 blur-xl" />
             <Image
@@ -132,7 +132,7 @@ export default function SolutionView({ locale, id }: { locale: Locale; id: strin
         </ul>
       </Section>
 
-      <Section id="systems" aria-labelledby="systems-title" className="pt-0 sm:pt-0">
+      <Section id="systems" aria-labelledby="systems-title" className="pt-0 sm:pt-0 lg:pt-0">
         <div className="overflow-hidden rounded-[2rem] bg-brand-800 p-8 text-white sm:p-12">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>

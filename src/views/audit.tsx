@@ -32,7 +32,7 @@ export default function AuditView({ locale }: { locale: Locale }) {
         )}
       >
         <HeroHighlights
-          gauge={{ value: 95, label: t("سرعة · سيو · تجربة", "Speed · SEO · UX") }}
+          gauge={{ value: 95, label: t("السرعة · الظهور · التجربة", "Speed · SEO · UX") }}
           items={[
             { icon: FileText, label: t("تقرير خلال 48 ساعة", "Report within 48 hours") },
             { icon: BadgeCheck, label: t("مجاني بالكامل", "Completely free") },

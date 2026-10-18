@@ -43,7 +43,7 @@ export default function FaqView({ locale }: { locale: Locale }) {
           />
         }
       />
-      <Section id="faq" className="pt-0 sm:pt-0">
+      <Section id="faq" className="pt-0 sm:pt-0 lg:pt-0">
         <FaqExplorer locale={locale} />
       </Section>
       <CtaBand locale={locale} />

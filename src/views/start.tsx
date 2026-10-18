@@ -30,7 +30,7 @@ export default function StartView({ locale }: { locale: Locale }) {
           "ست خطوات سريعة تساعدنا على فهم مشروعك. يُحفظ تقدّمك تلقائياً، فيمكنك المتابعة لاحقاً من حيث توقفت.",
           "Six quick steps that help us understand your project. Your progress saves automatically, so you can pick up right where you left off.",
         )}
-        className="pb-10 sm:pb-12"
+        className="pb-8 sm:pb-10"
       >
         <HeroHighlights
           items={[
@@ -40,7 +40,7 @@ export default function StartView({ locale }: { locale: Locale }) {
           ]}
         />
       </PageHeader>
-      <Section id="wizard" className="pt-0 sm:pt-0">
+      <Section id="wizard" className="pt-0 sm:pt-0 lg:pt-0">
         <ProjectWizard locale={locale} />
       </Section>
     </>

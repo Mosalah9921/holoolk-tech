@@ -18,7 +18,7 @@ export default function NotFoundView({ locale, inSite = false }: { locale: Local
   return (
     <Root
       id={inSite ? undefined : "main"}
-      className={`relative isolate flex flex-col items-center justify-center px-4 text-center ${inSite ? "min-h-[80dvh] pt-32 pb-20" : "min-h-dvh py-16"}`}
+      className={`relative isolate flex flex-col items-center justify-center px-4 text-center ${inSite ? "min-h-[80dvh] pt-28 pb-16" : "min-h-dvh py-16"}`}
     >
       <div aria-hidden className="bg-grid mask-fade absolute inset-0 -z-10" />
       <div aria-hidden className="absolute top-1/3 left-1/2 -z-10 size-[420px] -translate-x-1/2 rounded-full bg-brand-200/40 blur-[110px]" />

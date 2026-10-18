@@ -30,7 +30,7 @@ export default function BookView({ locale }: { locale: Locale }) {
           "نناقش فكرتك وأهدافك، ونقترح عليك الحل التقني الأنسب وخطة التنفيذ؛ دون أي التزام.",
           "We’ll talk through your idea and goals, then recommend the right technical approach and a delivery plan, with no obligation.",
         )}
-        className="pb-10 sm:pb-12"
+        className="pb-8 sm:pb-10"
       >
         <HeroHighlights
           items={[
@@ -40,7 +40,7 @@ export default function BookView({ locale }: { locale: Locale }) {
           ]}
         />
       </PageHeader>
-      <Section id="booking" className="pt-0 sm:pt-0">
+      <Section id="booking" className="pt-0 sm:pt-0 lg:pt-0">
         <BookingScheduler locale={locale} />
       </Section>
     </>

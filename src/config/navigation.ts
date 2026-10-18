@@ -52,7 +52,7 @@ const serviceMenu = [
   { id: "web-apps", label: { ar: "الأنظمة ولوحات التحكم", en: "Systems & dashboards" }, description: { ar: "أتمتة العمليات والإدارة", en: "Automate operations and management" } },
   { id: "ui-ux-design", label: { ar: "تصميم واجهات UI/UX", en: "UI/UX design" }, description: { ar: "تصاميم عصرية وسهلة الاستخدام", en: "Modern, easy-to-use interfaces" } },
   { id: "landing-pages", label: { ar: "صفحات الهبوط", en: "Landing pages" }, description: { ar: "مخصصة لرفع تحويل الإعلانات", en: "Built to convert your ad traffic" } },
-  { id: "maintenance-support", label: { ar: "الصيانة والدعم", en: "Care & support" }, description: { ar: "استقرار وحماية وضمان مستمر", en: "Stability, security and peace of mind" } },
+  { id: "maintenance-support", label: { ar: "الصيانة والدعم", en: "Care & support" }, description: { ar: "متابعة وحماية بعد الإطلاق", en: "Stability, security and peace of mind" } },
 ];
 
 /** قائمة الحلول: أهم 6 مجالات فقط (والباقي في صفحة /solutions) */

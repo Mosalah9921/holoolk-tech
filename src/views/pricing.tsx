@@ -62,6 +62,7 @@ export default function PricingView({ locale }: { locale: Locale }) {
 
       <Section id="compare" className="bg-white">
         <SectionHeading
+          align="center"
           title={t("مقارنة تفصيلية بين الباقات", "Detailed package comparison")}
           description={t("كل المزايا جنباً إلى جنب لتختار عن وضوح.", "Every feature side by side, so you can choose with clarity.")}
         />
@@ -70,7 +71,7 @@ export default function PricingView({ locale }: { locale: Locale }) {
       </Section>
 
       <Section id="pricing-faq">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <SectionHeading
             title={t("أسئلة حول الباقات", "Questions about pricing")}
             description={t("لمزيد من الأسئلة، تصفّح صفحة الأسئلة الشائعة.", "For more answers, browse the full FAQ page.")}

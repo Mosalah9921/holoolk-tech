@@ -54,7 +54,7 @@ export default function ProcessView({ locale }: { locale: Locale }) {
         <ol className="relative mx-auto max-w-4xl">
           <span aria-hidden className="absolute inset-y-4 start-7 w-px bg-linear-to-b from-brand-300 via-accent-300 to-transparent sm:start-9" />
           {steps.map(({ icon: Icon, title, description, duration, deliverables }, i) => (
-            <li key={title} className="relative flex gap-6 pb-12 last:pb-0 sm:gap-8">
+            <li key={title} className="relative flex gap-6 pb-8 last:pb-0 sm:gap-8 sm:pb-10">
               <span className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-brand-600 text-white shadow-lg shadow-brand-600/25 sm:size-18">
                 <Icon className="size-6 sm:size-7" aria-hidden />
               </span>

@@ -37,12 +37,12 @@ export function PageHeader({
     })),
   };
   return (
-    <section className={cn("relative isolate overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-20", className)}>
+    <section className={cn("relative isolate overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-14", className)}>
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="bg-grid mask-fade absolute inset-0" />
         <div className="absolute -top-40 left-1/2 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-brand-200/45 blur-[110px]" />
       </div>
-      <Container className={cn(aside && "grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]")}>
+      <Container className={cn(aside && "grid items-center gap-6 lg:gap-12 lg:grid-cols-[1.1fr_0.9fr]")}>
         <div className="animate-rise">
           {crumbs.length > 0 && (
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd).replace(/</g, "\\u003c") }} />
@@ -64,8 +64,8 @@ export function PageHeader({
             ))}
           </nav>
           <h1 className="max-w-3xl text-4xl leading-[1.2] font-black tracking-tight sm:text-5xl lg:text-[3.4rem]">{title}</h1>
-          {description && <p className="mt-5 max-w-2xl text-lg leading-9 text-slate-600">{description}</p>}
-          {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
+          {description && <p className="mt-4 max-w-2xl text-lg leading-9 text-slate-600">{description}</p>}
+          {children && <div className="mt-7 flex flex-col gap-3 sm:flex-row">{children}</div>}
         </div>
         {aside}
       </Container>

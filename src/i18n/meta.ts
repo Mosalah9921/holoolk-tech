@@ -8,6 +8,14 @@ export const ogImageFor = (locale: Locale) =>
     ? { url: "/en/opengraph-image", width: 1200, height: 630, type: "image/png", alt: "Holoolk Tech — Digital solutions that drive your business forward" }
     : ogImage;
 
+/** وصف جوجل المثالي حتى ~160 حرف: لو أطول بنقصه عند آخر كلمة كاملة */
+function clampDescription(d: string, max = 160) {
+  const s = d.replace(/\s+/g, " ").trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max - 1);
+  return cut.slice(0, cut.lastIndexOf(" ")).replace(/[،,؛;:.\-–—]+$/, "") + "…";
+}
+
 /**
  * Metadata موحّدة لأي صفحة في اللغتين:
  * canonical + روابط hreflang للنسخة الأخرى + Open Graph + Twitter.
@@ -35,7 +43,10 @@ export function pageMeta(
 ): Metadata {
   const url = lp(locale, path);
   const brand = locale === "en" ? siteConfig.nameEn : siteConfig.name;
+  // العناوين الطويلة (المقالات مثلاً) بتتعرض من غير اسم البراند عشان متتقصّش في نتائج جوجل
+  if (!absoluteTitle && title.length + brand.length + 3 > 65) absoluteTitle = true;
   const fullTitle = absoluteTitle ? title : `${title} | ${brand}`;
+  description = clampDescription(description);
   const image = ogImageFor(locale);
   return {
     title: absoluteTitle ? { absolute: title } : title,

@@ -46,7 +46,7 @@ export default function BlogView({ locale }: { locale: Locale }) {
           />
         }
       />
-      <Section id="articles" className="pt-0 sm:pt-0">
+      <Section id="articles" className="pt-0 sm:pt-0 lg:pt-0">
         <Link
           href={lp(locale, `/blog/${featured.slug}`)}
           className="group grid overflow-hidden rounded-[2rem] border border-slate-200 bg-white transition-shadow hover:shadow-xl hover:shadow-slate-900/5 lg:grid-cols-[1fr_1fr]"

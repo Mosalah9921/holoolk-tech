@@ -90,11 +90,11 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="scroll-mt-24 px-3 py-6 sm:px-6 sm:py-10">
-      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-900 py-16 sm:rounded-[2.5rem] sm:py-24">
+      <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-900 py-12 sm:rounded-[2.5rem] sm:py-16 lg:py-20">
         <div aria-hidden className="absolute -top-40 -end-40 -z-10 size-[520px] rounded-full bg-brand-600/40 blur-[120px]" />
         <div aria-hidden className="absolute -bottom-40 -start-20 -z-10 size-[420px] rounded-full bg-accent-500/25 blur-[120px]" />
 
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           {/* الدعوة */}
           <div>
             <h2 id="contact-title" className="text-4xl leading-[1.2] font-black tracking-tight text-white sm:text-5xl">
@@ -192,7 +192,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
                 rows={4}
                 value={form.message}
                 onChange={update("message")}
-                placeholder={t("صف لنا نشاطك وما تحتاجه من الموقع...", "Tell us about your business and what you need from the website...")}
+                placeholder={t("صف لنا نشاطك وما تحتاجه من الموقع…", "Tell us about your business and what you need from the website…")}
                 className={cn(inputClasses, "resize-none leading-7")}
               />
             </Field>

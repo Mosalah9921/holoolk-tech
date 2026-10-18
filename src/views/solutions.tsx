@@ -75,13 +75,12 @@ export default function SolutionsView({ locale }: { locale: Locale }) {
         </ButtonLink>
       </PageHeader>
 
-      <Section id="solutions-list" className="pt-0 sm:pt-0">
-        <SolutionsExplorer groups={groups} items={items} locale={locale} />
+      <Section id="solutions-list" className="pt-0 sm:pt-0 lg:pt-0">
+        <SolutionsExplorer groups={groups} items={items} locale={locale} footer={<CustomSolutionCard locale={locale} />} />
       </Section>
 
       <SolutionsFoundation locale={locale} />
       <DemosShowcase locale={locale} />
-      <CustomSolutionCard locale={locale} />
       <CtaBand locale={locale} />
     </>
   );

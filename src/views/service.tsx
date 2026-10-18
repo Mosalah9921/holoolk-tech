@@ -36,7 +36,7 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
   return (
     <>
       {/* رأس الصفحة */}
-      <section className="relative isolate overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
+      <section className="relative isolate overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
           <div className="bg-grid mask-fade absolute inset-0" />
           <div className="absolute -top-40 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-linear-to-l from-brand-200/60 to-accent-200/60 blur-[110px]" />
@@ -56,7 +56,7 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
             </span>
           </nav>
 
-          <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+          <div className="grid items-center gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
             <div className="animate-fade-up max-w-3xl">
               {service.badge && (
                 <span className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-bold text-accent-700 shadow-sm ring-1 ring-slate-200">{service.badge}</span>
@@ -92,7 +92,7 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
         </Container>
       </section>
 
-      <Section id="details" aria-labelledby="details-title" className="pt-0 sm:pt-0">
+      <Section id="details" aria-labelledby="details-title" className="pt-0 sm:pt-0 lg:pt-0">
         <h2 id="details-title" className="sr-only">
           {t("تفاصيل الخدمة", "Service details")}
         </h2>
