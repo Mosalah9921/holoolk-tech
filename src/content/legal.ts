@@ -16,12 +16,16 @@ ${siteConfig.name} (${siteConfig.nameEn}) جهة متخصصة في تطوير ا
 
 ## البيانات التي نجمعها
 
-نجمع فقط البيانات التي تكتبها أنت بنفسك في نماذج الموقع:
+نجمع نوعين من البيانات فقط:
+
+**1. ما تكتبه أنت بنفسك في نماذج الموقع:**
 
 - **نموذج التواصل:** الاسم، ورقم الهاتف، والخدمة المطلوبة، ورسالتك.
 - **مخطِّط المشروع:** نوع المشروع، والمجال، والمزايا المطلوبة، والموعد، والاسم، والهاتف، والبريد الإلكتروني (اختياري)، واسم النشاط وملاحظاتك.
 - **حجز الاستشارة:** الموعد المختار، وطريقة الجلسة، وموضوعها، والاسم، والهاتف.
 - **أداة التقييم:** رابط موقعك الحالي وبيانات التواصل التي تدخلها.
+
+**2. بيانات استخدام مجمّعة (عند تفعيل أدوات القياس فقط):** الصفحات التي تزورها، ومصدر الزيارة، ونوع الجهاز والمتصفح، والدولة أو المدينة التقريبية. لا تتضمن اسمك أو رقم هاتفك، وتفاصيلها في قسم «ملفات تعريف الارتباط وأدوات القياس».
 
 لا نطلب أي بيانات مالية أو بيانات بطاقات عبر الموقع.
 
@@ -36,16 +40,25 @@ ${siteConfig.name} (${siteConfig.nameEn}) جهة متخصصة في تطوير ا
 ## كيف تصلنا البيانات
 
 - عند إرسال أي نموذج، تُفتح محادثة واتساب برسالة تحتوي على ما كتبته، ولا تُرسل إلا عندما تضغط أنت زر الإرسال في واتساب.
-- قد تُرسل نسخة من الطلب إلى بريدنا الإلكتروني عبر خدمة نماذج آمنة (مثل Formspree) لضمان عدم ضياع طلبك.
+- قد تُرسل نسخة من الطلب إلى بريدنا الإلكتروني عبر خدمة النماذج Formspree لضمان عدم ضياع طلبك.
 - يحفظ مخطِّط المشروع مسودتك على جهازك أنت (في متصفحك) حتى تكمل لاحقاً، ولا تصلنا قبل الإرسال. يمكنك حذفها بزر «البدء من جديد».
 
 ## ملفات تعريف الارتباط وأدوات القياس
 
 عند تفعيل أدوات قياس مثل Google Analytics أو Meta Pixel نستخدمها لمعرفة عدد الزوار والصفحات الأكثر زيارة ومصادر الزيارات. تعتمد هذه الأدوات على ملفات تعريف الارتباط (Cookies)، ويمكنك تعطيلها من إعدادات متصفحك دون أن يؤثر ذلك على استخدام الموقع.
 
+## مزوّدو الخدمات الذين نعتمد عليهم
+
+- **Vercel:** استضافة الموقع وتشغيله.
+- **WhatsApp (Meta):** استقبال رسائلك عند الإرسال عبر واتساب.
+- **Formspree:** إرسال نسخة من طلبك إلى بريدنا الإلكتروني.
+- **Google Analytics وMeta Pixel:** قياس الزيارات، عند تفعيلهما فقط.
+
+يخضع كل مزوّد لسياسة الخصوصية الخاصة به، ولا نشاركهم إلا ما يلزم لتقديم الخدمة.
+
 ## حماية البيانات
 
-- الموقع يعمل باتصال مشفّر بالكامل (HTTPS).
+- الموقع يعمل باتصال مشفّر (HTTPS) يحمي بياناتك أثناء انتقالها.
 - لا يطّلع على طلبك إلا من يعمل على مشروعك.
 - نحتفظ ببيانات الاستفسار طوال فترة التواصل، وإن لم يتحول إلى مشروع نحذفها خلال 12 شهراً من آخر تواصل، أو قبل ذلك عند طلبك.
 
@@ -114,12 +127,16 @@ ${siteConfig.nameEn} (${siteConfig.name}) is an IT solutions company specializin
 
 ## Data we collect
 
-We only collect the information you type into the website's forms yourself:
+We collect only two kinds of data:
+
+**1. What you type into the website's forms yourself:**
 
 - **Contact form:** your name, phone number, the service you need and your message.
 - **Project planner:** project type, industry, required features, timeline, name, phone, email (optional), business name and your notes.
 - **Consultation booking:** the chosen time slot, session type, topic, name and phone.
 - **Website audit tool:** your current website's URL and the contact details you enter.
+
+**2. Aggregated usage data (only when analytics tools are enabled):** the pages you visit, where the visit came from, your device and browser type, and your approximate country or city. It doesn't include your name or phone number; see "Cookies and analytics" below for details.
 
 We never ask for financial or card information on the website.
 
@@ -134,16 +151,25 @@ We never sell, rent or share your data with anyone for marketing purposes.
 ## How your data reaches us
 
 - When you submit a form, a WhatsApp chat opens with a message containing what you wrote. Nothing is sent until you press send in WhatsApp yourself.
-- A copy of your request may be sent to our email through a secure form service (such as Formspree) so it's never lost.
+- A copy of your request may be sent to our email through the Formspree form service so it's never lost.
 - The project planner saves your draft on your own device (in your browser) so you can continue later. It doesn't reach us until you submit, and you can delete it with the "Start over" button.
 
 ## Cookies and analytics
 
 When analytics tools such as Google Analytics or Meta Pixel are enabled, we use them to understand visitor numbers, the most visited pages and traffic sources. These tools rely on cookies, which you can disable in your browser settings without affecting your use of the website.
 
+## Service providers we rely on
+
+- **Vercel:** hosts and runs the website.
+- **WhatsApp (Meta):** receives your message when you send it via WhatsApp.
+- **Formspree:** sends a copy of your request to our email.
+- **Google Analytics and Meta Pixel:** measure visits, only when enabled.
+
+Each provider is governed by its own privacy policy, and we share with them only what's needed to provide the service.
+
 ## Data protection
 
-- The website runs over a fully encrypted connection (HTTPS).
+- The website runs over an encrypted connection (HTTPS/TLS) that protects your data in transit.
 - Only the people working on your project can see your request.
 - We keep inquiry data while we're in touch. If it doesn't become a project, we delete it within 12 months of our last contact, or sooner if you ask.
 

@@ -153,6 +153,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
 
           {/* النموذج */}
           <form
+            method="post"
             onSubmit={handleSubmit}
             noValidate
             className="rounded-3xl bg-white p-6 shadow-2xl sm:p-8"
@@ -162,7 +163,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
             <input type="text" name="company_site" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -start-[9999px] size-px opacity-0" />
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field label={t("الاسم", "Name")} htmlFor="name" required>
-                <input id="name" name="name" autoComplete="name" value={form.name} onChange={update("name")} placeholder={t("الاسم أو اسم الشركة", "Your name or company")} className={inputClasses} />
+                <input id="name" name="name" required aria-required="true" autoComplete="name" value={form.name} onChange={update("name")} placeholder={t("الاسم أو اسم الشركة", "Your name or company")} className={inputClasses} />
               </Field>
               <Field label={t("رقم الهاتف", "Phone")} htmlFor="phone">
                 <input
@@ -195,6 +196,8 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
               <textarea
                 id="message"
                 name="message"
+                required
+                aria-required="true"
                 rows={4}
                 value={form.message}
                 onChange={update("message")}

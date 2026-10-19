@@ -13,7 +13,7 @@ export const tracks: Track[] = [
     id: "frontend",
     icon: LayoutTemplate,
     title: "واجهات المستخدم",
-    text: "Frontend — ما يراه المستخدم ويتفاعل معه.",
+    text: "الواجهة الأمامية — ما يراه المستخدم ويتفاعل معه.",
     tech: [
       { name: "TypeScript", core: true },
       { name: "React", core: true },
@@ -32,7 +32,7 @@ export const tracks: Track[] = [
     id: "backend",
     icon: Server,
     title: "الخوادم والواجهات البرمجية",
-    text: "Backend — منطق النظام والواجهات البرمجية.",
+    text: "الواجهة الخلفية — منطق النظام والواجهات البرمجية.",
     tech: [
       { name: "Node.js", core: true },
       { name: "REST APIs", core: true },
@@ -51,7 +51,7 @@ export const tracks: Track[] = [
     id: "data",
     icon: Database,
     title: "قواعد البيانات",
-    text: "Databases — تخزين البيانات وتنظيمها وحمايتها.",
+    text: "قواعد البيانات — تخزين البيانات وتنظيمها وحمايتها.",
     tech: [
       { name: "PostgreSQL", core: true },
       { name: "Supabase", core: true },
@@ -67,7 +67,7 @@ export const tracks: Track[] = [
     id: "cloud",
     icon: Cloud,
     title: "السحابة والنشر",
-    text: "Cloud & DevOps — الاستضافة والنشر المستمر.",
+    text: "السحابة والنشر — الاستضافة والنشر المستمر.",
     tech: [
       { name: "Vercel", core: true },
       { name: "Git & GitHub", core: true },
@@ -83,7 +83,7 @@ export const tracks: Track[] = [
     id: "cms",
     icon: Blocks,
     title: "إدارة المحتوى والمتاجر",
-    text: "CMS & E-commerce — لوحات تحكم سهلة لفريقك.",
+    text: "إدارة المحتوى والمتاجر — لوحات تحكم سهلة لفريقك.",
     tech: [
       { name: "Sanity", core: true },
       { name: "Headless CMS", core: true },
@@ -97,7 +97,7 @@ export const tracks: Track[] = [
     id: "integrations",
     icon: PlugZap,
     title: "الدفع والتكاملات",
-    text: "Integrations — ربط موقعك بالخدمات التي تعتمد عليها.",
+    text: "التكاملات — ربط موقعك بالخدمات التي تعتمد عليها.",
     tech: [
       { name: "Paymob", core: true },
       { name: "WhatsApp Business", core: true },
@@ -113,7 +113,7 @@ export const tracks: Track[] = [
     id: "design",
     icon: Palette,
     title: "التصميم وتجربة المستخدم",
-    text: "UI/UX — من النموذج الأولي إلى نظام التصميم.",
+    text: "تجربة المستخدم والتصميم — من النموذج الأولي إلى نظام التصميم.",
     tech: [
       { name: "Figma", core: true },
       { name: "Design Systems", core: true },
@@ -127,7 +127,7 @@ export const tracks: Track[] = [
     id: "quality",
     icon: ShieldCheck,
     title: "الجودة والأمان",
-    text: "Testing & Security — قبل كل إطلاق.",
+    text: "الاختبار والأمان — قبل كل إطلاق.",
     tech: [
       { name: "Lighthouse", core: true },
       { name: "OWASP Top 10", core: true },

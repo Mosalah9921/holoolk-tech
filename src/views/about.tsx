@@ -7,6 +7,7 @@ import { HeroVisual, heroImages } from "@/components/hero/HeroVisual";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 import { About } from "@/components/sections/About";
+import { MobileCollapse } from "@/components/ui/MobileCollapse";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
 import { lp, tr, type Locale } from "@/i18n";
@@ -40,7 +41,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
           <HeroVisual
             image={heroImages.about}
             cards={[
-              { icon: KeyRound, title: t("ملكية كاملة 100%", "100% ownership"), text: t("الكود والبيانات باسمك", "Your code, your data") },
+              { icon: KeyRound, title: t("ملكية كاملة للكود", "Full code ownership"), text: t("تنتقل إليك بعد السداد، وبياناتك ملكك", "Yours once paid; your data stays yours") },
               { icon: Workflow, title: t("تنفيذ متكامل", "End-to-end delivery"), text: t("من الفكرة حتى الإطلاق", "From idea to launch") },
               { icon: LifeBuoy, title: t("دعم مستمر", "Ongoing support"), text: t("متابعة بعد التسليم", "Follow-up after delivery") },
             ]}
@@ -83,7 +84,8 @@ export default function AboutView({ locale }: { locale: Locale }) {
             )}
           </p>
         </div>
-        <ul className="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
+        <MobileCollapse className="mt-8 sm:mt-10" more={t(`عرض كل مجالات الخبرة (${expertise.length})`, `Show all areas of expertise (${expertise.length})`)} less={t("عرض أقل", "Show less")} collapsedHeight="max-md:max-h-[27rem]" fadeClassName="from-slate-50">
+        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {expertise.map(({ icon: Icon, title, text, points }, i) => (
             <li
               key={title}
@@ -116,6 +118,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
             </li>
           ))}
         </ul>
+        </MobileCollapse>
       </Section>
 
       <Section id="stack" className="bg-white" aria-labelledby="stack-title">

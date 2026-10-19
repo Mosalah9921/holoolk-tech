@@ -4,7 +4,9 @@ import { ButtonLink } from "@/components/ui/Button";
 import { SolutionFinderButton } from "@/components/finder/SolutionFinderButton";
 import { ServicesHeroArt } from "@/components/services/ServicesHeroArt";
 import { ServiceCards } from "@/components/services/ServiceCards";
-import { Process } from "@/components/sections/Process";
+import { Container } from "@/components/ui/Container";
+import { Workflow } from "lucide-react";
+import Link from "next/link";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
 import { lp, tr, type Locale } from "@/i18n";
@@ -46,7 +48,30 @@ export default function ServicesView({ locale }: { locale: Locale }) {
         </ButtonLink>
       </PageHeader>
       <ServiceCards locale={locale} />
-      <Process className="" locale={locale} />
+      {/* مراحل العمل بالتفصيل في صفحة «منهجية العمل» — هنا رابط مختصر بدل تكرارها */}
+      <section aria-labelledby="process-link-title" className="pb-4 sm:pb-6">
+        <Container>
+          <div className="flex flex-col items-start gap-5 rounded-3xl border border-brand-100 bg-brand-50/60 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div className="flex items-start gap-4">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-white text-brand-600 ring-1 ring-brand-100">
+                <Workflow className="size-6" aria-hidden />
+              </span>
+              <div>
+                <h2 id="process-link-title" className="text-lg leading-8 font-black text-slate-900 sm:text-xl">
+                  {t("كيف ننفّذ مشروعك؟", "How do we deliver your project?")}
+                </h2>
+                <p className="mt-1 text-sm leading-7 text-slate-600">
+                  {t("خمس مراحل واضحة من تحديد المتطلبات حتى الإطلاق والدعم، بمخرجات محددة في كل مرحلة.", "Five clear stages from requirements to launch and support, with defined deliverables at every step.")}
+                </p>
+              </div>
+            </div>
+            <Link href={lp(locale, "/process")} className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 text-sm font-bold text-brand-700 hover:border-brand-300 hover:bg-brand-50 sm:w-auto">
+              {t("تعرّف على منهجية العمل", "See our process")}
+              <ArrowLeft className="size-4" aria-hidden />
+            </Link>
+          </div>
+        </Container>
+      </section>
       <CtaBand locale={locale} />
     </>
   );

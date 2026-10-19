@@ -56,7 +56,7 @@ export const solutions: Solution[] = [
     icon: UtensilsCrossed,
     name: "المطاعم والكافيهات",
     short: "قوائم طعام تفاعلية وحجز طاولات وطلبات مباشرة.",
-    outcome: "طلبات وحجوزات مباشرة بدون عمولات المنصات",
+    outcome: "طلبات وحجوزات مباشرة بدون عمولات تطبيقات التوصيل",
     benefits: ["طلبات مباشرة على واتساب", "منيو تحدّثه بنفسك في ثوانٍ", "حجز طاولات بتأكيد فوري"],
     fixes: ["موقعك يستقبل الطلبات مباشرة دون عمولات وسيطة", "منيو رقمي تحدّثه من لوحة التحكم في أي وقت", "حجز إلكتروني منظّم بتأكيد تلقائي عبر واتساب"],
     headline: "حوّل زوّار صفحاتك إلى طلبات وحجوزات فعلية.",
@@ -100,7 +100,7 @@ export const solutions: Solution[] = [
     benefits: ["دفع إلكتروني وشحن مربوط", "مخزون يتحدّث تلقائياً", "بدون عمولات منصات"],
     demo: { href: "/demos/store", label: "متجر رَكض" },
     fixes: ["سلة ودفع إلكتروني تستقبل الطلبات وأنت نائم", "متجرك الخاص بلا عمولات تقتطع من أرباحك", "مخزون وطلبات تتحدث تلقائياً من لوحة واحدة"],
-    headline: "متجرك الخاص، بهويتك أنت، دون عمولات المنصات.",
+    headline: "متجرك الخاص، بهويتك أنت، دون عمولات منصات البيع.",
     intro:
       "متاجر إلكترونية عربية سريعة تجعل الشراء سهلاً من أول نقرة، مع لوحة تحكم كاملة لإدارة المنتجات والطلبات والمخزون.",
     pains: [
@@ -184,7 +184,7 @@ export const solutions: Solution[] = [
       "منصات للأكاديميات ومراكز التدريب تعرض الدورات بوضوح، وتنظّم التسجيل والدفع، وتتابع تقدّم الطلاب وحضورهم، أونلاين أو في القاعة.",
     pains: [
       "دورات معروضة في منشورات متفرقة لا تشرح المحتوى ولا المستوى",
-      "تسجيل ودفع عبر الرسائل يضيّع الوقت والطلاب",
+      "التسجيل والدفع عبر الرسائل يستنزف الوقت وقد يُفقدك بعض الطلاب",
       "تسجيل الحضور ومتابعة الطلاب يدوياً",
     ],
     features: [
@@ -344,7 +344,7 @@ const solutionsEnText: Record<string, SolutionText> = {
   restaurants: {
     name: "Restaurants & Cafés",
     short: "Interactive menus, table bookings and direct orders.",
-    outcome: "Direct orders and bookings, with no platform commissions",
+    outcome: "Direct orders and bookings, with no delivery-app commissions",
     benefits: ["Direct orders on WhatsApp", "A menu you update in seconds", "Table bookings, confirmed instantly"],
     fixes: ["Your website takes orders directly, with no middleman commissions", "A digital menu you update from the dashboard anytime", "Organized online bookings, auto-confirmed on WhatsApp"],
     headline: "Turn your page visitors into real orders and bookings.",
@@ -402,7 +402,7 @@ const solutionsEnText: Record<string, SolutionText> = {
     fixes: ["A course catalog that shows curriculum, level and instructor before payment", "Online enrollment and payment instead of messages and manual transfers", "QR attendance and progress reports for in-person courses"],
     headline: "Your courses, students and attendance on one platform.",
     intro: "Platforms for academies and training centers that present courses clearly, handle enrollment and payment, and track student progress and attendance, online or in the classroom.",
-    pains: ["Courses scattered across posts that don’t explain content or level", "Enrollment and payment over messages that cost time and students", "Tracking attendance and progress by hand"],
+    pains: ["Courses scattered across posts that don’t explain content or level", "Enrollment and payment by message take staff time and can cost you students", "Tracking attendance and progress by hand"],
     features: [
       { title: "Course catalog", text: "A page for every course with curriculum, length, level and instructor." },
       { title: "Online enrollment & payment", text: "Single courses or monthly and yearly plans." },
@@ -448,10 +448,10 @@ const solutionsEnText: Record<string, SolutionText> = {
     name: "Retail & Brands",
     short: "A complete Arabic store with payments, shipping and order management.",
     outcome: "Your own store, selling around the clock with no commissions",
-    benefits: ["Online payments and connected shipping", "Inventory that updates automatically", "No platform commissions"],
+    benefits: ["Online payments and connected shipping", "Inventory that updates automatically", "No marketplace commissions"],
     demoLabel: "RAKD Store",
     fixes: ["A cart and checkout that take orders while you sleep", "Your own store, with no commissions eating your profit", "Inventory and orders that update automatically from one dashboard"],
-    headline: "Your own store, your own brand, with no platform commissions.",
+    headline: "Your own store, your own brand, with no marketplace commissions.",
     intro: "Fast, Arabic-first online stores that make buying easy from the first click, with a complete dashboard for products, orders and inventory.",
     pains: ["Selling through messages wastes time and loses orders", "Platform commissions eat into your profit", "Tracking inventory and orders by hand is hard"],
     features: [

@@ -13,11 +13,13 @@ export function TechStack({ locale = "ar" }: { locale?: Locale }) {
   const tl = tr(locale);
   const tracks = getTracks(locale);
   const [active, setActive] = useState(tracks[0].id);
+  /** الموبايل: التقنيات الأساسية بس، والباقي خلف زر */
+  const [showAll, setShowAll] = useState(false);
   const track = tracks.find((t) => t.id === active)!;
   const total = tracks.reduce((n, t) => n + t.tech.length, 0);
   const TrackIcon = track.icon;
 
-  // في العربي الوصف بيبدأ بالاسم الإنجليزي للمسار ("Frontend — …") — بنفصله كشارة عشان النص ميتلخبطش
+  // في العربي الوصف بيبدأ باسم المسار ("الواجهة الأمامية — …") — بنفصله كشارة فوق الوصف
   const [label, desc] = track.text.includes(" — ") ? track.text.split(" — ") : [undefined, track.text];
   const core = track.tech.filter((t) => t.core);
   const extra = track.tech.filter((t) => !t.core);
@@ -83,7 +85,7 @@ export function TechStack({ locale = "ar" }: { locale?: Locale }) {
               <TrackIcon className="size-6" aria-hidden />
             </span>
             {label && (
-              <span dir="ltr" className="mt-5 inline-block rounded-lg bg-white px-2 py-0.5 font-mono text-[11px] font-semibold tracking-wide text-brand-700 ring-1 ring-brand-100">
+              <span className="mt-5 inline-block rounded-lg bg-white px-2 py-0.5 text-xs font-bold text-brand-700 ring-1 ring-brand-100">
                 {label}
               </span>
             )}
@@ -102,8 +104,17 @@ export function TechStack({ locale = "ar" }: { locale?: Locale }) {
                 </li>
               ))}
             </ul>
+            {extra.length > 0 && !showAll && (
+              <button
+                type="button"
+                onClick={() => setShowAll(true)}
+                className="mt-5 inline-flex h-10 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-brand-700 hover:bg-brand-50 md:hidden"
+              >
+                {tl(`عرض كل التقنيات (+${extra.length})`, `Show all technologies (+${extra.length})`)}
+              </button>
+            )}
             {extra.length > 0 && (
-              <>
+              <div className={cn(!showAll && "max-md:hidden")}>
                 <p className="mt-6 text-xs font-bold tracking-wide text-slate-500">{tl("حسب احتياج المشروع", "When the project calls for it")}</p>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {extra.map((t) => (
@@ -112,7 +123,7 @@ export function TechStack({ locale = "ar" }: { locale?: Locale }) {
                     </li>
                   ))}
                 </ul>
-              </>
+              </div>
             )}
           </div>
         </div>

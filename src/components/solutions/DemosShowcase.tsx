@@ -8,6 +8,7 @@ import { projects } from "@/content/portfolio";
 
 const siteHost = new URL(siteConfig.url).host;
 import { Section } from "@/components/ui/Section";
+import { MobileCollapse } from "@/components/ui/MobileCollapse";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /** صور معاينة لكل نموذج (لقطة من الصفحة الرئيسية للنموذج) — من بيانات الأعمال */
@@ -27,6 +28,8 @@ export function DemosShowcase({ locale = "ar" }: { locale?: Locale }) {
         description={t(`${demos.length} مواقع نموذجية تعمل فعلياً بنيناها لمجالات مختلفة. افتحها وجرّب التصفح والحجز والشراء كما سيفعل عملاؤك.`, `Fully working sample websites we built for ${demos.length} industries. Open them and try browsing, booking and buying just as your customers would. (Demos are in Arabic.)`)}
       />
 
+      {/* على الموبايل: أول نموذج ظاهر والباقي خلف زر (كروت المجالات فوق فيها «جرّبه الآن» أصلاً) */}
+      <MobileCollapse more={t(`عرض كل النماذج (${demos.length})`, `Show all demos (${demos.length})`)} less={t("عرض أقل", "Show less")} collapsedHeight="max-md:max-h-[25rem]">
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {demos.map((s) => {
           const demo = s.demo!;
@@ -82,6 +85,7 @@ export function DemosShowcase({ locale = "ar" }: { locale?: Locale }) {
           );
         })}
       </ul>
+      </MobileCollapse>
     </Section>
   );
 }

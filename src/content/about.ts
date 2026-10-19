@@ -18,7 +18,7 @@ export const expertise = [
     icon: ShieldCheck,
     title: "أمن المعلومات وحماية البيانات",
     text: "الأمان جزء من التصميم منذ اليوم الأول، لا إضافة لاحقة.",
-    points: ["اتصال مشفّر بالكامل (HTTPS)\u200F", "صلاحيات دقيقة حسب دور كل مستخدم", "حماية النماذج من الرسائل المزعجة"],
+    points: ["اتصال مشفّر (HTTPS) لحماية البيانات أثناء انتقالها", "صلاحيات دقيقة حسب دور كل مستخدم", "حماية النماذج من الرسائل المزعجة"],
   },
   {
     icon: Compass,
@@ -58,7 +58,7 @@ export const expertiseEn = [
     icon: ShieldCheck,
     title: "Security & data protection",
     text: "Security is part of the design from day one, not an afterthought.",
-    points: ["End-to-end encryption (HTTPS)", "Fine-grained, role-based permissions", "Spam and abuse protection on forms"],
+    points: ["HTTPS/TLS encryption for data in transit", "Fine-grained, role-based permissions", "Spam and abuse protection on forms"],
   },
   {
     icon: Compass,

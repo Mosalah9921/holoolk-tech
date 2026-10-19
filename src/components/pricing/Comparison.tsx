@@ -3,6 +3,7 @@ import { getComparison, getPackages, type ComparisonRow } from "@/content/pricin
 import { siteConfig } from "@/config/site";
 import { tr, type Locale } from "@/i18n";
 import { cn, whatsappLink } from "@/lib/utils";
+import { MobileCollapse } from "@/components/ui/MobileCollapse";
 
 /**
  * مقارنة الباقات — المزايا مقسّمة على مجموعات (التصميم، التسويق، الإدارة، الدعم).
@@ -105,6 +106,7 @@ export function Comparison({ locale = "ar" }: { locale?: Locale }) {
 
       {/* ===== الموبايل ===== */}
       <div className="overflow-clip rounded-2xl border border-slate-200 bg-white shadow-sm md:hidden">
+      <MobileCollapse more={t(`عرض كل المزايا (${rows.length})`, `Show all features (${rows.length})`)} less={t("إخفاء التفاصيل", "Show less")} buttonClassName="mx-auto mb-3 w-[calc(100%-1.5rem)]">
       <div role="table" aria-label={t("مقارنة مزايا الباقات", "Package feature comparison")}>
         {/* رؤوس الباقات — ثابتة أثناء التمرير (overflow-clip مش hidden عشان الـ sticky يشتغل) */}
         <div role="row" className="sticky top-[4.75rem] z-10 grid grid-cols-3 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -141,6 +143,7 @@ export function Comparison({ locale = "ar" }: { locale?: Locale }) {
           </div>
         ))}
       </div>
+      </MobileCollapse>
         <div className="grid grid-cols-3 gap-1.5 border-t border-slate-200 bg-slate-50/70 p-2">
           {packages.map((p) => (
             <a

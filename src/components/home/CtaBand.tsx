@@ -22,10 +22,10 @@ export function CtaBand({ locale = "ar", title, text }: { locale?: Locale; title
             <h2 className="text-3xl leading-[1.3] font-black tracking-tight text-balance text-white sm:text-[2.6rem] sm:leading-[1.25]">{title}</h2>
             <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg sm:leading-9">{text}</p>
           </div>
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row">
             <Link
               href={lp(locale, "/start")}
-              className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-white px-7 font-bold text-slate-900 shadow-lg transition-transform hover:-translate-y-0.5"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-white px-7 font-bold whitespace-nowrap text-slate-900 shadow-lg transition-transform hover:-translate-y-0.5"
             >
               {t("ابدأ مشروعك الآن", "Start your project")}
               <ArrowLeft className="size-5" aria-hidden />
@@ -34,7 +34,7 @@ export function CtaBand({ locale = "ar", title, text }: { locale?: Locale; title
               href={whatsappLink(siteConfig.contact.whatsapp, t("مرحباً حلولك تيك 👋 أرغب في مناقشة فكرة مشروع رقمي والحصول على خطة عمل وتقدير مبدئي.", "Hello Holoolk Tech 👋 I'd like to discuss a digital project idea and get a plan and an initial estimate."))}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl border border-white/20 px-7 font-bold text-white transition-colors hover:bg-white/10"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl border border-white/20 px-7 font-bold whitespace-nowrap text-white transition-colors hover:bg-white/10"
             >
               <MessageCircle className="size-5" aria-hidden />
               {t("تواصل عبر واتساب", "Chat on WhatsApp")}

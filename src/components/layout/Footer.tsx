@@ -5,6 +5,7 @@ import { whatsappLink } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { lp, tr, type Locale } from "@/i18n";
 import { Logo } from "@/components/ui/Logo";
+import { LangSwitchLink } from "@/components/layout/LangSwitchLink";
 
 /** حسابات التواصل الاجتماعي — يظهر فقط ما له رابط في site.ts، والواتساب دائماً */
 const socialMeta: Record<keyof typeof siteConfig.socials, { label: { ar: string; en: string }; icon: LucideIcon; hover: string }> = {
@@ -63,10 +64,10 @@ export function Footer({ locale = "ar" }: { locale?: Locale }) {
         <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-sm">
             <Logo light variant={locale} href={lp(locale, "/")} />
-            <p className="mt-4 text-sm leading-7 text-white/70">{en ? siteConfig.taglineEn : siteConfig.tagline}.</p>
+            <p className="mt-4 text-sm leading-7 text-white/70">{`${en ? siteConfig.taglineEn : siteConfig.tagline}.`}</p>
           </div>
           <div>
-            <p className="text-sm font-bold text-white/80">{t("تابعنا وتواصل معنا", "Follow & reach us")}</p>
+            <p className="text-sm font-bold text-white/80">{t("تابعنا أو تواصل معنا", "Follow us or get in touch")}</p>
             <ul className="mt-3 flex flex-wrap items-center gap-2.5">
               {socials.map(({ label, href, icon: Icon, hover }) => (
                 <li key={label}>
@@ -145,9 +146,7 @@ export function Footer({ locale = "ar" }: { locale?: Locale }) {
             <Link href={lp(locale, "/terms")} className="transition-colors hover:text-white">
               {t("الشروط والأحكام", "Terms")}
             </Link>
-            <a href={en ? "/" : "/en"} hrefLang={en ? "ar" : "en"} lang={en ? "ar" : "en"} className="transition-colors hover:text-white">
-              {t("English", "العربية")}
-            </a>
+            <LangSwitchLink className="transition-colors hover:text-white" />
           </nav>
         </div>
       </Container>

@@ -64,7 +64,8 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
       {/* عمودين من 1280 وطالع بس — تحتها (التابلت و1024) النص فوق والمعرض تحته، عشان العنوان مايتكسرش في عمود ضيق */}
       <Container className="grid items-center gap-10 xl:grid-cols-[0.8fr_1.2fr] xl:gap-14">
         {/* النص */}
-        <div className="min-w-0 animate-rise xl:max-w-none md:max-w-3xl">
+        {/* من 1024 لحد 1280 (عمود واحد): النص في النص عشان ميبقاش فيه فراغ كبير على جنب */}
+        <div className="min-w-0 animate-rise md:max-w-3xl lg:max-xl:mx-auto lg:max-xl:text-center xl:max-w-none">
           <p className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 py-1.5 ps-2 pe-4 text-sm font-semibold text-brand-700 shadow-sm backdrop-blur">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-500 opacity-60 motion-reduce:hidden" />
@@ -78,17 +79,17 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
             id="hero-title"
             className="mt-6 text-[2.3rem] leading-[1.3] font-black tracking-tight text-balance text-slate-900 rtl:max-[479px]:min-h-[3lh] sm:text-5xl sm:leading-[1.25] lg:text-[3.2rem]"
           >
-            {t("مواقع ومنصات رقمية", "Websites and digital platforms")}{" "}
+            {t("مواقع ومنصات رقمية", "Websites")}{" "}
             <span className="text-gradient">{t("مبنية حول طريقة عملك.", "built around your business.")}</span>
           </h1>
-          <p className="mt-5 max-w-[34rem] text-lg leading-[2] text-pretty text-slate-600 rtl:max-[429px]:min-h-[3lh] rtl:min-[430px]:max-sm:min-h-[2lh] sm:text-[1.15rem]">
+          <p className="mt-5 max-w-[34rem] text-lg leading-[2] lg:max-xl:mx-auto text-pretty text-slate-600 rtl:max-[429px]:min-h-[3lh] rtl:min-[430px]:max-sm:min-h-[2lh] sm:text-[1.15rem]">
             {t(
               "نصمم ونطوّر مواقع الشركات والمتاجر الإلكترونية والأنظمة المخصصة، من تحديد المتطلبات حتى الإطلاق والدعم.",
               "We design and build business websites, online stores and custom systems, from discovery and design through launch and support.",
             )}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:max-xl:justify-center">
             <ButtonLink href={lp(locale, "/start")} size="lg" className="shadow-lg shadow-brand-600/25">
               {t("ناقش مشروعك", "Discuss your project")}
               <ArrowLeft className="size-5" aria-hidden />
@@ -98,7 +99,7 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
             </ButtonLink>
           </div>
 
-          <ul className="mt-9 grid gap-3 border-t border-slate-200/80 pt-6 sm:grid-cols-3 sm:gap-0">
+          <ul className="mt-9 grid gap-3 border-t border-slate-200/80 pt-6 sm:grid-cols-3 sm:gap-0 lg:max-xl:text-start">
             {promises.map(({ icon: Icon, label: lb }, i) => {
               const label = lb[locale];
               return (

@@ -36,7 +36,7 @@ export default function StartView({ locale }: { locale: Locale }) {
           items={[
             { icon: ListChecks, label: t("6 خطوات سريعة", "6 quick steps") },
             { icon: Save, label: t("يُحفظ تقدّمك تلقائياً", "Progress saved automatically") },
-            { icon: FileText, label: t("خطة مبدئية بعد الإرسال", "An initial plan after you send") },
+            { icon: FileText, label: t("خطة مبدئية بعد الإرسال", "A preliminary plan once you submit") },
           ]}
         />
       </PageHeader>

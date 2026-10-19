@@ -10,6 +10,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
+import { MobileCollapse } from "@/components/ui/MobileCollapse";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
 import { lp, tr, type Locale } from "@/i18n";
@@ -147,11 +148,18 @@ export default function SolutionView({ locale, id }: { locale: Locale; id: strin
               </p>
               {caseStudy && (
                 <Link href={lp(locale, `/work/${caseStudy.slug}`)} className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-brand-800 hover:bg-brand-50">
-                  {t(`شاهد دراسة حالة ${caseStudy.title}`, `See the ${caseStudy.title} case study`)}
+                  {caseStudy.status === "demo" ? t(`شاهد تفاصيل نموذج ${caseStudy.title}`, `See the ${caseStudy.title} concept project`) : t(`شاهد دراسة حالة ${caseStudy.title}`, `See the ${caseStudy.title} case study`)}
                   <ArrowLeft className="size-4" aria-hidden />
                 </Link>
               )}
             </div>
+            <MobileCollapse
+              more={t(`عرض كل الأنظمة (${solution.systems.length})`, `Show all systems (${solution.systems.length})`)}
+              less={t("عرض أقل", "Show less")}
+              collapsedHeight="max-md:max-h-[11rem]"
+              fadeClassName="from-brand-800"
+              buttonClassName="border-white/20 bg-white/10 text-white hover:bg-white/15"
+            >
             <ol className="grid gap-3">
               {solution.systems.map((x, i) => (
                 <li key={x} className="flex items-start gap-4 rounded-2xl bg-white/[0.06] p-4 ring-1 ring-white/10">
@@ -160,6 +168,7 @@ export default function SolutionView({ locale, id }: { locale: Locale; id: strin
                 </li>
               ))}
             </ol>
+            </MobileCollapse>
           </div>
         </div>
       </Section>
@@ -208,6 +217,12 @@ export default function SolutionView({ locale, id }: { locale: Locale; id: strin
 
       <Section id="other-solutions">
         <SectionHeading title={t("مجالات أخرى نخدمها", "Other industries we serve")} />
+        <MobileCollapse
+          more={t(`عرض كل المجالات (${others.length})`, `Show all industries (${others.length})`)}
+          less={t("عرض أقل", "Show less")}
+          collapsedHeight="max-md:max-h-[10rem]"
+          fadeClassName="from-slate-50"
+        >
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {others.map(({ id: oid, image: oimage, name }) => (
             <li key={oid}>
@@ -223,6 +238,7 @@ export default function SolutionView({ locale, id }: { locale: Locale; id: strin
             </li>
           ))}
         </ul>
+        </MobileCollapse>
       </Section>
 
       <CtaBand locale={locale} />

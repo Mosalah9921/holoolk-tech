@@ -72,7 +72,7 @@ export function ProjectCard({ project, locale = "ar" }: { project: Project; loca
 
         <Link
           href={lp(locale, `/work/${project.slug}`)}
-          aria-label={t(`دراسة حالة ${project.title}`, `${project.title} case study`)}
+          aria-label={project.status === "demo" ? t(`تفاصيل النموذج التوضيحي ${project.title}`, `${project.title} concept project`) : t(`دراسة حالة ${project.title}`, `${project.title} case study`)}
           className={cn(
             "flex size-11 shrink-0 items-center sm:size-12 justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition-all",
             "after:absolute after:inset-0 after:content-[''] group-hover:border-brand-600 group-hover:bg-brand-600 group-hover:text-white",

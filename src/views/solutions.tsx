@@ -59,7 +59,8 @@ export default function SolutionsView({ locale }: { locale: Locale }) {
           "Industries whose challenges we know well and build for with confidence. Choose yours to see what we’d build, or try a live demo yourself. Different business? We’ll design a custom solution.",
         )}
         aside={
-          <div className="mt-2 lg:mt-0">
+          // على الموبايل الأيقونات بتكرر قائمة المجالات اللي تحتها مباشرة — بتظهر من التابلت وطالع
+          <div className="mt-2 hidden sm:block lg:mt-0">
             <SolutionsHeroArt locale={locale} />
           </div>
         }

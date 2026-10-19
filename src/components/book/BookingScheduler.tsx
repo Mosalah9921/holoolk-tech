@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -107,6 +107,17 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
 
   const day = days.find((x) => x.key === dayKey)!;
   const now = Date.now();
+
+  /* لو مواعيد النهارده خلصت، نبدأ بأول يوم فيه مواعيد متاحة بدل يوم فاضي */
+  useEffect(() => {
+    const first = days[0];
+    if (!first) return;
+    const todayDone = SLOTS.every((s) => {
+      const [h, m] = s.split(":").map(Number);
+      return cairoToDate(first.y, first.m, first.d, h, m).getTime() < Date.now() + 60 * 60 * 1000;
+    });
+    if (todayDone && days[1]) setDayKey((k) => (k === first.key ? days[1].key : k));
+  }, [days]);
   const isPast = (s: string) => {
     const [h, m] = s.split(":").map(Number);
     return cairoToDate(day.y, day.m, day.d, h, m).getTime() < now + 60 * 60 * 1000;
@@ -203,7 +214,7 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
   }
 
   return (
-    <form onSubmit={confirm} className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr]" noValidate>
+    <form method="post" onSubmit={confirm} className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr]" noValidate>
       {/* الموعد */}
       <div className="min-w-0 rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         <div className="flex items-center justify-between gap-3">
@@ -306,13 +317,13 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
           <span className="mb-1.5 block text-sm font-semibold text-slate-700">
             {t("الاسم", "Name")} <span className="text-brand-600">*</span>
           </span>
-          <input value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className={inputCls} placeholder={t("الاسم الكامل", "Full name")} />
+          <input value={name} onChange={(e) => setName(e.target.value)} name="name" required aria-required="true" autoComplete="name" className={inputCls} placeholder={t("الاسم الكامل", "Full name")} />
         </label>
         <label className="mt-4 block">
           <span className="mb-1.5 block text-sm font-semibold text-slate-700">
             {t("رقم الهاتف (واتساب)", "Phone number (WhatsApp)")} <span className="text-brand-600">*</span>
           </span>
-          <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" dir="ltr" autoComplete="tel" className={cn(inputCls, "rtl:text-end")} placeholder={t("01xxxxxxxxx", "+20 1xx xxx xxxx")} />
+          <input value={phone} onChange={(e) => setPhone(e.target.value)} name="phone" required aria-required="true" type="tel" dir="ltr" autoComplete="tel" className={cn(inputCls, "rtl:text-end")} placeholder={t("01xxxxxxxxx", "+20 1xx xxx xxxx")} />
         </label>
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm">

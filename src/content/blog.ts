@@ -104,11 +104,11 @@ export const articles: Article[] = [
 - **التكيف المعكوس:** بدلاً من أن يتكيف النظام مع طريقة عملك، تجد فريقك يغيّر طريقة عمله ليناسب النظام.
 - **الاشتراكات المتراكمة:** تُحسب التكلفة غالباً لكل مستخدم شهرياً، فتتضاعف مع كل موظف جديد وكل ميزة إضافية.
 - **صعوبة الربط:** ربط النظام بأدواتك الأخرى قد يكون محدوداً أو بتكلفة إضافية.
-- **بياناتك خارج يدك:** تصدير بياناتك أو الانتقال إلى نظام آخر قد يكون معقداً.
+- **صعوبة نقل البيانات:** تصدير بياناتك أو الانتقال إلى نظام آخر قد يكون معقداً بحسب المزوّد.
 
 ## القيمة الحقيقية للنظام المخصص
 
-النظام المخصص يُبنى حول عملياتك الفعلية، فيختصر الخطوات بدلاً من إضافتها. تملك الكود والبيانات ملكية كاملة، وتتحكم في معايير الأمان والصلاحيات، وتضيف المزايا عندما تحتاجها لا عندما يقررها مزود الخدمة.
+النظام المخصص يُبنى حول عملياتك الفعلية، فيختصر الخطوات بدلاً من إضافتها. تبقى بياناتك ملكك، وتنتقل إليك ملكية الكود وفق الاتفاق (عادةً بعد سداد المشروع) مع احترام تراخيص المكتبات مفتوحة المصدر المستخدمة فيه، وتتحكم في معايير الأمان والصلاحيات، وتضيف المزايا عندما تحتاجها لا عندما يقررها مزود الخدمة.
 
 ## كيف تتخذ القرار؟
 
@@ -166,11 +166,11 @@ export const articles: Article[] = [
 
 ## الصفحة ليست ملكك
 
-الصفحة تعيش على منصة تضع قواعدها وتغيّرها متى شاءت. قد تنخفض نسبة وصول منشوراتك فجأة، وقد يُقيَّد الحساب أو يُغلق بسبب بلاغ خاطئ، فتفقد في لحظة سنوات من التواصل مع عملائك. أما الموقع فهو أصل رقمي تملكه، على نطاق يحمل اسمك، ولا يستطيع أحد أن يغلقه عليك.
+الصفحة تعيش على منصة تضع قواعدها وتغيّرها متى شاءت. قد تنخفض نسبة وصول منشوراتك فجأة، وقد يُقيَّد الحساب أو يُغلق بسبب بلاغ خاطئ، فتفقد في لحظة سنوات من التواصل مع عملائك. أما الموقع فهو أصل رقمي تملكه، على نطاق يحمل اسمك، وتتحكم أنت في محتواه وقواعده ما دمت تجدد النطاق والاستضافة.
 
 ## العميل يبحث في جوجل لا في فيسبوك
 
-حين يحتاج شخص إلى عيادة أسنان أو مطعم قريب أو شركة صيانة، فإنه يكتب حاجته في محرك البحث. الصفحات الاجتماعية نادراً ما تظهر بقوة في هذه النتائج، بينما يستطيع موقع مهيأ جيداً أن يظهر أمام عميل جاهز للشراء في اللحظة التي يبحث فيها.
+حين يحتاج شخص إلى عيادة أسنان أو مطعم قريب أو شركة صيانة، فإنه يكتب حاجته في محرك البحث. الصفحات الاجتماعية غالباً لا تظهر بالقوة نفسها في هذه النتائج، بينما يستطيع موقع مهيأ جيداً أن يظهر أمام عميل جاهز للشراء في اللحظة التي يبحث فيها.
 
 ## المعلومات تضيع بين المنشورات
 
@@ -241,7 +241,7 @@ export const articles: Article[] = [
 
 ## قائمة طعام تُقرأ لا تُحمَّل
 
-أكثر خطأ شائع هو رفع قائمة الطعام كملف PDF أو صورة. هذه الصيغ بطيئة على الهاتف، ولا يقرؤها محرك البحث، ويصعب تحديثها. القائمة الأفضل نصية ومقسمة إلى أقسام واضحة، بأسعار ظاهرة، وعلامات للأطباق المميزة أو النباتية.
+أكثر خطأ شائع هو رفع قائمة الطعام كملف PDF أو صورة. هذه الصيغ مرهقة على الهاتف، ويفهمها محرك البحث أقل بكثير من القائمة النصية (والصور لا يقرأ نصها أصلاً)، ويصعب تحديثها. القائمة الأفضل نصية ومقسمة إلى أقسام واضحة، بأسعار ظاهرة، وعلامات للأطباق المميزة أو النباتية.
 
 ## زر الحجز في كل مكان
 
@@ -458,11 +458,11 @@ In these cases, a ready-made system gives you a fast start at a low upfront cost
 - **Reverse adaptation:** instead of the system adapting to your workflow, your team bends its workflow to fit the system.
 - **Stacking subscriptions:** pricing is usually per user per month, so costs multiply with every new hire and every add-on.
 - **Hard integrations:** connecting the system to your other tools may be limited or cost extra.
-- **Your data isn't in your hands:** exporting your data or moving to another system can be complicated.
+- **Harder to move your data:** exporting your data or switching systems can be complicated, depending on the provider.
 
 ## The real value of a custom system
 
-A custom system is built around your actual operations, so it removes steps instead of adding them. You fully own the code and the data, you control security and permissions, and you add features when you need them, not when a vendor decides.
+A custom system is built around your actual operations, so it removes steps instead of adding them. Your data stays yours, and ownership of the code transfers to you under your agreement (usually once the project is paid), while any open-source libraries keep their own licenses; you control security and permissions, and you add features when you need them, not when a vendor decides.
 
 ## How to decide
 
@@ -520,11 +520,11 @@ If you haven't applied any of these yet, start with two-factor authentication an
 
 ## The page isn't yours
 
-Your page lives on a platform that sets and changes the rules whenever it likes. Your reach can drop suddenly, and your account can be restricted or closed over a false report, wiping out years of conversations with your customers in a moment. A website is a digital asset you own, on a domain with your name, and no one can shut it down on you.
+Your page lives on a platform that sets and changes the rules whenever it likes. Your reach can drop suddenly, and your account can be restricted or closed over a false report, wiping out years of conversations with your customers in a moment. A website is a digital asset you own, on a domain with your name, and you control its content and rules for as long as you renew your domain and hosting.
 
 ## Customers search Google, not Facebook
 
-When someone needs a dentist, a nearby restaurant or a maintenance company, they type what they need into a search engine. Social pages rarely rank well in those results, while a well-optimized website can appear in front of a ready-to-buy customer at the exact moment they're searching.
+When someone needs a dentist, a nearby restaurant or a maintenance company, they type what they need into a search engine. Social pages often don’t rank as well for those searches, while a well-optimized website can appear in front of a ready-to-buy customer at the exact moment they're searching.
 
 ## Information gets lost between posts
 
@@ -595,7 +595,7 @@ You don't need electronic patient records or a standalone app at the start. Begi
 
 ## A menu people can read, not download
 
-The most common mistake is uploading the menu as a PDF or an image. These formats are slow on phones, invisible to search engines and hard to update. The best menu is text-based, organized into clear sections, with visible prices and labels for signature or vegetarian dishes.
+The most common mistake is uploading the menu as a PDF or an image. These formats are awkward on phones, much harder for search engines to understand than a text menu (and text inside an image isn’t read at all), and hard to update. The best menu is text-based, organized into clear sections, with visible prices and labels for signature or vegetarian dishes.
 
 ## A booking button everywhere
 
