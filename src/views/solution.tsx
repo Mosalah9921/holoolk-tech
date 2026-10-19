@@ -208,7 +208,7 @@ export default function SolutionView({ locale, id }: { locale: Locale; id: strin
 
       <Section id="other-solutions">
         <SectionHeading title={t("مجالات أخرى نخدمها", "Other industries we serve")} />
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {others.map(({ id: oid, image: oimage, name }) => (
             <li key={oid}>
               <Link

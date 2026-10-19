@@ -83,7 +83,7 @@ export function TechStack({ locale = "ar" }: { locale?: Locale }) {
               <TrackIcon className="size-6" aria-hidden />
             </span>
             {label && (
-              <span dir="ltr" className="mt-5 inline-block rounded-md bg-white px-2 py-0.5 font-mono text-[11px] font-semibold tracking-wide text-brand-700 ring-1 ring-brand-100">
+              <span dir="ltr" className="mt-5 inline-block rounded-lg bg-white px-2 py-0.5 font-mono text-[11px] font-semibold tracking-wide text-brand-700 ring-1 ring-brand-100">
                 {label}
               </span>
             )}

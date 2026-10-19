@@ -130,6 +130,8 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
   const [d, setD] = useState<Draft>(empty);
   const [restored, setRestored] = useState(false);
   const [sent, setSent] = useState(false);
+  /** رابط واتساب بالطلب — بيظهر كزرار في شاشة النجاح لو المتصفح منع فتحه تلقائياً */
+  const [waHref, setWaHref] = useState("");
   const [touched, setTouched] = useState(false);
 
   // استرجاع المسودة
@@ -213,7 +215,9 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
 
   function submit() {
     const text = [tl("مرحباً حلولك تيك، أرسلت طلب مشروع من الموقع:", "Hello Holoolk Tech, I just submitted a project request on your website:"), ...summary.map(([k, v]) => `• ${k}: ${v}`)].join("\n");
-    window.open(whatsappLink(siteConfig.contact.whatsapp, text), "_blank", "noopener,noreferrer");
+    const href = whatsappLink(siteConfig.contact.whatsapp, text);
+    setWaHref(href);
+    window.open(href, "_blank", "noopener,noreferrer");
     trackEvent("lead", { source: "wizard", type: d.type, industry: d.industry });
     if (FORM_ENDPOINT) {
       fetch(FORM_ENDPOINT, {
@@ -231,7 +235,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
     }
   }
 
-  if (sent) return <SuccessScreen name={d.name} onReset={reset} locale={locale} />;
+  if (sent) return <SuccessScreen name={d.name} waHref={waHref} onReset={reset} locale={locale} />;
 
   const progress = Math.round((step / 5) * 100);
 
@@ -258,7 +262,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
                   onClick={() => setStep(i)}
                   className={cn(
                     "flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-start text-sm transition-colors",
-                    current ? "bg-white font-bold text-slate-900 shadow-sm ring-1 ring-slate-200" : done ? "text-slate-700 hover:bg-white" : "text-slate-400",
+                    current ? "bg-white font-bold text-slate-900 shadow-sm ring-1 ring-slate-200" : done ? "text-slate-700 hover:bg-white" : "text-slate-500",
                   )}
                 >
                   <span
@@ -410,7 +414,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
           )}
         </div>
 
-        <div className="mt-9 flex items-center justify-between gap-3 border-t border-slate-100 pt-6">
+        <div data-cta-band className="mt-9 flex items-center justify-between gap-3 border-t border-slate-100 pt-6">
           <div className="flex items-center gap-2">
             {step > 0 && (
               <button type="button" onClick={back} className="flex h-11 items-center gap-1.5 rounded-xl px-4 text-sm font-bold text-slate-600 hover:bg-slate-100">
@@ -419,7 +423,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
               </button>
             )}
             {(step > 0 || d.type) && (
-              <button type="button" onClick={reset} className="flex h-11 items-center gap-1.5 rounded-xl px-3 text-sm text-slate-400 hover:text-slate-600">
+              <button type="button" onClick={reset} className="flex h-11 items-center gap-1.5 rounded-xl px-3 text-sm text-slate-500 hover:text-slate-700">
                 <RotateCcw className="size-4" aria-hidden />
                 {tl("البدء من جديد", "Start over")}
               </button>
@@ -432,13 +436,19 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
             </button>
           )}
         </div>
+        <p className="mt-4 text-xs leading-6 text-slate-500">
+          {tl(
+            "تُحفظ مسودتك في متصفحك فقط حتى الإرسال، ويمكنك مسحها بزر «البدء من جديد». بعد الإرسال نراجع طلبك ونرد خلال 24 ساعة عمل.",
+            "Your draft is saved only in your browser until you send it, and “Start over” clears it. Once you send it, we review your request and reply within 24 business hours.",
+          )}
+        </p>
       </div>
     </div>
   );
 }
 
 const inputCls =
-  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/10 focus:outline-none";
+  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-500 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/10 focus:outline-none";
 
 function Choice({ selected, onClick, icon: Icon, label, hint }: { selected: boolean; onClick: () => void; icon?: LucideIcon; label: string; hint?: string }) {
   return (
@@ -478,7 +488,7 @@ function Field({ label, required, className, children }: { label: string; requir
   );
 }
 
-function SuccessScreen({ name, onReset, locale }: { name: string; onReset: () => void; locale: Locale }) {
+function SuccessScreen({ name, waHref, onReset, locale }: { name: string; waHref: string; onReset: () => void; locale: Locale }) {
   const tl = tr(locale);
   const next = locale === "en"
     ? [
@@ -495,7 +505,7 @@ function SuccessScreen({ name, onReset, locale }: { name: string; onReset: () =>
     <div className="mx-auto max-w-2xl rounded-[2rem] border border-slate-200 bg-white p-8 text-center shadow-sm sm:p-12" role="status">
       <CheckCircle2 className="mx-auto size-16 text-brand-600" aria-hidden />
       <h2 className="mt-5 text-3xl font-black">{tl("شكراً لك", "Thank you")}{name ? tl(`، ${name.split(" ")[0]}`, `, ${name.split(" ")[0]}`) : ""}.</h2>
-      <p className="mt-3 leading-8 text-slate-600">{tl("تم تجهيز طلبك. إن لم يُفتح واتساب تلقائياً، يمكنك التواصل معنا مباشرة من صفحة التواصل.", "Your request is ready. If WhatsApp didn’t open automatically, you can reach us directly from the contact page.")}</p>
+      <p className="mt-3 leading-8 text-slate-600">{tl("تم تجهيز طلبك. أكمل الإرسال من واتساب، وإن لم يُفتح تلقائياً اضغط الزر بالأسفل لإرسال نفس الرسالة.", "Your request is ready. Finish sending it on WhatsApp, and if it didn’t open automatically, use the button below to send the same message.")}</p>
       <ol className="mt-8 grid gap-3 text-start sm:grid-cols-3">
         {next.map((s, i) => (
           <li key={s.title} className="rounded-2xl bg-slate-50 p-4">
@@ -506,7 +516,12 @@ function SuccessScreen({ name, onReset, locale }: { name: string; onReset: () =>
         ))}
       </ol>
       <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-        <Link href={lp(locale, "/work")} className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-600 px-5 text-sm font-bold text-white hover:bg-brand-700">
+        {waHref && (
+          <a href={waHref} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 items-center justify-center rounded-xl bg-[#1a8f4c] px-5 text-sm font-bold text-white hover:bg-[#157a40]">
+            {tl("إرسال الطلب عبر واتساب", "Send request on WhatsApp")}
+          </a>
+        )}
+        <Link href={lp(locale, "/work")} className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 px-5 text-sm font-bold text-slate-700 hover:bg-slate-50">
           {tl("تصفّح أعمالنا", "Browse our work")}
         </Link>
         <button type="button" onClick={onReset} className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 px-5 text-sm font-bold text-slate-700 hover:bg-slate-50">

@@ -56,7 +56,7 @@ export function Comparison({ locale = "ar" }: { locale?: Locale }) {
                 <th key={p.id} scope="col" className={cn("relative px-3 py-5 text-center align-middle", p.popular ? "bg-brand-600 text-white" : "bg-slate-50 text-slate-900")}>
                   {p.popular && (
                     <span className="absolute inset-x-0 top-1.5 mx-auto w-fit rounded-full bg-white/20 px-2 text-[10px] leading-4 font-bold">
-                      {t("الأكثر طلباً", "Most popular")}
+                      {t("مُوصى به", "Recommended")}
                     </span>
                   )}
                   <span className="block text-[15px] leading-6 font-black">{p.name}</span>
@@ -104,7 +104,8 @@ export function Comparison({ locale = "ar" }: { locale?: Locale }) {
       </div>
 
       {/* ===== الموبايل ===== */}
-      <div className="overflow-clip rounded-2xl border border-slate-200 bg-white shadow-sm md:hidden" role="table" aria-label={t("مقارنة مزايا الباقات", "Package feature comparison")}>
+      <div className="overflow-clip rounded-2xl border border-slate-200 bg-white shadow-sm md:hidden">
+      <div role="table" aria-label={t("مقارنة مزايا الباقات", "Package feature comparison")}>
         {/* رؤوس الباقات — ثابتة أثناء التمرير (overflow-clip مش hidden عشان الـ sticky يشتغل) */}
         <div role="row" className="sticky top-[4.75rem] z-10 grid grid-cols-3 border-b border-slate-200 bg-white/95 backdrop-blur">
           {packages.map((p) => (
@@ -113,7 +114,7 @@ export function Comparison({ locale = "ar" }: { locale?: Locale }) {
               role="columnheader"
               className={cn("flex min-h-16 flex-col items-center justify-center px-1 py-2.5 text-center", p.popular ? "bg-brand-600 text-white" : "text-slate-900")}
             >
-              {p.popular && <span className="mb-1 rounded-full bg-white/20 px-1.5 text-[10px] leading-4 font-bold">{t("الأكثر طلباً", "Most popular")}</span>}
+              {p.popular && <span className="mb-1 rounded-full bg-white/20 px-1.5 text-[10px] leading-4 font-bold">{t("مُوصى به", "Recommended")}</span>}
               <span className="text-[13px] leading-4 font-black">{shortName(p.name)}</span>
             </div>
           ))}
@@ -139,6 +140,7 @@ export function Comparison({ locale = "ar" }: { locale?: Locale }) {
             </div>
           </div>
         ))}
+      </div>
         <div className="grid grid-cols-3 gap-1.5 border-t border-slate-200 bg-slate-50/70 p-2">
           {packages.map((p) => (
             <a

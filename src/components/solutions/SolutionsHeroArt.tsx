@@ -7,33 +7,25 @@ import { lp, type Locale } from "@/i18n";
 /** أسماء مختصرة للمربعات */
 const labelsEn: Record<string, string> = {
   restaurants: "Restaurants",
-  travel: "Travel",
-  beauty: "Beauty",
   clinics: "Clinics",
   education: "Education",
   fitness: "Fitness",
   stores: "Retail",
   "real-estate": "Real estate",
-  logistics: "Logistics",
   companies: "Companies",
-  events: "Events",
 };
 const labels: Record<string, string> = {
   restaurants: "المطاعم",
-  travel: "السياحة",
-  beauty: "التجميل",
   clinics: "العيادات",
   education: "التعليم",
   fitness: "اللياقة",
   stores: "المتاجر",
   "real-estate": "العقارات",
-  logistics: "الشحن",
   companies: "الشركات",
-  events: "الفعاليات",
 };
-const delays = ["0s", "-1.6s", "-3.2s", "-4.8s", "-0.8s", "-2.4s", "-4s", "-5.6s", "-1.2s", "-2.8s", "-4.4s", "-6s"];
+const delays = ["0s", "-1.6s", "-3.2s", "-4.8s", "-0.8s", "-2.4s", "-4s", "-5.6s"];
 
-/** هيرو صفحة الحلول: شبكة عائمة (4 × 3) من بطاقات زجاجية بأيقونات ثلاثية الأبعاد لكل مجال + بطاقة «مجالك؟» */
+/** هيرو صفحة الحلول: شبكة عائمة (4 × 2) من بطاقات زجاجية بأيقونات ثلاثية الأبعاد لكل مجال + بطاقة «مجالك؟» */
 export function SolutionsHeroArt({ locale = "ar" }: { locale?: Locale }) {
   const L = locale === "en" ? labelsEn : labels;
   return (
@@ -59,7 +51,7 @@ export function SolutionsHeroArt({ locale = "ar" }: { locale?: Locale }) {
             </Link>
           </li>
         ))}
-        <li className="mt-3 sm:motion-safe:animate-[drift_7s_ease-in-out_infinite] sm:mt-5" style={{ animationDelay: delays[11] }}>
+        <li className="mt-3 sm:motion-safe:animate-[drift_7s_ease-in-out_infinite] sm:mt-5" style={{ animationDelay: delays[7] }}>
           <Link
             href={lp(locale, "/start")}
             className="group flex h-full flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed border-brand-200 bg-white/40 p-2 text-center sm:backdrop-blur-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-brand-400 hover:bg-white/80 sm:gap-2 sm:rounded-3xl"

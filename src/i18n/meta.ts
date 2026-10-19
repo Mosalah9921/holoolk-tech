@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { ogImage, siteConfig } from "@/config/site";
 import { lp, type Locale } from "@/i18n";
 
-/** صورة المشاركة لكل لغة (الإنجليزية تتولد من src/app/(en)/en/opengraph-image.tsx) */
+/**
+ * صورة المشاركة لكل لغة.
+ * الإنجليزية: public/og-en.png (نسخة ثابتة من src/app/(en)/en/opengraph-image.tsx —
+ * رابط الصورة المتولدة بيتغير بكود عشوائي وقت البناء، فكان بيطلع 404 لما بنكتبه يدوياً)
+ */
 export const ogImageFor = (locale: Locale) =>
   locale === "en"
-    ? { url: "/en/opengraph-image", width: 1200, height: 630, type: "image/png", alt: "Holoolk Tech — Digital solutions that drive your business forward" }
+    ? { url: "/og-en.png", width: 1200, height: 630, type: "image/png", alt: "Holoolk Tech — IT Solutions" }
     : ogImage;
 
 /** وصف جوجل المثالي حتى ~160 حرف: لو أطول بنقصه عند آخر كلمة كاملة */

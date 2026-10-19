@@ -63,7 +63,7 @@ export function Process({ className = "bg-white", withCta = true, locale = "ar" 
                         "relative flex size-14 items-center justify-center rounded-2xl border-2 transition-all duration-300",
                         isActive && "scale-110 border-brand-600 bg-brand-600 text-white shadow-xl shadow-brand-600/30",
                         done && "border-brand-600 bg-white text-brand-600",
-                        !isActive && !done && "border-slate-200 bg-white text-slate-400 group-hover:border-brand-200 group-hover:text-brand-600",
+                        !isActive && !done && "border-slate-200 bg-white text-slate-500 group-hover:border-brand-200 group-hover:text-brand-600",
                       )}
                     >
                       {done ? <Check className="size-6" aria-hidden /> : <Icon className="size-6" aria-hidden />}

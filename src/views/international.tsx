@@ -278,7 +278,7 @@ export default function InternationalView({ locale }: { locale: Locale }) {
               <div className="min-w-0 lg:mt-5">
                 <h3 className="text-base font-bold text-slate-900">{title}</h3>
                 <p className="mt-1.5 text-sm leading-7 text-slate-600">{text}</p>
-                <p className="mt-3 inline-flex rounded-md bg-white px-2 py-0.5 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">{tag}</p>
+                <p className="mt-3 inline-flex rounded-lg bg-white px-2 py-0.5 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">{tag}</p>
               </div>
             </li>
           ))}

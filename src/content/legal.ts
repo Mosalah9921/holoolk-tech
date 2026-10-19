@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
  * ⚠️ نصوص مبدئية مكتوبة حسب ما يجمعه الموقع فعلاً — يُستحسن مراجعتها مع محامٍ قبل الإطلاق.
  * لو فعّلت Google Analytics أو Meta Pixel أو Formspree، فهي مذكورة هنا بالفعل.
  */
-export const legalUpdated = "15 أكتوبر 2026";
+export const legalUpdated = "19 أكتوبر 2026";
 
 export const privacy = {
   title: "سياسة الخصوصية",
@@ -41,13 +41,13 @@ ${siteConfig.name} (${siteConfig.nameEn}) جهة متخصصة في تطوير ا
 
 ## ملفات تعريف الارتباط وأدوات القياس
 
-قد نستخدم أدوات قياس مثل Google Analytics أو Meta Pixel لمعرفة عدد الزوار والصفحات الأكثر زيارة ومصادر الزيارات. تعتمد هذه الأدوات على ملفات تعريف الارتباط (Cookies)، ويمكنك تعطيلها من إعدادات متصفحك دون أن يؤثر ذلك على استخدام الموقع.
+عند تفعيل أدوات قياس مثل Google Analytics أو Meta Pixel نستخدمها لمعرفة عدد الزوار والصفحات الأكثر زيارة ومصادر الزيارات. تعتمد هذه الأدوات على ملفات تعريف الارتباط (Cookies)، ويمكنك تعطيلها من إعدادات متصفحك دون أن يؤثر ذلك على استخدام الموقع.
 
 ## حماية البيانات
 
 - الموقع يعمل باتصال مشفّر بالكامل (HTTPS).
 - لا يطّلع على طلبك إلا من يعمل على مشروعك.
-- نحتفظ بالبيانات طوال فترة التواصل بشأن المشروع، ثم نحذفها عند طلبك أو عند انتفاء الحاجة إليها.
+- نحتفظ ببيانات الاستفسار طوال فترة التواصل، وإن لم يتحول إلى مشروع نحذفها خلال 12 شهراً من آخر تواصل، أو قبل ذلك عند طلبك.
 
 ## حقوقك
 
@@ -103,14 +103,14 @@ export const terms = {
 
 /* ============================ English ============================ */
 
-export const legalUpdatedEn = "15 October 2026";
+export const legalUpdatedEn = "19 October 2026";
 
 export const privacyEn = {
   title: "Privacy Policy",
   intro: `This policy explains what data the ${siteConfig.nameEn} website collects, why we collect it, how we protect it, and your rights over it.`,
   body: `## Who we are
 
-${siteConfig.nameEn} (${siteConfig.name}) is a studio specializing in websites and digital systems, based in ${siteConfig.contact.locationEn}. For anything related to your data: ${siteConfig.contact.email} or WhatsApp ${siteConfig.contact.phoneDisplay}.
+${siteConfig.nameEn} (${siteConfig.name}) is an IT solutions company specializing in websites and digital systems, based in ${siteConfig.contact.locationEn}. For anything related to your data: ${siteConfig.contact.email} or WhatsApp ${siteConfig.contact.phoneDisplay}.
 
 ## Data we collect
 
@@ -139,13 +139,13 @@ We never sell, rent or share your data with anyone for marketing purposes.
 
 ## Cookies and analytics
 
-We may use analytics tools such as Google Analytics and Meta Pixel to understand visitor numbers, the most visited pages and traffic sources. These tools rely on cookies, which you can disable in your browser settings without affecting your use of the website.
+When analytics tools such as Google Analytics or Meta Pixel are enabled, we use them to understand visitor numbers, the most visited pages and traffic sources. These tools rely on cookies, which you can disable in your browser settings without affecting your use of the website.
 
 ## Data protection
 
 - The website runs over a fully encrypted connection (HTTPS).
 - Only the people working on your project can see your request.
-- We keep your data for as long as we're in touch about your project, then delete it at your request or once it's no longer needed.
+- We keep inquiry data while we're in touch. If it doesn't become a project, we delete it within 12 months of our last contact, or sooner if you ask.
 
 ## Your rights
 

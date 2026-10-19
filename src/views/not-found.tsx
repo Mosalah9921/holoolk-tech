@@ -23,7 +23,7 @@ export default function NotFoundView({ locale, inSite = false }: { locale: Local
       <div aria-hidden className="bg-grid mask-fade absolute inset-0 -z-10" />
       <div aria-hidden className="absolute top-1/3 left-1/2 -z-10 size-[420px] -translate-x-1/2 rounded-full bg-brand-200/40 blur-[110px]" />
 
-      {!inSite && <Logo variant={locale} href={lp(locale, "/")} />}
+      {!inSite && <Logo priority variant={locale} href={lp(locale, "/")} />}
 
       <p dir="ltr" className={`text-gradient ${inSite ? "" : "mt-12"} text-[7rem] leading-none font-black tracking-tight sm:text-[9rem]`}>
         404

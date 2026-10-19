@@ -17,7 +17,7 @@ const checks = [
 ];
 
 const inputCls =
-  "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 focus:outline-none";
+  "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-500 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 focus:outline-none";
 
 /** "فحص مجاني لموقعك" — صاحب موقع قديم بيبعت رابطه، وإنت بترد عليه بتقرير مختصر */
 export function FreeAudit({ bare = false, locale = "ar" }: { bare?: boolean; locale?: Locale }) {
@@ -91,6 +91,7 @@ export function FreeAudit({ bare = false, locale = "ar" }: { bare?: boolean; loc
                 <input required autoComplete="name" placeholder={t("الاسم أو اسم الشركة", "Your name or company")} value={name} onChange={(e) => setName(e.target.value)} className={inputCls} />
               </label>
               <button
+                data-cta-band
                 type="submit"
                 className="flex h-12 w-full items-center justify-center rounded-xl bg-brand-600 font-bold text-white shadow-md shadow-brand-600/20 transition-colors hover:bg-brand-700"
               >

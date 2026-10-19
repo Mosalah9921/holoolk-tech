@@ -44,7 +44,7 @@ export function getSearchIndex(locale: Locale = "ar"): SearchEntry[] {
     { title: t("كل الخدمات", "All services"), href: "/services", group: g.pages, icon: LayoutGrid },
     { title: t("الحلول حسب المجال", "Solutions by industry"), href: "/solutions", group: g.pages, icon: Layers },
     { title: t("أعمالنا", "Our work"), href: "/work", group: g.pages },
-    { title: t("الباقات والمقارنة", "Pricing & comparison"), href: "/pricing", group: g.pages },
+    { title: t("الباقات والمقارنة", "Packages & comparison"), href: "/pricing", group: g.pages },
     { title: t("من نحن", "About us"), href: "/about", group: g.pages, icon: Users },
     { title: t("منهجية العمل", "Our process"), href: "/process", group: g.pages, icon: Workflow },
     { title: t("الأسئلة الشائعة", "FAQ"), href: "/faq", group: g.pages, icon: HelpCircle },

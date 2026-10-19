@@ -15,7 +15,7 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "why-store-visitors-dont-buy",
-    title: "لماذا يزور العملاء متجرك الإلكتروني ولا يشترون؟ 8 أسباب وحلولها",
+    title: "لماذا يزور العملاء متجرك ولا يشترون؟ 8 أسباب وحلولها",
     description: "زيارات كثيرة ومبيعات قليلة؟ المشكلة غالباً ليست في منتجاتك، بل في تفاصيل داخل المتجر. ثمانية أسباب شائعة تُضيّع المبيعات، وكيف تعالج كلاً منها.",
     category: "المتاجر الإلكترونية",
     date: "2026-10-17",
@@ -122,7 +122,7 @@ export const articles: Article[] = [
   },
   {
     slug: "data-security-practices-2026",
-    title: "دليلك لحماية بيانات منشأتك: 5 ممارسات أمنية لا غنى عنها في 2026",
+    title: "5 ممارسات أمنية أساسية لحماية بيانات منشأتك",
     description: "مع اعتماد الأعمال على الأنظمة السحابية، أصبح الأمان ركيزة لاستمرار النشاط. خمس ممارسات أساسية تحمي بيانات منشأتك وعملائك.",
     category: "الأمان والحماية",
     date: "2026-10-15",
@@ -369,7 +369,7 @@ export function readingLabel(a: Article, locale: "ar" | "en" = "ar") {
 export const articlesEn: Article[] = [
   {
     slug: "why-store-visitors-dont-buy",
-    title: "Why Do Shoppers Visit Your Online Store but Not Buy? 8 Reasons and How to Fix Them",
+    title: "Why Shoppers Visit Your Store but Don’t Buy: 8 Fixes",
     description: "Plenty of traffic but few sales? The problem is rarely your products. It's usually small details inside the store. Eight common conversion killers and how to fix each one.",
     category: "E-commerce",
     date: "2026-10-17",
@@ -439,7 +439,7 @@ A successful online store isn't just a beautiful storefront. It's a carefully de
   },
   {
     slug: "custom-system-vs-saas",
-    title: "Custom System or Off-the-Shelf Software? How to Choose for Your Business",
+    title: "Custom System or Off-the-Shelf Software? How to Choose",
     description: "A practical comparison of subscription software and custom-built systems: when off-the-shelf saves you money, and when custom becomes the smarter investment.",
     category: "Project decisions",
     date: "2026-10-15",
@@ -476,7 +476,7 @@ Digital transformation isn't one-size-fits-all. Start by understanding your oper
   },
   {
     slug: "data-security-practices-2026",
-    title: "Protecting Your Business Data: 5 Essential Security Practices for 2026",
+    title: "5 Essential Security Practices to Protect Your Business Data",
     description: "As businesses move to the cloud, security has become essential to staying in business. Five core practices that protect your company's and your customers' data.",
     category: "Security",
     date: "2026-10-15",
@@ -587,7 +587,7 @@ You don't need electronic patient records or a standalone app at the start. Begi
   },
   {
     slug: "restaurant-website-essentials",
-    title: "What Does a Restaurant Website Need to Bring in Real Bookings?",
+    title: "What a Restaurant Website Needs to Win Real Bookings",
     description: "Menu, booking, photos and speed: the elements that turn a restaurant website visitor into a guest at your table.",
     category: "Industry guides",
     date: "2026-10-15",
@@ -662,7 +662,7 @@ A template is a quick start; a custom website is a foundation for growth. Choose
   },
   {
     slug: "questions-before-hiring-web-agency",
-    title: "7 Questions to Ask Before Hiring Any Web Development Company",
+    title: "7 Questions to Ask Before Hiring a Web Developer",
     description: "Before you sign, ask these seven questions to avoid the most common website project problems: delays, surprise costs and losing ownership of your site.",
     category: "Project decisions",
     date: "2026-10-15",

@@ -61,7 +61,7 @@ const solutionMenu = [
   { id: "clinics", label: { ar: "العيادات والمراكز الطبية", en: "Clinics & medical centers" } },
   { id: "stores", label: { ar: "المتاجر والعلامات التجارية", en: "Retail & brands" } },
   { id: "real-estate", label: { ar: "العقارات والتطوير العقاري", en: "Real estate & development" } },
-  { id: "companies", label: { ar: "الشركات وبوابات الأعمال", en: "Business portals & CRM" } },
+  { id: "companies", label: { ar: "الشركات والمؤسسات", en: "Companies & organizations" } },
   { id: "education", label: { ar: "التعليم والتدريب", en: "Education & training" } },
 ];
 
@@ -88,7 +88,7 @@ export function getMainNav(locale: L = "ar"): NavGroup[] {
       items: solutionMenu.map(({ id, label }) => ({ label: label[locale], href: `/solutions/${id}`, icon: bySlug(solutions, id).icon, image: bySlug(solutions, id).image })),
       compact: true,
       footerLink: {
-        label: t(`استكشف كافة القطاعات والحلول (${solutions.length} مجالاً)`, `Explore all ${solutions.length} industries and solutions`),
+        label: t("استكشف كل المجالات والحلول", "Explore all industries and solutions"),
         href: "/solutions",
       },
       feature: {
@@ -99,7 +99,7 @@ export function getMainNav(locale: L = "ar"): NavGroup[] {
       },
     },
     { label: t("أعمالنا", "Work"), href: "/work" },
-    { label: t("الباقات", "Pricing"), href: "/pricing" },
+    { label: t("الباقات", "Packages"), href: "/pricing" },
     {
       label: t("الشركة", "Company"),
       intro: t("تعرّف علينا", "Get to know us"),

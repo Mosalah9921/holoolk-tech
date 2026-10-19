@@ -329,7 +329,7 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
           </p>
         )}
 
-        <button type="submit" className="mt-6 flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-600 font-bold text-white shadow-md shadow-brand-600/20 hover:bg-brand-700">
+        <button data-cta-band type="submit" className="mt-6 flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-600 font-bold text-white shadow-md shadow-brand-600/20 hover:bg-brand-700">
           {t("تأكيد الحجز", "Confirm booking")}
           <ArrowLeft className="size-5" aria-hidden />
         </button>
@@ -344,4 +344,4 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
 }
 
 const inputCls =
-  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/10 focus:outline-none";
+  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-500 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/10 focus:outline-none";

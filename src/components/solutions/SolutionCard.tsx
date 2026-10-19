@@ -26,7 +26,7 @@ export function SolutionCard({ solution: s, locale = "ar" }: { solution: Solutio
               <span className="absolute inset-0 rounded-full bg-emerald-400 motion-safe:animate-ping" />
               <span className="relative size-2 rounded-full bg-emerald-500" />
             </span>
-            {t("نموذج حي", "Live demo")}
+            {t("موقع نموذجي", "Sample site")}
           </span>
         )}
       </div>

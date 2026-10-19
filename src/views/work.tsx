@@ -51,6 +51,7 @@ export default function WorkView({ locale }: { locale: Locale }) {
         </ButtonLink>
       </PageHeader>
       <Section id="work" className="pt-0 sm:pt-0 lg:pt-0">
+        <h2 className="sr-only">{t("نماذج أعمالنا", "Our work samples")}</h2>
         <WorkGallery locale={locale} />
       </Section>
       <FoundingClients locale={locale} />

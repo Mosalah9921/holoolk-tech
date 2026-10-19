@@ -49,7 +49,7 @@ const kindsAr: Kind[] = [
     label: "مطعم أو كافيه",
     icon: UtensilsCrossed,
     sample: "مطعم بيت الكرم",
-    accent: "#EA580C",
+    accent: "#C2410C",
     soft: "#FFF7ED",
     nav: ["قائمة الطعام", "الفروع", "الحجز"],
     line: "أطباق منزلية طازجة يومياً — اطلب إلكترونياً أو احجز طاولتك.",
@@ -65,7 +65,7 @@ const kindsAr: Kind[] = [
     label: "عيادة",
     icon: Stethoscope,
     sample: "عيادة د. سلمى",
-    accent: "#0D9488",
+    accent: "#0F766E",
     soft: "#F0FDFA",
     nav: ["الخدمات", "الأطباء", "الحجز"],
     line: "احجز موعدك إلكترونياً في أقل من دقيقة، دون انتظار.",
@@ -81,7 +81,7 @@ const kindsAr: Kind[] = [
     label: "متجر",
     icon: ShoppingBag,
     sample: "متجر ورد",
-    accent: "#DB2777",
+    accent: "#BE185D",
     soft: "#FDF2F8",
     nav: ["المنتجات", "العروض", "السلة"],
     line: "منتجات أصلية، وشحن لجميع المحافظات، والدفع عند الاستلام.",
@@ -97,7 +97,7 @@ const kindsAr: Kind[] = [
     label: "شركة",
     icon: Building2,
     sample: "النخبة للمقاولات",
-    accent: "#0284C7",
+    accent: "#0369A1",
     soft: "#F0F9FF",
     nav: ["خدماتنا", "مشاريعنا", "تواصل معنا"],
     line: "خبرة راسخة في تنفيذ المشاريع وفق أعلى معايير الجودة والالتزام.",
@@ -212,7 +212,7 @@ export function TryPreview({ bare = false, locale = "ar" }: { bare?: boolean; lo
               placeholder={t(`مثال: ${kind.sample}`, `e.g. ${kind.sample}`)}
               maxLength={32}
               autoComplete="organization"
-              className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/10 focus:outline-none"
+              className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-500 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/10 focus:outline-none"
             />
 
             <fieldset className="mt-4">

@@ -13,10 +13,10 @@ const highlights = [
     title: { ar: "تطوير المواقع والمتاجر الإلكترونية", en: "Websites & Online Stores" },
     tag: "Web & E-commerce",
     description: {
-      ar: "منصات سريعة، متجاوبة بالكامل، مصممة لرفع المبيعات وتحسين الظهور في محركات البحث (SEO)\u200F.",
-      en: "Fast, fully responsive platforms designed to grow sales and improve your visibility in search engines.",
+      ar: "مواقع ومتاجر سريعة ومتجاوبة مع كل الشاشات، مع تهيئة تقنية لمحركات البحث.",
+      en: "Fast websites and stores that work on every screen, with technical SEO built in.",
     },
-    points: { ar: ["متاجر متكاملة", "بوابات دفع آمنة", "سرعة تحميل فائقة"], en: ["Complete online stores", "Secure payment gateways", "Lightning-fast loading"] },
+    points: { ar: ["متاجر متكاملة", "بوابات دفع آمنة", "أداء سريع يُختبر قبل الإطلاق"], en: ["Complete online stores", "Secure payment gateways", "Performance tested before launch"] },
     href: "/services/e-commerce",
   },
   {
@@ -86,7 +86,7 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
                   alt=""
                   width={560}
                   height={560}
-                  sizes="(min-width: 1280px) 180px, (min-width: 640px) 200px, 180px"
+                  sizes="128px"
                   className="relative h-32 w-auto object-contain transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105"
                 />
               </span>

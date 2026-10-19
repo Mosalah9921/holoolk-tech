@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { siteConfig, siteIndexable } from "@/config/site";
 import { Analytics } from "@/components/seo/Analytics";
+import { preloadFont } from "@/lib/font-preload";
 import "../globals.css";
 
 export { viewport } from "@/lib/root-meta";
@@ -16,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.nameEn} — Web Development Studio`,
+    default: `${siteConfig.nameEn} — IT Solutions`,
     template: `%s | ${siteConfig.nameEn}`,
   },
   description: siteConfig.descriptionEn,
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 
 /** الجذر الإنجليزي (LTR) — كل الصفحات تحت /en */
 export default function EnglishRootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  preloadFont("Inter");
   return (
     <html lang="en" dir="ltr" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-dvh font-sans" suppressHydrationWarning>

@@ -4,7 +4,7 @@ import { whatsappLink } from "@/lib/utils";
 import { Section } from "@/components/ui/Section";
 import { tr, type Locale } from "@/i18n";
 
-/** برنامج شركاء النجاح — عدد محدود من المشاريع بشروط تفضيلية مقابل عرضها كدراسات حالة */
+/** برنامج شركاء النجاح — مشاريع مختارة بشروط تفضيلية مقابل عرضها في أعمالنا وتقييم صاحبها */
 export function FoundingClients({ locale = "ar" }: { locale?: Locale }) {
   const t = tr(locale);
   const perks = locale === "en" ? [
@@ -23,15 +23,15 @@ export function FoundingClients({ locale = "ar" }: { locale?: Locale }) {
           <div>
             <p className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">
               <span className="size-1.5 rounded-full bg-brand-600" />
-              {t("أماكن محدودة كل ربع سنة", "Limited spots each quarter")}
+              {t("لمشاريع مختارة", "For selected projects")}
             </p>
             <h2 id="partner-title" className="mt-4 text-3xl font-black sm:text-4xl">
               {t("برنامج شركاء النجاح.", "The Partner Program.")}
             </h2>
             <p className="mt-4 leading-8 text-slate-600">
               {t(
-                "نخصّص كل ربع سنة عدداً محدوداً من المشاريع لبرنامج شراكة يحصل فيه العميل على شروط تفضيلية وتركيز كامل من فريقنا، مقابل أن يصبح مشروعه جزءاً من معرض أعمالنا المختار.",
-                "Each quarter, we reserve a limited number of projects for our Partner Program: preferential terms and our team’s full focus, in return for featuring the finished project in our curated portfolio.",
+                "نختار مشاريع جديدة تناسب معرض أعمالنا، ونقدّم لأصحابها شروطاً تفضيلية وتركيزاً كاملاً من فريقنا، مقابل عرض المشروع في أعمالنا ومشاركة رأيهم بعد الإطلاق. نقبل المشروع في البرنامج حين يكون قابلاً للعرض العام، ويوافق صاحبه على ذكر اسمه.",
+                "We select new projects that suit our portfolio and offer their owners preferential terms and our team’s full focus, in return for featuring the project and sharing their feedback after launch. A project qualifies when it can be shown publicly and its owner agrees to be named.",
               )}
             </p>
             <a

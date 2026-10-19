@@ -12,7 +12,7 @@ import { Container } from "@/components/ui/Container";
 import { buttonClasses } from "@/components/ui/Button";
 
 const inputClasses =
-  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-500/10";
+  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-500 transition-colors focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-500/10";
 
 /**
  * نموذج التواصل: بيفتح واتساب برسالة جاهزة.
@@ -40,12 +40,15 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
   const [form, setForm] = useState({ name: "", phone: "", service: "", message: "" });
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
+  const [waHref, setWaHref] = useState("");
 
   const update = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [key]: e.target.value }));
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // فخ للرسائل المزعجة: خانة مخفية عن الزوار، لو اتملت يبقى برنامج آلي — نتجاهل الطلب بهدوء
+    if (new FormData(e.currentTarget).get("company_site")) return setSent(true);
     if (!form.name.trim() || !form.message.trim()) {
       setError(t("يُرجى إدخال الاسم وتفاصيل المشروع.", "Please enter your name and project details."));
       return;
@@ -73,7 +76,9 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
       .join("\n");
 
     // واتساب الأول (لازم يتفتح مباشرة بعد الضغط عشان المتصفح ميمنعوش)
-    window.open(whatsappLink(siteConfig.contact.whatsapp, text), "_blank", "noopener,noreferrer");
+    const href = whatsappLink(siteConfig.contact.whatsapp, text);
+    setWaHref(href);
+    window.open(href, "_blank", "noopener,noreferrer");
     trackEvent("lead", { service: form.service || "unspecified", locale });
 
     // نسخة احتياطية على الإيميل
@@ -126,7 +131,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
                 <li key={label} className="flex items-start gap-3">
                   <Icon className="mt-1 size-5 shrink-0 text-accent-300" aria-hidden />
                   <span className="min-w-0">
-                    <span className="block text-xs text-slate-500">{label}</span>
+                    <span className="block text-xs text-slate-400">{label}</span>
                     {href ? (
                       <a
                         href={href}
@@ -154,6 +159,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
             aria-describedby={error ? "form-error" : undefined}
           >
             <p className="text-lg font-black text-slate-900">{t("أو أرسل تفاصيل مشروعك", "Or send us your project details")}</p>
+            <input type="text" name="company_site" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -start-[9999px] size-px opacity-0" />
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field label={t("الاسم", "Name")} htmlFor="name" required>
                 <input id="name" name="name" autoComplete="name" value={form.name} onChange={update("name")} placeholder={t("الاسم أو اسم الشركة", "Your name or company")} className={inputClasses} />
@@ -203,12 +209,24 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
               </p>
             )}
 
-            <button type="submit" className={buttonClasses({ size: "lg", className: "mt-6 w-full" })}>
+            <button data-cta-band type="submit" className={buttonClasses({ size: "lg", className: "mt-6 w-full" })}>
               {t("إرسال التفاصيل", "Send details")}
             </button>
             <p className="mt-3 text-center text-xs text-slate-500" role="status">
               {sent
-                ? t("شكراً لتواصلك. إن لم يُفتح واتساب تلقائياً، يمكنك مراسلتنا على الرقم الموضّح.", "Thanks for reaching out. If WhatsApp didn't open automatically, you can message us on the number shown.")
+                ? (
+                    <>
+                      {t("شكراً لتواصلك. أكمل الإرسال من واتساب، وإن لم يُفتح تلقائياً ", "Thanks for reaching out. Finish sending on WhatsApp; if it didn't open automatically, ")}
+                      {waHref ? (
+                        <a href={waHref} target="_blank" rel="noopener noreferrer" className="font-bold text-brand-700 underline underline-offset-4">
+                          {t("اضغط هنا لإرسال رسالتك", "tap here to send your message")}
+                        </a>
+                      ) : (
+                        t("راسلنا على الرقم الموضّح", "message us on the number shown")
+                      )}
+                      .
+                    </>
+                  )
                 : t("سيُفتح واتساب برسالة جاهزة تتضمن بياناتك.", "WhatsApp will open with a ready-made message containing your details.")}
             </p>
             <ConsentNote className="mt-1" locale={locale} />

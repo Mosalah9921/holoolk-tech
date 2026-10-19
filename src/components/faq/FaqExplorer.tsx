@@ -43,7 +43,7 @@ export function FaqExplorer({ locale = "ar" }: { locale?: Locale }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("ابحث في الأسئلة…", "Search the questions…")}
-            className="h-13 w-full rounded-2xl border border-slate-200 bg-white ps-12 pe-4 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 focus:outline-none"
+            className="h-13 w-full rounded-2xl border border-slate-200 bg-white ps-12 pe-4 text-slate-900 shadow-sm placeholder:text-slate-500 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 focus:outline-none"
           />
         </label>
 

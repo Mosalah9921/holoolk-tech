@@ -21,8 +21,8 @@ export function About({ locale = "ar" }: { locale?: Locale }) {
             {t("قصتنا", "Our story")}
           </p>
           <h2 id="about-title" className="mt-4 text-[1.6rem] leading-[1.45] font-black sm:text-3xl lg:text-[2.1rem]">
-            <span className="block">{t("استوديو تطوير ويب", "A web studio built")}</span>
-            <span className="text-gradient block">{t("بمعايير عالمية.", "to world-class standards.")}</span>
+            <span className="block">{t("شركة حلول تقنية", "An IT solutions company")}</span>
+            <span className="text-gradient block">{t("بمعايير عالمية.", "built to world-class standards.")}</span>
           </h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-slate-600 sm:text-[1.0625rem]">
             {aboutStory.map((p) => (

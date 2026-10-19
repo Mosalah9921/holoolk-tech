@@ -10,11 +10,11 @@ import { lp } from "@/i18n";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const abs = (p: string) => `${siteConfig.url}${p === "/" ? "" : p}`;
-  const page = (path: string, priority = 0.7): MetadataRoute.Sitemap => {
+  const page = (path: string, priority = 0.7, lastModified: Date = now): MetadataRoute.Sitemap => {
     const languages = { "ar-EG": abs(path), en: abs(lp("en", path)), "x-default": abs(path) };
     return [
-      { url: abs(path), lastModified: now, changeFrequency: "monthly", priority, alternates: { languages } },
-      { url: abs(lp("en", path)), lastModified: now, changeFrequency: "monthly", priority: Math.max(0.3, +(priority - 0.1).toFixed(1)), alternates: { languages } },
+      { url: abs(path), lastModified, changeFrequency: "monthly", priority, alternates: { languages } },
+      { url: abs(lp("en", path)), lastModified, changeFrequency: "monthly", priority: Math.max(0.3, +(priority - 0.1).toFixed(1)), alternates: { languages } },
     ];
   };
   return [
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...page("/start", 0.9),
     ...page("/book", 0.8),
     ...page("/blog", 0.8),
-    ...articles.flatMap((a) => page(`/blog/${a.slug}`, 0.7)),
+    ...articles.flatMap((a) => page(`/blog/${a.slug}`, 0.7, new Date(a.date))),
     ...page("/about"),
     ...page("/process"),
     ...page("/faq"),

@@ -3,14 +3,16 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 
 /** رمز الشعار الموحّد «HT» — نفس الرمز في العربي والإنجليزي */
-export function LogoMark({ className, light = false }: { className?: string; light?: boolean }) {
+/** priority: للشعار اللي فوق في الهيدر بس — الباقي (الفوتر والمقالات) يتحمّل لما يقرب من الشاشة */
+export function LogoMark({ className, light = false, priority = false }: { className?: string; light?: boolean; priority?: boolean }) {
   return (
     <Image
       src={light ? "/brand/mark-en-light.png" : "/brand/mark-en.png"}
       alt=""
       width={260}
       height={256}
-      priority
+      sizes="48px"
+      priority={priority}
       className={cn("size-10 object-contain", className)}
     />
   );
@@ -28,12 +30,14 @@ export function Logo({
   href = "/",
   label,
   light = false,
+  priority = false,
 }: {
   className?: string;
   variant?: "ar" | "en";
   href?: string;
   label?: string;
   light?: boolean;
+  priority?: boolean;
 }) {
   const en = variant === "en";
   return (
@@ -43,14 +47,15 @@ export function Logo({
       className={cn("group inline-flex items-center gap-2.5", className)}
       title={label}
     >
-      <LogoMark light={light} className="transition-transform duration-300 group-hover:scale-105" />
+      <LogoMark light={light} priority={priority} className="transition-transform duration-300 group-hover:scale-105" />
       <span className="flex flex-col items-start leading-none">
         <Image
           src={`/brand/wordmark-${en ? "en" : "ar"}${light ? "-light" : ""}.png`}
           alt={en ? siteConfig.nameEn : siteConfig.name}
           width={en ? 578 : light ? 551 : 534}
           height={128}
-          priority
+          sizes="160px"
+          priority={priority}
           className={cn("w-auto", en ? "h-7" : "h-6")}
         />
         {!en && (

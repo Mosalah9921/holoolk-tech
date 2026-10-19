@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Pricing } from "@/components/sections/Pricing";
 import { Comparison } from "@/components/pricing/Comparison";
 import { PaymentTerms } from "@/components/pricing/PaymentTerms";
+import { ProposalScope } from "@/components/pricing/ProposalScope";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
 import { lp, tr, type Locale } from "@/i18n";
@@ -17,7 +18,7 @@ export function pricingMeta(locale: Locale) {
   const t = tr(locale);
   return pageMeta(locale, {
     path: "/pricing",
-    title: t("الباقات", "Pricing"),
+    title: t("الباقات", "Packages"),
     description: t(
       "باقات مرنة لمواقع الشركات وصفحات الهبوط والمتاجر الإلكترونية، مع مقارنة تفصيلية للمزايا.",
       "Flexible packages for company websites, landing pages and online stores, with a detailed feature comparison.",
@@ -33,11 +34,11 @@ export default function PricingView({ locale }: { locale: Locale }) {
     <>
       <PageHeader
         locale={locale}
-        crumbs={[{ label: t("الباقات", "Pricing") }]}
-        title={t("باقات مرنة تواكب مراحل نمو أعمالك.", "Flexible packages for every stage of your growth.")}
+        crumbs={[{ label: t("الباقات", "Packages") }]}
+        title={t("باقات واضحة، وسعر نهائي حسب نطاق مشروعك.", "Clear package scopes. A written quote for your project.")}
         description={t(
-          "كل باقة نقطة انطلاق، وبعد التشاور معك نُعدّ عرضاً مفصّلاً يتوافق مع متطلبات مشروعك بدقة.",
-          "Each package is a starting point. After we talk, we prepare a detailed proposal tailored precisely to your project.",
+          "اختر نقطة البداية المناسبة. بعد مراجعة متطلباتك نرسل عرضاً مكتوباً يحدد الصفحات والوظائف والمدة والتكلفة وما يشمله الدعم.",
+          "Choose a starting point. After reviewing your requirements, we send a written proposal covering pages, features, timeline, cost and support.",
         )}
         aside={
           <HeroVisual
@@ -64,16 +65,17 @@ export default function PricingView({ locale }: { locale: Locale }) {
         <SectionHeading
           align="center"
           title={t("مقارنة تفصيلية بين الباقات", "Detailed package comparison")}
-          description={t("كل المزايا جنباً إلى جنب لتختار عن وضوح.", "Every feature side by side, so you can choose with clarity.")}
+          description={t("كل المزايا جنباً إلى جنب لتختار بوضوح.", "Every feature side by side, so you can choose with clarity.")}
         />
         <Comparison locale={locale} />
         <PaymentTerms locale={locale} />
+        <ProposalScope locale={locale} />
       </Section>
 
       <Section id="pricing-faq">
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <SectionHeading
-            title={t("أسئلة حول الباقات", "Questions about pricing")}
+            title={t("أسئلة حول الباقات", "Questions about packages")}
             description={t("لمزيد من الأسئلة، تصفّح صفحة الأسئلة الشائعة.", "For more answers, browse the full FAQ page.")}
             className="mb-0"
           >

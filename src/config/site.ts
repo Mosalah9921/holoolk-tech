@@ -8,9 +8,9 @@ export const siteConfig = {
   tagline: "حلول رقمية تقود عملك نحو المستقبل",
   taglineEn: "Digital solutions that drive your business forward",
   description:
-    "استوديو تقني متخصص في تطوير المواقع والمتاجر الإلكترونية والأنظمة السحابية: أنظمة حجز ولوحات تحكم وبوابات أعمال آمنة لنمو أعمالك.",
+    "شركة حلول تقنية متخصصة في تطوير المواقع والمتاجر الإلكترونية والأنظمة السحابية: أنظمة حجز ولوحات تحكم وبوابات أعمال آمنة لنمو أعمالك.",
   descriptionEn:
-    "A web studio building fast, secure websites, online stores and cloud systems: booking systems, dashboards and business portals that help your business grow.",
+    "An IT solutions company building fast, secure websites, online stores and cloud systems: booking systems, dashboards and business portals that help your business grow.",
   /** بيتحدد تلقائياً من next.config.ts (الدومين الحقيقي على Vercel، أو holoolk.com محلياً) */
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://holoolk.com",
   locale: "ar_EG",
@@ -43,7 +43,7 @@ export const ogImage = {
   width: 1200,
   height: 630,
   type: "image/png",
-  alt: "حلولك تيك — نبتكر حلولاً رقمية تقود نمو عملك نحو المستقبل",
+  alt: "حلولك تيك — حلول رقمية تقود عملك نحو المستقبل",
 };
 
 /**

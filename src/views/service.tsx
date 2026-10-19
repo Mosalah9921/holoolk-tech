@@ -33,8 +33,22 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
   const others = services.filter((s) => s.id !== service.id);
   const waMessage = t(`مرحباً حلولك تيك، أرغب في الاستفسار عن خدمة "${service.title}".`, `Hello Holoolk Tech, I'd like to ask about your "${service.title}" service.`);
 
+  /** بيانات منظمة لجوجل: الخدمة + مقدّمها */
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.description,
+    serviceType: service.short,
+    url: `${siteConfig.url}${lp(locale, `/services/${service.id}`)}`,
+    areaServed: [{ "@type": "Country", name: "Egypt" }, { "@type": "Place", name: "Middle East" }],
+    availableLanguage: ["ar", "en"],
+    provider: { "@type": "ProfessionalService", name: locale === "en" ? siteConfig.nameEn : siteConfig.name, url: `${siteConfig.url}${lp(locale, "/")}` },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd).replace(/</g, "\\u003c") }} />
       {/* رأس الصفحة */}
       <section className="relative isolate overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

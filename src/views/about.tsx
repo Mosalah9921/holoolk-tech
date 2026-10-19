@@ -17,8 +17,8 @@ export function aboutMeta(locale: Locale) {
     path: "/about",
     title: t("من نحن", "About us"),
     description: t(
-      "استوديو متخصص في تطوير الويب بمعايير عالمية، تتواصل فيه مباشرة مع فريق التنفيذ بشفافية كاملة.",
-      "A web development studio built to world-class standards, where you work directly with the delivery team, with full transparency.",
+      "شركة حلول تقنية متخصصة في تطوير الويب بمعايير عالمية، تتواصل فيها مباشرة مع فريق التنفيذ بشفافية كاملة.",
+      "An IT solutions company specializing in web development, built to world-class standards, where you work directly with the delivery team, with full transparency.",
     ),
   });
 }
@@ -33,8 +33,8 @@ export default function AboutView({ locale }: { locale: Locale }) {
         crumbs={[{ label: t("من نحن", "About us") }]}
         title={t("نصنع حضوراً رقمياً يليق بطموحك.", "We build a digital presence worthy of your ambition.")}
         description={t(
-          "حلولك تيك استوديو متخصص في تطوير الويب، يجمع بين جودة التنفيذ العالمية وفهم عميق للسوق العربي، وتتعامل فيه مباشرة مع فريق التنفيذ دون وسطاء.",
-          "Holoolk Tech is a specialist web development studio that pairs world-class execution with a deep understanding of the Arab market, and you work directly with the delivery team, with no middlemen.",
+          "حلولك تيك شركة حلول تقنية متخصصة في تطوير الويب، تجمع بين جودة التنفيذ العالمية وفهم عميق للسوق العربي، وتتعامل فيها مباشرة مع فريق التنفيذ دون وسطاء.",
+          "Holoolk Tech is an IT solutions company specializing in web development that pairs world-class execution with a deep understanding of the Arab market, and you work directly with the delivery team, with no middlemen.",
         )}
         aside={
           <HeroVisual
@@ -167,12 +167,12 @@ export default function AboutView({ locale }: { locale: Locale }) {
           ].map((l) => (
             <figure key={l.key} className="group overflow-hidden rounded-2xl border border-slate-200 transition-shadow sm:rounded-3xl duration-300 hover:shadow-lg hover:shadow-slate-900/5">
               <div className="bg-grid flex flex-col items-center bg-white px-3 pt-6 pb-5 sm:px-6 sm:pt-10 sm:pb-8">
-                <Image src="/brand/mark-en.png" alt="" width={260} height={256} className="h-11 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-20" />
+                <Image src="/brand/mark-en.png" alt={t("رمز HT", "HT mark")} width={260} height={256} className="h-11 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-20" />
                 <Image src={`/brand/wordmark-${l.key}.png`} alt={l.alt} width={l.ww} height={128} className="mt-3 h-5 w-auto max-w-full object-contain sm:mt-4 sm:h-9" />
               </div>
               <div className="flex items-center justify-center gap-2 bg-brand-800 px-3 py-3.5 sm:gap-3 sm:px-6 sm:py-5">
-                <Image src="/brand/mark-en-light.png" alt="" width={260} height={256} className="h-6 w-auto sm:h-9" />
-                <Image src={`/brand/wordmark-${l.key}-light.png`} alt="" width={l.key === "ar" ? 551 : l.ww} height={128} className="h-4 w-auto min-w-0 object-contain sm:h-6" />
+                <Image src="/brand/mark-en-light.png" alt={t("رمز HT على خلفية داكنة", "HT mark on a dark background")} width={260} height={256} className="h-6 w-auto sm:h-9" />
+                <Image src={`/brand/wordmark-${l.key}-light.png`} alt={t(`${l.alt} على خلفية داكنة`, `${l.alt} on a dark background`)} width={l.key === "ar" ? 551 : l.ww} height={128} className="h-4 w-auto min-w-0 object-contain sm:h-6" />
               </div>
               <figcaption className="flex items-center justify-between border-t border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-bold sm:px-5 sm:py-3 sm:text-xs text-slate-500">
                 <span>{l.label}</span>

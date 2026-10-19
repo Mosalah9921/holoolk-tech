@@ -39,15 +39,15 @@ export const services: Service[] = [
     title: "مواقع الشركات والهوية الرقمية",
     description:
       "واجهات تعريفية حديثة وسريعة تعكس قوة علامتك التجارية وتخلق انطباعاً أولياً احترافياً يدوم لدى عملائك.",
-    badge: "الأكثر طلباً",
+    badge: "الخدمة الأساسية",
     details:
       "موقع شركتك هو نقطة التواصل الأولى بينك وبين عملائك، وعليه يُبنى انطباعهم الأول. نطوّر لك موقعاً متعدد الصفحات يعرض خدماتك وأعمالك بوضوح، ويُسهّل على الزائر التواصل معك في أي وقت، مع لوحة تحكم تتيح لك تحديث المحتوى بنفسك.",
     idealFor: ["الشركات والمكاتب الهندسية والقانونية", "العيادات والمراكز الطبية والتعليمية", "كل نشاط يحتاج إلى حضور رقمي رسمي"],
     packageId: "business",
     features: [
       "تصميم عصري متجاوب مع كل الشاشات",
-      "سرعة تحميل قياسية متوافقة مع Google PageSpeed",
-      "تهيئة تقنية متقدمة لمحركات البحث (SEO)\u200F",
+      "بناء يركّز على السرعة ويُختبر قبل الإطلاق",
+      "تهيئة تقنية لمحركات البحث: بنية الصفحات والبيانات الوصفية والسرعة",
       "ربط مباشر وسهل مع WhatsApp ونماذج التواصل",
       "بالعربية والإنجليزية أو أي لغة يحتاجها سوقك",
     ],
@@ -60,13 +60,13 @@ export const services: Service[] = [
     title: "المتاجر الإلكترونية المتكاملة",
     description:
       "منصات بيع مصممة لتحويل الزوار إلى مشترين مع تجربة دفع سلسة وبوابات دفع محلية وعالمية معتمدة.",
-    badge: "زيادة مبيعات",
+    badge: "للبيع أونلاين",
     details:
-      "متجر إلكتروني متكامل باللغة العربية: عرض المنتجات، وسلة الشراء، والدفع الإلكتروني، ومتابعة الطلبات والشحن من لوحة تحكم واحدة. صُمّمت رحلة الشراء لتكتمل في أقل عدد من الخطوات، فترتفع نسبة إتمام الطلبات.",
+      "متجر إلكتروني متكامل باللغة العربية: عرض المنتجات، وسلة الشراء، والدفع الإلكتروني، ومتابعة الطلبات والشحن من لوحة تحكم واحدة. ونصمم رحلة الشراء لتكتمل في أقل عدد ممكن من الخطوات.",
     idealFor: ["العلامات التجارية التي تبيع عبر منصات التواصل وتحتاج إلى متجر مستقل", "المتاجر التقليدية التي تتوسع في البيع الإلكتروني", "المشاريع ذات المنتجات المتعددة والطلبات اليومية"],
     packageId: "ecommerce",
     features: [
-      "ربط بوابات الدفع (Visa، ميزة، المحافظ الإلكترونية، Fawry)\u200F",
+      "ربط بوابات الدفع المتاحة في سوقك، مثل Visa وميزة والمحافظ وFawry في مصر",
       "تكامل مباشر مع شركات الشحن والتوصيل",
       "لوحة تحكم كاملة بالعربي لإدارة المنتجات والطلبات",
       "نظام إشعارات تلقائية عبر الواتساب والبريد",
@@ -82,12 +82,12 @@ export const services: Service[] = [
     description:
       "صفحات فردية مركزة ومهيأة خصيصاً للحملات الإعلانية ومصممة لتحويل أكبر عدد من الزوار إلى عملاء.",
     details:
-      "صفحة الهبوط هي ما يحدد العائد الفعلي من إنفاقك الإعلاني. نبني صفحة واحدة فائقة السرعة، برسالة واضحة، وكل عنصر فيها يقود الزائر إلى إجراء واحد: الطلب أو التسجيل أو التواصل.",
+      "صفحة هبوط تركّز على عرض واحد وخطوة واضحة: شراء أو تسجيل أو تواصل. نصمم بنية الصفحة ورسالتها بما يناسب حملتك، ونربطها بأدوات القياس التي تختارها.",
     idealFor: ["الحملات الإعلانية على فيسبوك وتيك توك وجوجل", "إطلاق منتج أو خدمة جديدة", "الدورات التدريبية والفعاليات والعروض محدودة المدة"],
     packageId: "starter",
     features: [
       "بنية بصرية ونصوص تسويقية موجهة للإقناع",
-      "تحميل فائق السرعة على الموبايل",
+      "صفحة خفيفة تُختبر سرعتها على الموبايل",
       "ربط مع بكسل التتبع (Facebook Pixel, TikTok, GA4)\u200F",
       "أزرار اتخاذ قرار وتواصل فوري وواضح",
     ],
@@ -141,7 +141,7 @@ export const services: Service[] = [
       "موقعك أصل من أصول عملك ويحتاج إلى رعاية مستمرة. نتابع أمانه وأداءه، ونُجري النسخ الاحتياطي، ونحدّث المكتبات البرمجية، وننفّذ التعديلات التي تحتاجها، لتتفرغ أنت لإدارة أعمالك.",
     idealFor: ["أصحاب المواقع الذين يفضّلون التفرغ لأعمالهم", "المواقع التي يتجدد محتواها باستمرار", "المتاجر التي يعني أي توقف فيها خسارة في المبيعات"],
     features: [
-      "نسخ احتياطي دوري أوتوماتيكي",
+      "نسخ احتياطي تلقائي يومي أو أسبوعي حسب طبيعة موقعك",
       "مراقبة الأمان وشهادات الحماية SSL",
       "تحديث مستمر للأنظمة والمكتبات البرمجية",
       "دعم فني سريع واستشارات تقنية دورية",
@@ -158,14 +158,14 @@ const servicesEnText: Record<string, ServiceText> = {
     short: "Business websites",
     title: "Business Websites & Online Presence",
     description: "Fast, modern company websites that reflect the strength of your brand and leave a lasting first impression.",
-    badge: "Most popular",
+    badge: "Core service",
     details:
       "Your website is where most clients meet your business for the first time, and it shapes their first impression. We build a multi-page website that presents your services and work with clarity, makes it effortless to get in touch, and comes with a dashboard so you can update the content yourself.",
     idealFor: ["Companies, engineering and law firms", "Clinics, medical and training centers", "Any business that needs a credible online presence"],
     features: [
       "Modern design, fully responsive on every screen",
-      "Top-tier loading speed, tuned for Google PageSpeed",
-      "Advanced technical SEO from day one",
+      "Performance-focused build, tested before launch",
+      "Technical SEO setup: page structure, metadata and speed",
       "Direct WhatsApp integration and contact forms",
       "In Arabic, English or any language your market needs",
     ],
@@ -174,12 +174,12 @@ const servicesEnText: Record<string, ServiceText> = {
     short: "Online stores",
     title: "Complete E-commerce Stores",
     description: "Online stores built to turn visitors into buyers, with a smooth checkout and trusted local and international payment gateways.",
-    badge: "Sales growth",
+    badge: "Sell online",
     details:
-      "A complete Arabic-first online store: product catalog, cart, online payments, and order and shipping tracking, all from one dashboard. The checkout is designed to finish in as few steps as possible, so more carts turn into completed orders.",
+      "A complete Arabic-first online store: product catalog, cart, online payments, and order and shipping tracking, all from one dashboard. We design the checkout to finish in as few steps as possible.",
     idealFor: ["Brands selling through social media that need their own store", "Retailers expanding into online sales", "Businesses with large catalogs and daily orders"],
     features: [
-      "Payment gateways (Visa, Meeza, mobile wallets, Fawry)",
+      "Payment gateways available in your market, such as Visa, Meeza, wallets and Fawry in Egypt",
       "Direct integration with shipping and delivery companies",
       "A full Arabic dashboard for products and orders",
       "Automatic order notifications by WhatsApp and email",
@@ -188,14 +188,14 @@ const servicesEnText: Record<string, ServiceText> = {
   },
   "landing-pages": {
     short: "Landing pages",
-    title: "High-Converting Landing Pages",
-    description: "Focused single pages built for your ad campaigns and designed to maximize conversions.",
+    title: "Campaign Landing Pages",
+    description: "Focused single pages built for your ad campaigns, with every element leading to one clear action.",
     details:
-      "Your landing page decides the real return on your ad spend. We build one ultra-fast page with a clear message, where every element leads the visitor to a single action: order, sign up, or get in touch.",
+      "A landing page focused on one offer and one clear next step: buy, sign up or get in touch. We shape the page structure and messaging around your campaign and connect the analytics tools you choose.",
     idealFor: ["Ad campaigns on Facebook, TikTok and Google", "Launching a new product or service", "Courses, events and limited-time offers"],
     features: [
       "Persuasive visual structure and conversion-focused copy",
-      "Lightning-fast loading on mobile",
+      "A lightweight page, speed-tested on mobile",
       "Tracking pixels connected (Facebook Pixel, TikTok, GA4)",
       "Clear calls to action and instant contact options",
     ],
@@ -237,7 +237,7 @@ const servicesEnText: Record<string, ServiceText> = {
       "Your website is a business asset and deserves ongoing care. We monitor its security and performance, run backups, update libraries and make the changes you need, so you can focus on running your business.",
     idealFor: ["Owners who would rather focus on their business", "Websites with frequently updated content", "Stores where any downtime means lost sales"],
     features: [
-      "Automatic scheduled backups",
+      "Automatic daily or weekly backups, depending on your site",
       "Security monitoring and SSL certificates",
       "Continuous system and library updates",
       "Fast support and regular technical advice",

@@ -44,6 +44,7 @@ export default function FaqView({ locale }: { locale: Locale }) {
         }
       />
       <Section id="faq" className="pt-0 sm:pt-0 lg:pt-0">
+        <h2 className="sr-only">{t("الأسئلة الشائعة", "Frequently asked questions")}</h2>
         <FaqExplorer locale={locale} />
       </Section>
       <CtaBand locale={locale} />

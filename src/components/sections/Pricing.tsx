@@ -44,7 +44,7 @@ function PackageCard({ pkg, locale }: { pkg: Package; locale: Locale }) {
     >
       <div className="flex items-start justify-between gap-3">
         <h3 className={cn("text-xl font-black", featured && "text-white")}>{pkg.name}</h3>
-        {featured && <span className="shrink-0 rounded-full bg-white/15 px-3 py-1 text-xs font-bold">{t("الأكثر طلباً", "Most popular")}</span>}
+        {featured && <span className="shrink-0 rounded-full bg-white/15 px-3 py-1 text-xs font-bold">{t("مُوصى به", "Recommended")}</span>}
       </div>
       <p className={cn("mt-3 text-sm leading-7", featured ? "text-brand-100" : "text-slate-600")}>{pkg.description}</p>
 

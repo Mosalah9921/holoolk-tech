@@ -29,8 +29,8 @@ const FRAME_WIDTH = 1280; // عرض الصفحة الحقيقي اللي بنص�
 
 const promises = [
   { icon: Cloud, label: { ar: "بنية سحابية قابلة للتوسع", en: "Scalable cloud architecture" } },
-  { icon: ShieldCheck, label: { ar: "أمان مدمج منذ البداية", en: "Built-in security" } },
-  { icon: LifeBuoy, label: { ar: "دعم مستمر بعد الإطلاق", en: "Support after launch" } },
+  { icon: ShieldCheck, label: { ar: "اتصال آمن HTTPS لكل موقع", en: "HTTPS on every website" } },
+  { icon: LifeBuoy, label: { ar: "دعم فني حتى 3 أشهر بعد الإطلاق", en: "Up to 3 months of post-launch support" } },
 ];
 
 export function Hero({ locale = "ar" }: { locale?: Locale }) {
@@ -61,9 +61,10 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
         <div className="absolute top-72 end-1/3 hidden h-[300px] w-[420px] rounded-full bg-accent-200/50 blur-[110px] sm:block" />
       </div>
 
-      <Container className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+      {/* عمودين من 1280 وطالع بس — تحتها (التابلت و1024) النص فوق والمعرض تحته، عشان العنوان مايتكسرش في عمود ضيق */}
+      <Container className="grid items-center gap-10 xl:grid-cols-[0.8fr_1.2fr] xl:gap-14">
         {/* النص */}
-        <div className="min-w-0 animate-rise">
+        <div className="min-w-0 animate-rise xl:max-w-none md:max-w-3xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 py-1.5 ps-2 pe-4 text-sm font-semibold text-brand-700 shadow-sm backdrop-blur">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-500 opacity-60 motion-reduce:hidden" />
@@ -77,23 +78,23 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
             id="hero-title"
             className="mt-6 text-[2.3rem] leading-[1.3] font-black tracking-tight text-balance text-slate-900 rtl:max-[479px]:min-h-[3lh] sm:text-5xl sm:leading-[1.25] lg:text-[3.2rem]"
           >
-            {t("نبتكر حلولاً رقمية تقود نمو عملك", "Digital solutions that drive your business")}{" "}
-            <span className="text-gradient">{t("نحو المستقبل", "forward")}</span>
+            {t("مواقع ومنصات رقمية", "Websites and digital platforms")}{" "}
+            <span className="text-gradient">{t("مبنية حول طريقة عملك.", "built around your business.")}</span>
           </h1>
           <p className="mt-5 max-w-[34rem] text-lg leading-[2] text-pretty text-slate-600 rtl:max-[429px]:min-h-[3lh] rtl:min-[430px]:max-sm:min-h-[2lh] sm:text-[1.15rem]">
             {t(
-              "نحوّل أفكارك إلى منصات رقمية وحلول برمجية متكاملة، مصممة خصيصاً لزيادة مبيعاتك وتسريع وتيرة أعمالك.",
-              "We turn your ideas into complete digital platforms and custom software, built to grow your sales and streamline the way you work.",
+              "نصمم ونطوّر مواقع الشركات والمتاجر الإلكترونية والأنظمة المخصصة، من تحديد المتطلبات حتى الإطلاق والدعم.",
+              "We design and build business websites, online stores and custom systems, from discovery and design through launch and support.",
             )}
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={lp(locale, "/start")} size="lg" className="shadow-lg shadow-brand-600/25">
-              {t("ابدأ مشروعك الآن", "Start your project")}
+              {t("ناقش مشروعك", "Discuss your project")}
               <ArrowLeft className="size-5" aria-hidden />
             </ButtonLink>
             <ButtonLink href={lp(locale, "/work")} variant="secondary" size="lg">
-              {t("استكشف أعمالنا", "Explore our work")}
+              {t("شاهد نماذج الأعمال", "Explore our work")}
             </ButtonLink>
           </div>
 
@@ -121,7 +122,7 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
 
         {/* المعرض */}
         <div
-          className="min-w-0 animate-fade-up [animation-delay:150ms]"
+          className="min-w-0 animate-fade-up [animation-delay:150ms] md:mx-auto md:w-full md:max-w-3xl xl:max-w-none"
           // الإيقاف عند المرور بالماوس بس — اللمس على الموبايل ميوقفش العرض للأبد
           onPointerEnter={(e) => e.pointerType === "mouse" && setPaused(true)}
           onPointerLeave={(e) => e.pointerType === "mouse" && setPaused(false)}
@@ -188,6 +189,9 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
             })}
           </div>
 
+          <p className="mt-2 hidden text-center text-xs text-slate-500 md:block">
+            {t("مواقع نموذجية لأنشطة افتراضية من تصميمنا، تقدر تجرّبها بنفسك.", "Sample websites we designed for fictional businesses. Demos are in Arabic.")}
+          </p>
           <p className="sr-only" aria-live="polite">
             {t("المعروض حالياً:", "Now showing:")} {active.title}
           </p>
@@ -262,7 +266,7 @@ function MobileShowcase({
             <span className="size-2 rounded-full bg-[#FF5F57]" />
             <span className="size-2 rounded-full bg-[#FEBC2E]" />
             <span className="size-2 rounded-full bg-[#28C840]" />
-            <span className="mx-auto flex min-w-0 max-w-[62%] items-center gap-1 truncate rounded-md border border-slate-200 bg-white px-2 py-0.5 text-[10px] text-slate-500">
+            <span className="mx-auto flex min-w-0 max-w-[62%] items-center gap-1 truncate rounded-lg border border-slate-200 bg-white px-2 py-0.5 text-[10px] text-slate-500">
               <svg viewBox="0 0 16 16" className="size-2.5 shrink-0 text-emerald-600" aria-hidden>
                 <path fill="currentColor" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1Zm2 5H6V4.5a2 2 0 1 1 4 0V6Z" />
               </svg>
@@ -332,7 +336,7 @@ function MobileShowcase({
               href={project.href}
               target="_blank"
               className="flex h-9 shrink-0 items-center gap-1 rounded-xl bg-brand-600 px-3 text-xs font-bold text-white transition-colors active:bg-brand-800"
-              aria-label={t(`جرّب ${project.title}`, `Try ${project.title}`)}
+              aria-label={t(`جرّبه: ${project.title} (موقع نموذجي)`, `Try it: ${project.title} (sample website, in Arabic)`)}
             >
               {t("جرّبه", "Try it")}
               <ArrowUpLeft className="size-4" aria-hidden />
@@ -445,16 +449,28 @@ function Stage({
             </svg>
             <span className="truncate">{project.href ? `${siteHost}${project.href}` : t("قريباً", "Coming soon")}</span>
           </div>
-          <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
-            <span className="size-1.5 animate-pulse rounded-full bg-emerald-500 motion-reduce:animate-none" />
-            LIVE
-          </span>
+          {project.href ? (
+            <Link
+              href={project.href}
+              target="_blank"
+              className="flex shrink-0 items-center gap-1 rounded-lg bg-brand-600 px-2.5 py-1 text-[11px] font-bold text-white transition-colors hover:bg-brand-700"
+              aria-label={t(`جرّب النموذج: ${project.title} (موقع نموذجي)`, `Try the demo: ${project.title} (sample website, in Arabic)`)}
+            >
+              {t("جرّب النموذج", "Try the demo")}
+              <ArrowUpLeft className="size-3.5" aria-hidden />
+            </Link>
+          ) : (
+            <span className="flex shrink-0 items-center gap-1 rounded-lg bg-amber-50 px-2 py-1 text-[11px] font-bold text-amber-700">
+              <Hammer className="size-3" aria-hidden />
+              {t("قيد التطوير", "In development")}
+            </span>
+          )}
         </div>
 
         <div className="relative aspect-[16/9] bg-slate-100">
           {showcase.map((p, i) => {
             const poster = p.image ? (
-              <Image src={p.image} alt="" fill priority={i === 0} sizes="(min-width: 1024px) 760px, 90vw" className="object-cover object-top" />
+              <Image src={p.image} alt={t(`لقطة من موقع ${p.title}`, `Screenshot of the ${p.title} website`)} fill priority={i === 0} sizes="(min-width: 1280px) 760px, (min-width: 768px) 768px, 90vw" className="object-cover object-top" />
             ) : p.cover ? (
               <CoverPreview cover={p.cover} />
             ) : (
@@ -500,28 +516,6 @@ function Stage({
         </div>
       </div>
 
-      {/* كارت المشروع الحالي */}
-      <div className="absolute start-0 -bottom-5 flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white/95 py-1.5 ps-3 pe-1.5 shadow-lg backdrop-blur sm:start-2 sm:gap-3 sm:rounded-2xl sm:py-2.5 sm:ps-4 sm:pe-2.5 max-md:inset-x-0 max-md:mx-auto max-md:w-max">
-        <span className="text-xs sm:text-sm">
-          <span className="block font-bold text-slate-900">{project.title}</span>
-          <span className="hidden text-xs text-slate-500 sm:block">{project.status === "demo" ? t("نموذج تفاعلي — جرّبه بنفسك", "Live demo — try it yourself") : project.category}</span>
-        </span>
-        {project.href ? (
-          <Link
-            href={project.href}
-            target="_blank"
-            className="flex size-8 items-center justify-center rounded-lg bg-brand-600 text-white transition-colors hover:bg-brand-700 sm:size-10 sm:rounded-xl"
-            aria-label={t(`افتح ${project.title}`, `Open ${project.title}`)}
-          >
-            <ArrowUpLeft className="size-5" aria-hidden />
-          </Link>
-        ) : (
-          <span className="flex items-center gap-1 rounded-xl bg-amber-50 px-2.5 py-2 text-xs font-bold text-amber-700">
-            <Hammer className="size-3.5" aria-hidden />
-            {t("قيد التطوير", "In development")}
-          </span>
-        )}
-      </div>
     </div>
   );
 }

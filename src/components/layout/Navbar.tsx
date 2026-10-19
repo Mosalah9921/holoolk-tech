@@ -76,7 +76,7 @@ export function Navbar({ locale = "ar" }: { locale?: Locale }) {
           )}
         >
           <div className="flex h-16 items-center justify-between gap-4 px-3 ps-4">
-            <Logo variant={locale} href={lp(locale, "/")} label={t("حلولك تيك — الرئيسية", "Holoolk Tech — Home")} />
+            <Logo priority variant={locale} href={lp(locale, "/")} label={t("حلولك تيك — الرئيسية", "Holoolk Tech — Home")} />
 
             <ul className="hidden items-center gap-0.5 xl:flex">
               {mainNav.map((group) => {
@@ -134,7 +134,7 @@ export function Navbar({ locale = "ar" }: { locale?: Locale }) {
                   className="pointer-events-none absolute top-[calc(100%+10px)] left-1/2 hidden -translate-x-1/2 translate-y-1 items-center gap-2 rounded-lg bg-slate-900 py-1.5 ps-3 pe-1.5 text-xs font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-200 group-hover/search:translate-y-0 group-hover/search:opacity-100 group-focus-visible/search:translate-y-0 group-focus-visible/search:opacity-100 md:flex"
                 >
                   {t("بحث", "Search")}
-                  <kbd className="rounded-md bg-white/15 px-1.5 py-0.5 font-sans text-[10px] font-bold text-white" dir="ltr">
+                  <kbd className="rounded-lg bg-white/15 px-1.5 py-0.5 font-sans text-[10px] font-bold text-white" dir="ltr">
                     Ctrl K
                   </kbd>
                   <span className="absolute -top-1 left-1/2 size-2 -translate-x-1/2 rotate-45 bg-slate-900" />
@@ -145,7 +145,7 @@ export function Navbar({ locale = "ar" }: { locale?: Locale }) {
                 hrefLang={other.locale}
                 lang={other.locale}
                 title={t("English version", "النسخة العربية")}
-                aria-label={t("Switch to English", "التبديل إلى العربية")}
+                aria-label={t("EN — Switch to English", "ع — التبديل إلى العربية")}
                 className="inline-flex size-10 items-center justify-center rounded-xl border border-slate-200 bg-white font-bold text-slate-600 transition-all duration-200 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700 active:scale-95"
               >
                 <span aria-hidden className={locale === "ar" ? "text-[13px] tracking-wide" : "text-base leading-none"}>
@@ -269,7 +269,7 @@ function MenuFeature({ group, locale }: { group: NavGroup; locale: Locale }) {
         aria-hidden
         width={260}
         height={256}
-        loading="eager"
+        sizes="144px"
         className="pointer-events-none absolute top-1/2 left-1/2 -z-10 size-36 -translate-x-1/2 -translate-y-1/2 -rotate-12 opacity-10 brightness-0 invert transition-[rotate,scale] duration-700 select-none group-hover:scale-105 group-hover:-rotate-6"
       />
       <span>

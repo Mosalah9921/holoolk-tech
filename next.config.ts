@@ -19,9 +19,19 @@ const nextConfig: NextConfig = {
   /** 404 موحّدة لأي مسار خارج المجموعتين (العربي والإنجليزي لكل منهما root layout مستقل) */
   experimental: {
     globalNotFound: true,
+    /** الـ CSS بيتحط جوه الصفحة نفسها بدل ملف منفصل — أول رسم أسرع على الموبايل */
+    inlineCss: true,
   },
   images: {
     formats: ["image/avif", "image/webp"],
+  },
+  /** مجالات اتشالت من صفحة الحلول (بقت تحت «حل مخصص») — تحويل دائم عشان الروابط القديمة وجوجل */
+  async redirects() {
+    const removed = ["travel", "beauty", "logistics", "events"];
+    return removed.flatMap((id) => [
+      { source: `/solutions/${id}`, destination: "/solutions", permanent: true },
+      { source: `/en/solutions/${id}`, destination: "/en/solutions", permanent: true },
+    ]);
   },
   /** رؤوس أمان أساسية لكل الصفحات */
   async headers() {

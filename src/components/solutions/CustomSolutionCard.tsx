@@ -16,6 +16,10 @@ export function CustomSolutionCard({ locale = "ar" }: { locale?: Locale }) {
     { icon: Clock3, label: t("أقل من دقيقة", "Under a minute") },
     { icon: PencilRuler, label: t("تصميم من الصفر", "Built from scratch") },
   ];
+  /** مجالات بنبني لها بشكل مخصص (مش ليها صفحة مستقلة) */
+  const examples = locale === "en"
+    ? ["Travel agencies", "Beauty salons", "Shipping & delivery", "Events & ticketing", "Professional offices"]
+    : ["مكاتب السياحة", "صالونات التجميل", "الشحن والتوصيل", "الفعاليات والتذاكر", "المكاتب المهنية"];
   return (
     <section
       aria-labelledby="custom-title"
@@ -40,6 +44,14 @@ export function CustomSolutionCard({ locale = "ar" }: { locale?: Locale }) {
                 "Our smart advisor suggests the right fit for your business, or describe your idea and we’ll design a system around it from scratch.",
               )}
             </p>
+            <p className="mt-3 text-xs font-bold text-slate-500">{t("من المجالات التي نبني لها حلولاً مخصصة:", "Businesses we also build custom solutions for:")}</p>
+            <ul className="mt-2 flex flex-wrap gap-1.5" aria-label={t("أمثلة على المجالات", "Example industries")}>
+              {examples.map((e) => (
+                <li key={e} className="rounded-full bg-white px-2.5 py-1 text-xs leading-5 font-semibold text-slate-700 ring-1 ring-brand-100">
+                  {e}
+                </li>
+              ))}
+            </ul>
             {/* خانة ضيقة: قايمة زي باقي الكروت — خانة عريضة: سطر واحد صغير */}
             <ul className="mt-4 space-y-2.5 border-t border-slate-200/80 pt-4 text-sm font-semibold text-slate-700 @2xl:mt-3 @2xl:flex @2xl:flex-wrap @2xl:gap-x-4 @2xl:gap-y-1.5 @2xl:space-y-0 @2xl:border-0 @2xl:pt-0 @2xl:text-xs @2xl:text-slate-600">
               {perks.map(({ icon: Icon, label }) => (

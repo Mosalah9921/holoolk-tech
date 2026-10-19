@@ -26,7 +26,7 @@ export function ProjectCard({ project, locale = "ar" }: { project: Project; loca
             {project.image ? (
               <Image
                 src={project.image}
-                alt={project.title}
+                alt={t(`لقطة من موقع ${project.title}`, `Screenshot of the ${project.title} website`)}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
@@ -43,7 +43,7 @@ export function ProjectCard({ project, locale = "ar" }: { project: Project; loca
           <div aria-hidden className="absolute bottom-0 end-3 w-[22%] max-w-[7rem] sm:end-5">
             <div className="rounded-[0.9rem] bg-slate-900 p-[0.18rem] shadow-[0_16px_30px_-12px_rgb(15_23_42/0.55)] ring-1 ring-slate-700 sm:rounded-[1.1rem] sm:p-[0.22rem]">
               <div className="relative aspect-[500/1082] overflow-hidden rounded-[0.75rem] bg-white sm:rounded-[0.9rem]">
-                <Image src={mobileShot} alt="" fill sizes="112px" className="object-cover object-top" />
+                <Image src={mobileShot} alt={t(`نسخة الموبايل من ${project.title}`, `${project.title} on mobile`)} fill sizes="112px" className="object-cover object-top" />
               </div>
             </div>
           </div>

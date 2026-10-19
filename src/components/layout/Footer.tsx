@@ -30,7 +30,7 @@ export function Footer({ locale = "ar" }: { locale?: Locale }) {
         { label: t("الخدمات", "Services"), href: "/services" },
         { label: t("الحلول", "Solutions"), href: "/solutions" },
         { label: t("أعمالنا", "Work"), href: "/work" },
-        { label: t("الباقات", "Pricing"), href: "/pricing" },
+        { label: t("الباقات", "Packages"), href: "/pricing" },
       ],
     },
     {

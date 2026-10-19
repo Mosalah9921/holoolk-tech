@@ -49,7 +49,7 @@ export const projects: Project[] = [
     image: "/images/demos/store-v3.webp",
     cover: { bg: "#F4F3EF", fg: "#111111", accent: "#FF5A1F", label: "RAKD" },
     caseStudy: {
-      headline: "متجر رياضي يحوّل التصفح السريع إلى طلب مكتمل في دقائق.",
+      headline: "نموذج متجر رياضي يختصر الطريق من تصفح المنتجات إلى إتمام الطلب.",
       sector: "متاجر الملابس والمستلزمات الرياضية",
       scope: ["الهوية البصرية للمتجر", "تجربة الشراء", "تصميم الواجهات", "التطوير"],
       challenge:
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     image: "/images/demos/academy-v3.webp",
     cover: { bg: "#FAFAFE", fg: "#12102B", accent: "#3B2DB8", label: "مَدار" },
     caseStudy: {
-      headline: "منصة تعليمية عربية تجعل اختيار الدورة والتسجيل فيها قراراً سهلاً.",
+      headline: "نموذج منصة تعليمية عربية تسهّل اختيار الدورة والتسجيل فيها.",
       sector: "التعليم والتدريب",
       scope: ["تجربة المستخدم", "تصميم الواجهات", "التطوير", "بنية المحتوى التعليمي"],
       challenge:
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     image: "/images/demos/restaurant-v3.webp",
     cover: { bg: "#FBF6EE", fg: "#2B1D14", accent: "#B9461F", label: "سُفرة" },
     caseStudy: {
-      headline: "موقع مطعم يحوّل المتصفح الجائع إلى حجز طاولة خلال دقيقة.",
+      headline: "نموذج موقع مطعم يجمع القائمة وحجز الطاولة في صفحة واحدة سريعة.",
       sector: "مطاعم وكافيهات",
       scope: ["الهوية البصرية للموقع", "تصميم الواجهات", "التطوير", "تهيئة محركات البحث"],
       challenge:
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     image: "/images/demos/clinic-v3.webp",
     cover: { bg: "#ECF7FA", fg: "#0F172A", accent: "#0E7490", label: "نَقاء" },
     caseStudy: {
-      headline: "تجربة حجز طبية هادئة تبني الثقة قبل الزيارة الأولى.",
+      headline: "نموذج موقع عيادة بتجربة حجز هادئة وواضحة.",
       sector: "عيادات ومراكز طبية",
       scope: ["تجربة المستخدم", "تصميم الواجهات", "التطوير", "نظام حجز المواعيد"],
       challenge:
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     image: "/images/demos/gym-v3.webp",
     cover: { bg: "#0B0B0C", fg: "#FFFFFF", accent: "#C6F432", label: "PULSE" },
     caseStudy: {
-      headline: "هوية جريئة وجدول حصص حي يدفع الزائر إلى حصته الأولى.",
+      headline: "نموذج موقع نادٍ رياضي بهوية جريئة وجدول حصص تفاعلي.",
       sector: "أندية رياضية ومراكز لياقة",
       scope: ["الهوية البصرية للموقع", "تصميم الواجهات", "التطوير"],
       challenge:
@@ -199,7 +199,7 @@ const projectsEnText: Record<string, ProjectText> = {
     tags: ["E-commerce", "Cart & checkout", "Discount codes"],
     coverLabel: "RAKD",
     caseStudy: {
-      headline: "A sportswear store that turns quick browsing into a completed order in minutes.",
+      headline: "Sports-store concept demonstrating a shorter path from product browsing to checkout.",
       sector: "Sportswear & sports equipment stores",
       scope: ["Store visual identity", "Shopping experience", "Interface design", "Development"],
       challenge:
@@ -224,7 +224,7 @@ const projectsEnText: Record<string, ProjectText> = {
     tags: ["E-learning", "Courses", "Subscriptions"],
     coverLabel: "Madar",
     caseStudy: {
-      headline: "An Arabic learning platform that makes choosing and joining a course an easy decision.",
+      headline: "Arabic learning-platform concept that makes choosing and joining a course simple.",
       sector: "Education & training",
       scope: ["User experience", "Interface design", "Development", "Learning content structure"],
       challenge:
@@ -249,7 +249,7 @@ const projectsEnText: Record<string, ProjectText> = {
     tags: ["Interactive menu", "Booking", "Landing"],
     coverLabel: "Sufra",
     caseStudy: {
-      headline: "A restaurant website that turns a hungry visitor into a table booking within a minute.",
+      headline: "Restaurant website concept that brings the menu and table booking into one fast page.",
       sector: "Restaurants & cafés",
       scope: ["Website visual identity", "Interface design", "Development", "SEO"],
       challenge:
@@ -272,7 +272,7 @@ const projectsEnText: Record<string, ProjectText> = {
     tags: ["Appointments", "Medical", "Responsive"],
     coverLabel: "Naqaa",
     caseStudy: {
-      headline: "A calm booking experience that builds trust before the first visit.",
+      headline: "Clinic website concept with a calm, clear booking experience.",
       sector: "Clinics & medical centers",
       scope: ["User experience", "Interface design", "Development", "Appointment booking"],
       challenge:
@@ -294,7 +294,7 @@ const projectsEnText: Record<string, ProjectText> = {
     description: "An interactive class schedule, membership plans and free trial sign-up, wrapped in a bold, energetic identity.",
     tags: ["Live schedule", "Memberships", "Dark UI"],
     caseStudy: {
-      headline: "A bold identity and a live class schedule that move visitors to their first session.",
+      headline: "Gym website concept with a bold identity and an interactive class schedule.",
       sector: "Gyms & fitness centers",
       scope: ["Website visual identity", "Interface design", "Development"],
       challenge:

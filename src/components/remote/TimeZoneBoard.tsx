@@ -83,25 +83,30 @@ export function TimeZoneBoard({ locale = "ar" }: { locale?: Locale }) {
       <ul className="mt-5 divide-y divide-slate-100">
         {cities.map((c) => {
           const diff = now ? (offsetMinutes(c.tz, now) - studioOff) / 60 : 0;
-          const local = now ? new Intl.DateTimeFormat(en ? "en-US" : "ar-EG-u-nu-latn", { timeZone: c.tz, hour: "numeric", minute: "2-digit", hour12: true }).format(now) : "--:--";
+          const local = now ? new Intl.DateTimeFormat(en ? "en-US" : "ar-EG-u-nu-latn", { timeZone: c.tz, hour: "numeric", minute: "2-digit", hour12: true }).format(now) : null;
           const studio = c.tz === STUDIO_TZ;
           return (
             <li key={c.tz} className="flex items-center justify-between gap-3 py-2.5">
               <span className="min-w-0">
                 <span className="block text-sm font-bold text-slate-900">
                   {c.name[locale]}
-                  {studio && <span className="ms-2 rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-bold text-brand-700">{en ? "Studio" : "الاستوديو"}</span>}
+                  {studio && <span className="ms-2 rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-bold text-brand-700">{en ? "Our office" : "مقرّنا"}</span>}
                 </span>
                 <span className="block text-xs text-slate-500 tabular-nums" dir={en ? undefined : "rtl"}>
-                  {now ? `${fmtHour(OPEN + diff, locale)} – ${fmtHour(CLOSE + diff, locale)}` : "—"}
+                  {now ? `${fmtHour(OPEN + diff, locale)} – ${fmtHour(CLOSE + diff, locale)}` : en ? "9 AM – 6 PM Cairo" : "9 ص – 6 م بتوقيت القاهرة"}
                 </span>
               </span>
               <span className="shrink-0 text-end">
-                <span className="block text-sm font-black text-slate-800 tabular-nums" dir={en ? "ltr" : "rtl"}>
-                  {local}
-                </span>
+                {local ? (
+                  <span className="block text-sm font-black text-slate-800 tabular-nums" dir={en ? "ltr" : "rtl"}>
+                    {local}
+                  </span>
+                ) : (
+                  // لحد ما الوقت يتحسب في المتصفح: شريط تحميل خفيف بدل "--:--"
+                  <span aria-hidden className="ms-auto mb-1 block h-4 w-14 animate-pulse rounded bg-slate-200" />
+                )}
                 <span className="block text-[11px] text-slate-500 tabular-nums">
-                  {studio || !now ? (en ? "Local time" : "الوقت الآن") : diff === 0 ? (en ? "Same time as Cairo" : "نفس توقيت القاهرة") : `${diff > 0 ? "+" : "−"}${Math.abs(diff)}${en ? "h vs Cairo" : " س عن القاهرة"}`}
+                  {!now ? (en ? "Loading…" : "جارٍ التحميل…") : studio ? (en ? "Cairo time" : "توقيت القاهرة") : diff === 0 ? (en ? "Same time as Cairo" : "نفس توقيت القاهرة") : `${diff > 0 ? "+" : "−"}${Math.abs(diff)}${en ? "h vs Cairo" : " س عن القاهرة"}`}
                 </span>
               </span>
             </li>

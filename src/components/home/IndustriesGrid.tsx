@@ -31,8 +31,8 @@ const industries = [
   {
     name: { ar: "العيادات والمراكز الطبية", en: "Clinics & medical centers" },
     description: {
-      ar: "أتمتة حجز المواعيد وتنظيم بيانات المرضى بطريقة آمنة وسهلة.",
-      en: "Automated appointment booking and organized patient data, simple and secure.",
+      ar: "حجز مواعيد إلكتروني وتذكير تلقائي للمرضى، وتنظيم الحجوزات بصلاحيات محددة لفريقك.",
+      en: "Online booking and automatic reminders, with appointments organized under clear staff permissions.",
     },
     points: { ar: ["نظام حجز مواعيد آلي", "صفحات للأطباء والخدمات", "تنبيهات المواعيد"], en: ["Automated appointment booking", "Doctor and service pages", "Appointment reminders"] },
     href: "/solutions/clinics",

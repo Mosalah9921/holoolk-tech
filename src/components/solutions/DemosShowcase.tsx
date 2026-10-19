@@ -24,7 +24,7 @@ export function DemosShowcase({ locale = "ar" }: { locale?: Locale }) {
         id="demos-title"
         align="center"
         title={t("شاهد الحل يعمل قبل أن تقرر", "See the solution in action before you decide")}
-        description={t(`مواقع نموذجية حقيقية بنيناها لـ${demos.length} مجالات مختلفة. افتحها وجرّب التصفح والحجز والشراء كما سيفعل عملاؤك.`, `Fully working sample websites we built for ${demos.length} industries. Open them and try browsing, booking and buying just as your customers would. (Demos are in Arabic.)`)}
+        description={t(`${demos.length} مواقع نموذجية تعمل فعلياً بنيناها لمجالات مختلفة. افتحها وجرّب التصفح والحجز والشراء كما سيفعل عملاؤك.`, `Fully working sample websites we built for ${demos.length} industries. Open them and try browsing, booking and buying just as your customers would. (Demos are in Arabic.)`)}
       />
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -48,7 +48,7 @@ export function DemosShowcase({ locale = "ar" }: { locale?: Locale }) {
                         <span className="size-2 rounded-full bg-amber-300" />
                         <span className="size-2 rounded-full bg-emerald-300" />
                       </span>
-                      <span className="flex-1 truncate rounded-md bg-slate-100 px-2 py-0.5 text-center text-[11px] text-slate-600">{siteHost}/demos/{host}</span>
+                      <span className="flex-1 truncate rounded-lg bg-slate-100 px-2 py-0.5 text-center text-[11px] text-slate-600">{siteHost}/demos/{host}</span>
                     </div>
                     <div className="relative aspect-[800/478] overflow-hidden">
                       <Image

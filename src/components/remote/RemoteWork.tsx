@@ -82,13 +82,13 @@ export function RemoteWork({ locale = "ar", className = "bg-white" }: { locale?:
               <span className="flex size-11 items-center justify-center rounded-xl bg-brand-600 text-white shadow-md shadow-brand-600/20">
                 <Icon className="size-5" aria-hidden />
               </span>
-              <span className="text-xs font-black text-slate-300 tabular-nums" aria-hidden>
+              <span className="text-xs font-black text-slate-500 tabular-nums" aria-hidden>
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
             <h3 className="mt-5 text-lg font-bold">{title[locale]}</h3>
             <p className="mt-1.5 flex-1 text-sm leading-7 text-slate-600">{text[locale]}</p>
-            <p dir="ltr" className="mt-4 self-start rounded-md bg-white px-2 py-0.5 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">
+            <p dir="ltr" className="mt-4 self-start rounded-lg bg-white px-2 py-0.5 text-xs font-semibold text-slate-500 ring-1 ring-slate-200">
               {tool}
             </p>
           </li>

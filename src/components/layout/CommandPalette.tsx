@@ -132,7 +132,7 @@ export function CommandPalette({ locale = "ar" }: { locale?: Locale }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("ابحث عن خدمة أو صفحة أو سؤال…", "Search for a service, page or question…")}
-            className="h-14 flex-1 bg-transparent text-base text-slate-900 placeholder:text-slate-400 focus:outline-none"
+            className="h-14 flex-1 bg-transparent text-base text-slate-900 placeholder:text-slate-500 focus:outline-none"
             role="combobox"
             aria-expanded="true"
             aria-controls="search-results"

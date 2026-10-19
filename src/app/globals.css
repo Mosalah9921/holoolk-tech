@@ -13,6 +13,8 @@
    لمسات معدنية:  Silver → silver-*
    ========================================================= */
 @theme {
+  /* رمادي النص الثانوي أغمق من الافتراضي (#62748e) — تباين أعلى للنصوص الصغيرة */
+  --color-slate-500: #556375;
   /* الخط: Cairo للعربي و Inter للإنجليزي — بيتحمّلوا من next/font في layouts (متغير --font-base) */
   --font-sans: var(--font-base), ui-sans-serif, system-ui, "Segoe UI", Tahoma, sans-serif;
   --font-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Menlo, monospace;

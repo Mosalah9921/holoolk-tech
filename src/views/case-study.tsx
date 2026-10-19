@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpLeft, Check, Hammer } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, Check, Hammer, Info } from "lucide-react";
 import { getProjects } from "@/content/portfolio";
 import { siteConfig } from "@/config/site";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -59,6 +59,15 @@ export default function CaseStudyView({ locale, slug }: { locale: Locale; slug: 
       </PageHeader>
 
       <Section id="facts" className="pt-0 pb-10 sm:pt-0 sm:pb-12 lg:pt-0 lg:pb-12">
+        {p.status === "demo" && (
+          <p className="mb-4 flex items-start gap-2.5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 font-semibold text-amber-900">
+            <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
+            {t(
+              "موقع نموذجي توضيحي لنشاط افتراضي من تصميمنا، وليس مشروعاً لعميل حقيقي.",
+              "A concept website we designed for a fictional business. It is not a client project.",
+            )}
+          </p>
+        )}
         <dl className="grid gap-px overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           <div className="bg-white p-5">
             <dt className="text-xs font-bold text-slate-500">{t("المشروع", "Project")}</dt>
@@ -96,7 +105,7 @@ export default function CaseStudyView({ locale, slug }: { locale: Locale; slug: 
                 <span className="size-2.5 rounded-full bg-[#FEBC2E]" />
                 <span className="size-2.5 rounded-full bg-[#28C840]" />
               </span>
-              <span className="mx-auto truncate rounded-md bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200">
+              <span className="mx-auto truncate rounded-lg bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200">
                 {new URL(siteConfig.url).host}
                 {p.href}
               </span>

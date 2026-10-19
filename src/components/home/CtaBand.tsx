@@ -7,7 +7,7 @@ import { lp, tr, type Locale } from "@/i18n";
 /** شريط الدعوة الختامي — يظهر في نهاية معظم الصفحات */
 export function CtaBand({ locale = "ar", title, text }: { locale?: Locale; title?: string; text?: string }) {
   const t = tr(locale);
-  title ??= t("جاهز لتحويل فكرتك إلى واقع رقمي متكامل؟", "Ready to turn your idea into a complete digital product?");
+  title ??= t("جاهز لموقع أو نظام مبني حول نشاطك؟", "Ready for a website or system built around your business?");
   text ??= t(
     "تواصل معنا اليوم لمناقشة متطلبات مشروعك والحصول على خطة عمل وتقدير مالي مبدئي.",
     "Talk to us today about your project and get a clear plan and an initial cost estimate.",
