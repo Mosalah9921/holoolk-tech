@@ -11,7 +11,7 @@ import type { Locale } from "@/i18n";
 /**
  * زر واتساب عائم — ثابت في الركن السفلي (يسار في العربي، يمين في الإنجليزي تلقائياً عبر end).
  * يختفي أثناء ظهور الشريط الختامي وأزرار الإرسال (فيها واتساب بالفعل) حتى لا يغطي أزرارها.
- * على الموبايل كمان: يختفي وأنت بتنزل في الصفحة (عشان ميغطيش النص اللي بتقراه) ويرجع أول ما تطلع لفوق،
+ * على الموبايل والتابلت كمان: يختفي وأنت بتنزل في الصفحة (عشان ميغطيش النص اللي بتقراه) ويرجع أول ما تطلع لفوق،
  * ومش بيظهر خالص في صفحتي «ابدأ مشروعك» و«تواصل معنا» و«احجز استشارة» لأن فيهم أزرار واتساب واختيارات ممكن يغطيها.
  */
 const MOBILE_HIDDEN_ON = /^(\/en)?\/(start|contact|book)\/?$/;
@@ -26,7 +26,7 @@ export function FloatingWhatsApp({ locale = "ar", message, label }: { locale?: L
 
   /* الموبايل: إخفاء مع النزول، وإظهار مع الطلوع أو قرب أول الصفحة */
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 639px)");
+    const mq = window.matchMedia("(max-width: 1023px)");
     let lastY = window.scrollY;
     let ticking = false;
     const onScroll = () => {
@@ -73,7 +73,7 @@ export function FloatingWhatsApp({ locale = "ar", message, label }: { locale?: L
         "group fixed end-4 z-40 flex size-12 items-center sm:size-14 justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-emerald-900/25 ring-4 ring-white/70 transition-all duration-300 hover:scale-105 hover:bg-[#1ebe5b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] sm:end-6",
         "bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:bottom-[calc(1.5rem+env(safe-area-inset-bottom))]",
         hidden ? "pointer-events-none translate-y-4 scale-90 opacity-0" : "opacity-100",
-        !hidden && scrollHidden && "max-sm:pointer-events-none max-sm:translate-y-20 max-sm:opacity-0",
+        !hidden && scrollHidden && "max-lg:pointer-events-none max-lg:translate-y-20 max-lg:opacity-0",
         hideOnMobilePage && "max-sm:hidden",
       )}
     >

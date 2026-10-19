@@ -30,7 +30,8 @@ export function MobileCollapse({
   const [open, setOpen] = useState(false);
   return (
     <div className={className}>
-      <div className={cn("relative", !open && ["max-md:overflow-hidden", collapsedHeight])}>
+      {/* لو حد وصل بالكيبورد (Tab) لعنصر جوه الجزء المطوي، نفتحه عشان يشوف هو فين */}
+      <div className={cn("relative", !open && ["max-md:overflow-hidden", collapsedHeight])} onFocusCapture={() => !open && setOpen(true)}>
         {children}
         {!open && <div aria-hidden className={cn("pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-t to-transparent md:hidden", fadeClassName)} />}
       </div>

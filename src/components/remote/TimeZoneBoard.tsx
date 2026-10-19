@@ -63,7 +63,7 @@ export function TimeZoneBoard({ locale = "ar" }: { locale?: Locale }) {
 
   return (
     <div className="relative mx-auto w-full max-w-[460px] rounded-[1.75rem] border border-white/80 bg-white/80 p-5 shadow-[0_24px_60px_-28px_rgb(16_39_74/0.45)] ring-1 ring-slate-900/5 backdrop-blur-xl sm:p-6">
-      <div aria-hidden className="absolute inset-[-14%] -z-10 bg-[radial-gradient(closest-side,rgb(85_131_186/0.32),rgb(163_191_224/0.14)_60%,transparent)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-[-14%] -z-10 bg-[radial-gradient(closest-side,rgb(85_131_186/0.32),rgb(163_191_224/0.14)_60%,transparent)]" />
       <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <p className="flex items-center gap-2 text-sm font-black whitespace-nowrap text-slate-900">
           <Clock3 className="size-4 text-brand-600" aria-hidden />
