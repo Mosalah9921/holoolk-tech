@@ -2,9 +2,10 @@ import Script from "next/script";
 
 /**
  * Google Analytics 4 + Facebook (Meta) Pixel.
- * بيتفعّلوا بس لما تحط المعرّفات في .env.local (شوف .env.example).
+ * GA4 الرسمي للموقع: G-DB548NJ00R (ممكن يتغيّر من NEXT_PUBLIC_GA_ID في Vercel).
+ * الـ Pixel بيتفعّل بس لما تحط NEXT_PUBLIC_FB_PIXEL_ID.
  */
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-DB548NJ00R";
 const PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
 export function Analytics() {
