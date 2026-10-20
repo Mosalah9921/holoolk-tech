@@ -22,7 +22,7 @@ const showcaseFor = (locale: Locale): Project[] => {
   const projects = getProjects(locale);
   return [...projects.filter((p) => p.status === "demo"), ...projects.filter((p) => p.status === "live" || p.status === "building")];
 };
-const siteHost = new URL(siteConfig.url).host;
+const siteHost = new URL(siteConfig.url).host.replace(/^www\./, "");
 
 const SLIDE_MS = 6500;
 const FRAME_WIDTH = 1280; // عرض الصفحة الحقيقي اللي بنصغّره جوه النافذة

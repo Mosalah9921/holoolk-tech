@@ -106,7 +106,7 @@ export default function CaseStudyView({ locale, slug }: { locale: Locale; slug: 
                 <span className="size-2.5 rounded-full bg-[#28C840]" />
               </span>
               <span className="mx-auto truncate rounded-lg bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200">
-                {new URL(siteConfig.url).host}
+                {new URL(siteConfig.url).host.replace(/^www\./, "")}
                 {p.href}
               </span>
             </div>

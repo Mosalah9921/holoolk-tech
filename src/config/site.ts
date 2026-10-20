@@ -11,8 +11,8 @@ export const siteConfig = {
     "شركة حلول تقنية متخصصة في تطوير المواقع والمتاجر الإلكترونية والأنظمة السحابية: أنظمة حجز ولوحات تحكم وبوابات أعمال آمنة لنمو أعمالك.",
   descriptionEn:
     "An IT solutions company building fast, secure websites, online stores and cloud systems: booking systems, dashboards and business portals that help your business grow.",
-  /** بيتحدد تلقائياً من next.config.ts (الدومين الحقيقي على Vercel، أو holoolk.com محلياً) */
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://holoolk.com",
+  /** الدومين الرسمي (بيتحدد في next.config.ts) */
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.holoolktech.com",
   locale: "ar_EG",
   /** سنة الإطلاق — تظهر في حقوق الملكية بالفوتر */
   launchYear: 2026,
@@ -20,7 +20,7 @@ export const siteConfig = {
   contact: {
     whatsapp: "201063256491",
     phoneDisplay: "+20 106 325 6491",
-    email: "contact@holoolk.com",
+    email: "info@holoolktech.com",
     location: "القاهرة، جمهورية مصر العربية",
     locationEn: "Cairo, Egypt",
     hours: "السبت – الخميس: 9:00 ص – 6:00 م",

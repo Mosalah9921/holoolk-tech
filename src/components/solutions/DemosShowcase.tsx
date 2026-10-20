@@ -6,7 +6,7 @@ import { tr, type Locale } from "@/i18n";
 import { siteConfig } from "@/config/site";
 import { projects } from "@/content/portfolio";
 
-const siteHost = new URL(siteConfig.url).host;
+const siteHost = new URL(siteConfig.url).host.replace(/^www\./, "");
 import { Section } from "@/components/ui/Section";
 import { MobileCollapse } from "@/components/ui/MobileCollapse";
 import { SectionHeading } from "@/components/ui/SectionHeading";

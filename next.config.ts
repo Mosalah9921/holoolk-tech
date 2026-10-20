@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
 
 /**
- * عنوان الموقع:
- * 1) NEXT_PUBLIC_SITE_URL لو اتحطت يدوياً في إعدادات Vercel
- * 2) وإلا الدومين الأساسي للمشروع على Vercel (بيتغير لوحده للدومين الحقيقي أول ما تربطه)
- * 3) وإلا holoolk.com (التشغيل المحلي)
+ * عنوان الموقع الرسمي: https://www.holoolktech.com
+ * (NEXT_PUBLIC_SITE_URL في Vercel بيغيّره لو اتحط بدومين تاني — لكن أي رابط vercel.app بيتجاهل،
+ *  عشان جوجل والمشاركة يشوفوا الدومين الرسمي بس)
  */
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://holoolk.com");
+const OFFICIAL_URL = "https://www.holoolktech.com";
+const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl = envUrl && !/\.vercel\.app/i.test(envUrl) ? envUrl : OFFICIAL_URL;
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -25,13 +24,16 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  /** مجالات اتشالت من صفحة الحلول (بقت تحت «حل مخصص») — تحويل دائم عشان الروابط القديمة وجوجل */
+  /** تحويلات دائمة: (1) أي زيارة على holoolk-tech.vercel.app → نفس الصفحة على الدومين الرسمي  (2) مجالات اتشالت → /solutions */
   async redirects() {
     const removed = ["travel", "beauty", "logistics", "events"];
-    return removed.flatMap((id) => [
-      { source: `/solutions/${id}`, destination: "/solutions", permanent: true },
-      { source: `/en/solutions/${id}`, destination: "/en/solutions", permanent: true },
-    ]);
+    return [
+      { source: "/:path*", has: [{ type: "host", value: "holoolk-tech.vercel.app" }], destination: `${OFFICIAL_URL}/:path*`, permanent: true },
+      ...removed.flatMap((id) => [
+        { source: `/solutions/${id}`, destination: "/solutions", permanent: true },
+        { source: `/en/solutions/${id}`, destination: "/en/solutions", permanent: true },
+      ]),
+    ];
   },
   /** رؤوس أمان أساسية لكل الصفحات */
   async headers() {

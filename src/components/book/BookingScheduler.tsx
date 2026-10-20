@@ -168,7 +168,7 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
         "VERSION:2.0",
         "PRODID:-//Holoolk Tech//Booking//AR",
         "BEGIN:VEVENT",
-        `UID:${booked.start.getTime()}@holoolk.com`,
+        `UID:${booked.start.getTime()}@holoolktech.com`,
         `DTSTAMP:${icsDate(new Date())}`,
         `DTSTART:${icsDate(booked.start)}`,
         `DTEND:${icsDate(booked.end)}`,
