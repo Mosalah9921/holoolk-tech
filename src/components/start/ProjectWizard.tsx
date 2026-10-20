@@ -1,4 +1,5 @@
 "use client";
+import { sendToInbox } from "@/config/forms";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -115,7 +116,6 @@ type Draft = {
 
 const empty: Draft = { type: "", industry: "", industryOther: "", features: [], timeline: "", content: "", name: "", business: "", phone: "", email: "", notes: "" };
 const STORAGE_KEY_BASE = "holoolk-start-draft";
-const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
 
 export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
   const tl = tr(locale);
@@ -219,14 +219,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
     setWaHref(href);
     window.open(href, "_blank", "noopener,noreferrer");
     trackEvent("lead", { source: "wizard", type: d.type, industry: d.industry });
-    if (FORM_ENDPOINT) {
-      fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...d, _subject: tl(`طلب مشروع جديد — ${d.name}`, `New project request — ${d.name}`), _locale: locale }),
-        keepalive: true,
-      }).catch(() => {});
-    }
+    sendToInbox({ ...d, _subject: tl(`طلب مشروع جديد — ${d.name}`, `New project request — ${d.name}`), _locale: locale });
     setSent(true);
     try {
       localStorage.removeItem(STORAGE_KEY);

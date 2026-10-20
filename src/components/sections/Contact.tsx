@@ -1,4 +1,5 @@
 "use client";
+import { sendToInbox } from "@/config/forms";
 
 import { useState } from "react";
 import { ArrowLeft, Clock3, Mail, MapPin, MessageCircle } from "lucide-react";
@@ -16,10 +17,8 @@ const inputClasses =
 
 /**
  * نموذج التواصل: بيفتح واتساب برسالة جاهزة.
- * ولو ضفت NEXT_PUBLIC_FORM_ENDPOINT في .env.local (مثلاً رابط Formspree)،
- * نسخة من الطلب بتتبعت على إيميلك كمان — فمفيش عميل يضيع حتى لو مكملش على واتساب.
+ * ونسخة من الطلب بتتبعت على info@holoolktech.com عبر Formspree (src/config/forms.ts) — فمفيش عميل يضيع حتى لو مكملش على واتساب.
  */
-const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
 
 export function Contact({ locale = "ar" }: { locale?: Locale }) {
   const t = tr(locale);
@@ -82,14 +81,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
     trackEvent("lead", { service: form.service || "unspecified", locale });
 
     // نسخة احتياطية على الإيميل
-    if (FORM_ENDPOINT) {
-      fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...form, _subject: t(`طلب جديد من الموقع — ${form.name}`, `New website inquiry — ${form.name}`), locale }),
-        keepalive: true,
-      }).catch(() => {});
-    }
+    sendToInbox({ ...form, _subject: t(`طلب جديد من الموقع — ${form.name}`, `New website inquiry — ${form.name}`), locale });
     setSent(true);
   }
 

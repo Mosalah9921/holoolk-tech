@@ -1,4 +1,5 @@
 "use client";
+import { sendToInbox } from "@/config/forms";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -155,6 +156,7 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
     ).join("\n");
     window.open(whatsappLink(siteConfig.contact.whatsapp, text), "_blank", "noopener,noreferrer");
     trackEvent("lead", { source: "booking", method, topic });
+    sendToInbox({ _subject: t(`حجز استشارة — ${name}`, `Consultation booking — ${name}`), time: label, method: methodLabel, topic, name, phone, locale });
     setBooked({ start, end, label });
   }
 
