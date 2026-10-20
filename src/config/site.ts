@@ -29,7 +29,7 @@ export const siteConfig = {
 
   /** ⚠️ TODO: ضع روابط صفحاتك الحقيقية. أي حساب تتركه فارغاً "" لن يظهر في الموقع. */
   socials: {
-    facebook: "https://facebook.com/holoolktech",
+    facebook: "https://www.facebook.com/holoolktech",
     instagram: "https://instagram.com/holoolktech",
   },
 } as const;
