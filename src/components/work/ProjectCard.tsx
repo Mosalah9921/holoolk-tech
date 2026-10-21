@@ -7,13 +7,13 @@ import { lp, tr, type Locale } from "@/i18n";
 import { CoverPreview, PassArt } from "@/components/portfolio/ProjectArt";
 
 /** كارت مشروع في معرض الأعمال */
-export function ProjectCard({ project, locale = "ar" }: { project: Project; locale?: Locale }) {
+export function ProjectCard({ project, locale = "ar", className }: { project: Project; locale?: Locale; className?: string }) {
   const t = tr(locale);
   const demo = project.href?.startsWith("/demos/") ? project.href.split("/").pop() : undefined;
   const mobileShot = demo ? `/images/demos/${demo}-mobile.webp` : undefined;
 
   return (
-    <li className="group relative flex flex-col">
+    <li className={cn("group relative flex flex-col", className)}>
       {/* نافذة متصفح بلقطة الموقع كاملة (16:9 = نفس مقاس اللقطة، فمفيش قص) + هاتف صغير بنسخة الموبايل */}
       <div className="relative pb-5 sm:pb-6">
         <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_24px_50px_-28px_rgb(15_23_42/0.35)] transition-shadow duration-300 group-hover:shadow-[0_30px_60px_-28px_rgb(15_23_42/0.45)] sm:rounded-[1.5rem]">

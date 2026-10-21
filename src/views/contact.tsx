@@ -33,7 +33,7 @@ export default function ContactView({ locale }: { locale: Locale }) {
     {
       icon: CalendarCheck,
       title: t("استشارة مجانية", "Free consultation"),
-      text: t(`اختر موعداً يناسبك خلال ساعات العمل (${c.hours}).`, "Pick a time that suits you, Saturday to Thursday, 9 AM–6 PM Cairo time."),
+      text: t(`اختر موعداً يناسبك خلال ساعات العمل (${c.hours}).`, "Pick a time that suits you, Saturday to Thursday, 10 AM–8 PM Cairo time."),
       value: t("احجز جلسة 30 دقيقة", "Book a 30-minute session"),
       href: lp(locale, "/book"),
     },

@@ -66,8 +66,15 @@ function ServiceCard({ service: s, locale }: { service: Service; locale: Locale 
       <h3 className="relative mt-5 text-xl leading-8 font-black text-slate-900">{s.title}</h3>
       {s.badge && <span className="relative mt-2 self-start rounded-full bg-accent-50 px-2.5 py-0.5 text-xs font-bold text-accent-700">{s.badge}</span>}
 
-      {/* الواجهة: لمن تناسب — تختفي عند المرور */}
-      <p className="relative mt-4 line-clamp-2 text-sm leading-7 text-slate-500 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-0 [@media(hover:hover)]:group-focus-visible:opacity-0">
+      {/* الواجهة: وصف مختصر + لمن تناسب (على الكمبيوتر بتختفي عند المرور وتظهر التفاصيل الكاملة) */}
+      <div className="relative mt-3 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-0 [@media(hover:hover)]:group-focus-visible:opacity-0 [@media(hover:none)]:hidden">
+        <p className="line-clamp-3 text-sm leading-7 text-slate-600">{s.description}</p>
+        <p className="mt-3 line-clamp-1 text-xs leading-6 font-medium text-slate-500">
+          {t("مناسبة لـ:", "Ideal for:")} {s.idealFor[0]}
+        </p>
+      </div>
+      {/* على اللمس: لمن تناسب فقط (الوصف ظاهر تحت في التفاصيل) */}
+      <p className="relative mt-4 line-clamp-2 text-sm leading-7 text-slate-500 [@media(hover:hover)]:hidden">
         {t("مناسبة لـ:", "Ideal for:")} {s.idealFor[0]}
       </p>
 

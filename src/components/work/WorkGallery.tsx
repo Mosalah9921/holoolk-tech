@@ -22,6 +22,8 @@ export function WorkGallery({ locale = "ar" }: { locale?: Locale }) {
 
   return (
     <div>
+      {/* الفلاتر بتظهر بس لما يبقى فيه أكتر من نوع (نماذج + مشاريع حقيقية) — غير كده بتبقى مكررة */}
+      {available.length > 2 && (
       <div role="tablist" aria-label={locale === "en" ? "Filter projects" : "تصفية الأعمال"} className="mb-10 flex flex-wrap gap-2">
         {available.map((f) => {
           const count = f.id === "all" ? projects.length : projects.filter((p) => p.status === f.id).length;
@@ -43,10 +45,17 @@ export function WorkGallery({ locale = "ar" }: { locale?: Locale }) {
           );
         })}
       </div>
+      )}
 
       <ul className="grid gap-x-6 gap-y-8 sm:gap-y-10 md:grid-cols-2">
-        {list.map((p) => (
-          <ProjectCard key={p.slug} project={p} locale={locale} />
+        {list.map((p, i) => (
+          <ProjectCard
+            key={p.slug}
+            project={p}
+            locale={locale}
+            // لو العدد فردي: آخر مشروع يتوسّط الصف بدل ما يقف لوحده على جنب
+            className={list.length % 2 === 1 && i === list.length - 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]" : undefined}
+          />
         ))}
       </ul>
     </div>

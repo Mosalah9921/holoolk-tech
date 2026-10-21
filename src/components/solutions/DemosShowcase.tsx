@@ -30,12 +30,13 @@ export function DemosShowcase({ locale = "ar" }: { locale?: Locale }) {
 
       {/* على الموبايل: أول نموذج ظاهر والباقي خلف زر (كروت المجالات فوق فيها «جرّبه الآن» أصلاً) */}
       <MobileCollapse more={t(`عرض كل النماذج (${demos.length})`, `Show all demos (${demos.length})`)} less={t("عرض أقل", "Show less")} collapsedHeight="max-md:max-h-[25rem]">
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* flex بدل grid: الصف الأخير الناقص بيتوسّط بدل ما يقف على جنب */}
+      <ul className="flex flex-wrap justify-center gap-6">
         {demos.map((s) => {
           const demo = s.demo!;
           const host = demo.href.split("/").pop();
           return (
-            <li key={s.id}>
+            <li key={s.id} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
               <Link
                 href={demo.href}
                 target="_blank"

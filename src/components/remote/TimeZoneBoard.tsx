@@ -7,8 +7,8 @@ import type { Locale } from "@/i18n";
 
 /** ساعات عمل الاستوديو بتوقيت القاهرة */
 const STUDIO_TZ = "Africa/Cairo";
-const OPEN = 9;
-const CLOSE = 18;
+const OPEN = 10;
+const CLOSE = 20;
 
 const cities: { tz: string; name: { ar: string; en: string } }[] = [
   { tz: "Africa/Cairo", name: { ar: "القاهرة", en: "Cairo" } },
@@ -93,7 +93,7 @@ export function TimeZoneBoard({ locale = "ar" }: { locale?: Locale }) {
                   {studio && <span className="ms-2 rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-bold text-brand-700">{en ? "Our office" : "مقرّنا"}</span>}
                 </span>
                 <span className="block text-xs text-slate-500 tabular-nums" dir={en ? undefined : "rtl"}>
-                  {now ? `${fmtHour(OPEN + diff, locale)} – ${fmtHour(CLOSE + diff, locale)}` : en ? "9 AM – 6 PM Cairo" : "9 ص – 6 م بتوقيت القاهرة"}
+                  {now ? `${fmtHour(OPEN + diff, locale)} – ${fmtHour(CLOSE + diff, locale)}` : en ? "10 AM – 8 PM Cairo" : "10 ص – 8 م بتوقيت القاهرة"}
                 </span>
               </span>
               <span className="shrink-0 text-end">

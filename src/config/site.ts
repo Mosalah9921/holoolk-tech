@@ -23,8 +23,8 @@ export const siteConfig = {
     email: "info@holoolktech.com",
     location: "القاهرة، جمهورية مصر العربية",
     locationEn: "Cairo, Egypt",
-    hours: "السبت – الخميس: 9:00 ص – 6:00 م",
-    hoursEn: "Saturday – Thursday, 9:00 AM – 6:00 PM (Cairo time)",
+    hours: "السبت – الخميس: 10:00 ص – 8:00 م",
+    hoursEn: "Saturday – Thursday, 10:00 AM – 8:00 PM (Cairo time)",
   },
 
   /** ⚠️ TODO: ضع روابط صفحاتك الحقيقية. أي حساب تتركه فارغاً "" لن يظهر في الموقع. */

@@ -15,6 +15,8 @@ import { pageMeta } from "@/i18n/meta";
 import { serviceKeywords, serviceSeo } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 import { waInquiry } from "@/lib/whatsapp-messages";
+import { serviceExtras } from "@/content/service-extras";
+import { FaqList, StatsStrip } from "@/components/services/ServiceExtras";
 
 /** صفحة لكل خدمة — بتتولّد تلقائياً من content/services.ts */
 export const serviceParams = () => getServices("ar").map((s) => ({ id: s.id }));
@@ -36,6 +38,10 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
   const others = services.filter((s) => s.id !== service.id);
   const waMessage = waInquiry(locale, t(`اطّلعت على خدمة «${service.title}» في موقعكم، وأودّ معرفة تفاصيلها.`, `I saw your "${service.title}" service on your website and I'd like to know more.`));
 
+  const extras = serviceExtras[service.id];
+  const stats = extras?.stats[locale];
+  const faq = extras?.faq[locale];
+
   /** بيانات منظمة لجوجل: الخدمة + مقدّمها */
   const serviceLd = {
     "@context": "https://schema.org",
@@ -52,6 +58,18 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd).replace(/</g, "\\u003c") }} />
+      {faq && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
       {/* رأس الصفحة */}
       <section className="relative isolate overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -113,6 +131,7 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
         <h2 id="details-title" className="sr-only">
           {t("تفاصيل الخدمة", "Service details")}
         </h2>
+        {stats && <StatsStrip stats={stats} className="mb-6" />}
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8">
             <h3 className="text-xl font-bold">{t("ما الذي ستحصل عليه", "What you get")}</h3>
@@ -155,6 +174,26 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
           </div>
         </div>
       </Section>
+
+      {faq && (
+        <Section id="service-faq" aria-labelledby="service-faq-title" className="bg-white">
+          <div className="mx-auto max-w-3xl">
+            <SectionHeading
+              id="service-faq-title"
+              align="center"
+              title={t("أسئلة شائعة عن هذه الخدمة", "Questions about this service")}
+              description={t("إجابات مختصرة عن أكثر ما يسأل عنه عملاؤنا قبل البدء.", "Short answers to what clients ask most before we start.")}
+            />
+            <FaqList items={faq} />
+            <p className="mt-6 text-center text-sm text-slate-500">
+              {t("لديك سؤال آخر؟", "Have another question?")}{" "}
+              <Link href={lp(locale, "/faq")} className="font-bold text-brand-700 underline-offset-4 hover:underline">
+                {t("تصفّح كل الأسئلة الشائعة", "Browse all FAQs")}
+              </Link>
+            </p>
+          </div>
+        </Section>
+      )}
 
       <Process locale={locale} />
 

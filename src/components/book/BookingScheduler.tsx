@@ -28,7 +28,7 @@ import { lp, tr, type Locale } from "@/i18n";
 
 const TZ = "Africa/Cairo";
 const DURATION_MIN = 30;
-const SLOTS = ["10:00", "11:00", "12:00", "13:00", "15:00", "16:00", "17:00"];
+const SLOTS = ["10:00", "11:00", "12:00", "13:00", "15:00", "16:00", "17:00", "18:00", "19:00"];
 const DAYS_AHEAD = 14;
 const OFF_DAY = 5; // الجمعة
 

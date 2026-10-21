@@ -84,8 +84,9 @@ export default function BlogView({ locale }: { locale: Locale }) {
         </Link>
 
         <ul className="mt-6 grid gap-6 md:grid-cols-2">
-          {rest.map((a) => (
-            <li key={a.slug}>
+          {rest.map((a, i) => (
+            // عدد فردي: آخر مقال يتوسّط الصف
+            <li key={a.slug} className={rest.length % 2 === 1 && i === rest.length - 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]" : undefined}>
               <Link
                 href={lp(locale, `/blog/${a.slug}`)}
                 className="group flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-7 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-900/5"
