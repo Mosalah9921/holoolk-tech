@@ -7,17 +7,13 @@ import { FaqExplorer } from "@/components/faq/FaqExplorer";
 import { FaqJsonLd } from "@/components/seo/JsonLd";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { tr, type Locale } from "@/i18n";
 
 export function faqMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/faq",
-    title: t("الأسئلة الشائعة", "Frequently asked questions"),
-    description: t(
-      "إجابات واضحة عن مدة التنفيذ، والملكية، والدعم، والظهور في محركات البحث.",
-      "Clear answers about timelines, ownership, support and search engine visibility.",
-    ),
+    ...seoFor("faq", locale),
   });
 }
 

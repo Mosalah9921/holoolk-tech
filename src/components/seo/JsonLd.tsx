@@ -23,11 +23,14 @@ export function JsonLd({ locale = "ar" }: { locale?: Locale }) {
         description: en ? siteConfig.descriptionEn : siteConfig.description,
         url: siteConfig.url,
         logo: `${siteConfig.url}/brand/mark-en.png`,
-        image: `${home}/opengraph-image`,
+        image: `${siteConfig.url}${en ? "/og-en.png" : "/opengraph-image.png"}`,
         email: siteConfig.contact.email,
         telephone: siteConfig.contact.phoneDisplay.replace(/\s/g, ""),
         address: { "@type": "PostalAddress", addressLocality: en ? "Cairo" : "القاهرة", addressCountry: "EG" },
         areaServed: ["EG", "SA", "AE", "KW", "QA"],
+        knowsAbout: en
+          ? ["Web design", "Website development", "E-commerce development", "Landing pages", "Web applications", "Dashboards", "UI/UX design", "SEO", "Next.js"]
+          : ["تصميم مواقع", "برمجة مواقع", "تصميم متاجر إلكترونية", "صفحات هبوط", "لوحات تحكم", "أنظمة ويب", "تصميم UI/UX", "تحسين محركات البحث SEO"],
         sameAs,
         hasOfferCatalog: {
           "@type": "OfferCatalog",

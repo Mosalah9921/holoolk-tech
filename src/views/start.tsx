@@ -4,17 +4,13 @@ import { HeroHighlights } from "@/components/hero/HeroHighlights";
 import { Section } from "@/components/ui/Section";
 import { ProjectWizard } from "@/components/start/ProjectWizard";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { tr, type Locale } from "@/i18n";
 
 export function startMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/start",
-    title: t("ابدأ مشروعك", "Start your project"),
-    description: t(
-      "حدّد احتياجات موقعك خطوة بخطوة، واحصل على ملخص ومدة تنفيذ تقديرية ومقترح تفصيلي خلال 24 ساعة.",
-      "Define your website needs step by step, and get a summary, an estimated timeline and a detailed proposal within 24 hours.",
-    ),
+    ...seoFor("start", locale),
   });
 }
 

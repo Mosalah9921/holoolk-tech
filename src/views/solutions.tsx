@@ -12,17 +12,13 @@ import { SolutionsFoundation } from "@/components/solutions/SolutionsFoundation"
 import { DemosShowcase } from "@/components/solutions/DemosShowcase";
 import { CustomSolutionCard } from "@/components/solutions/CustomSolutionCard";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { tr, type Locale } from "@/i18n";
 
 export function solutionsMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/solutions",
-    title: t("الحلول حسب المجال", "Solutions by industry"),
-    description: t(
-      "حلول رقمية مصممة لطبيعة نشاطك: المطاعم، والمتاجر، والعيادات، والتعليم، والأندية الرياضية، والعقارات، والشركات، مع نماذج حية تجربها بنفسك وحلول مخصصة لأي نشاط آخر.",
-      "Digital solutions for restaurants, retail, clinics, education, gyms, real estate and companies, with live demos to try and custom builds for any other business.",
-    ),
+    ...seoFor("solutions", locale),
   });
 }
 

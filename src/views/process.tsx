@@ -7,17 +7,13 @@ import { ButtonLink } from "@/components/ui/Button";
 import { CtaBand } from "@/components/home/CtaBand";
 import { RemoteWork } from "@/components/remote/RemoteWork";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 export function processMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/process",
-    title: t("منهجية العمل", "Our process"),
-    description: t(
-      "خمس مراحل واضحة من الاستماع إلى متطلباتك حتى الإطلاق والدعم، مع مخرجات محددة لكل مرحلة.",
-      "Five clear stages, from understanding your requirements to launch and support, with defined deliverables at every step.",
-    ),
+    ...seoFor("process", locale),
   });
 }
 

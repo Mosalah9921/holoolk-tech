@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
+import { brandKeywords, siteKeywords } from "@/content/seo";
 import { siteConfig, siteIndexable } from "@/config/site";
 import { Analytics } from "@/components/seo/Analytics";
 import { preloadFont } from "@/lib/font-preload";
@@ -18,12 +19,17 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.nameEn} — تطوير المواقع والأنظمة الرقمية`,
+    default: `${siteConfig.name} | تصميم مواقع ومتاجر إلكترونية في مصر`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["تصميم مواقع", "تطوير مواقع", "برمجة مواقع مصر", "متجر إلكتروني", "نظام حجز", "لوحات تحكم", "تطوير أنظمة ويب", "Holoolk Tech", "حلولك تيك"],
-  authors: [{ name: siteConfig.nameEn }],
+  keywords: [...siteKeywords.ar, ...brandKeywords.ar],
+  authors: [{ name: siteConfig.nameEn, url: siteConfig.url }],
+  creator: siteConfig.nameEn,
+  publisher: siteConfig.nameEn,
+  applicationName: siteConfig.nameEn,
+  category: "technology",
+  formatDetection: { telephone: false, email: false, address: false },
   robots: { index: siteIndexable, follow: siteIndexable },
 };
 

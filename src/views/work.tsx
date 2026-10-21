@@ -7,18 +7,14 @@ import { WorkGallery } from "@/components/work/WorkGallery";
 import { CtaBand } from "@/components/home/CtaBand";
 import { FoundingClients } from "@/components/work/FoundingClients";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 import { getProjects } from "@/content/portfolio";
 
 export function workMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/work",
-    title: t("أعمالنا", "Our work"),
-    description: t(
-      "مشاريع ومواقع نموذجية متكاملة لمتاجر ومطاعم وعيادات ومنصات تعليمية، صُمّم كلٌّ منها بهوية مستقلة، ويمكنك تصفّحها وتجربتها بنفسك.",
-      "Projects and fully working sample websites for stores, restaurants, clinics and learning platforms, each with its own identity, ready for you to browse and try.",
-    ),
+    ...seoFor("work", locale),
   });
 }
 

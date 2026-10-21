@@ -6,17 +6,13 @@ import { HeroHighlights } from "@/components/hero/HeroHighlights";
 import { Section } from "@/components/ui/Section";
 import { Contact } from "@/components/sections/Contact";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 export function contactMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/contact",
-    title: t("تواصل معنا", "Contact us"),
-    description: t(
-      "تواصل مع حلولك تيك عبر واتساب أو البريد الإلكتروني، أو أرسل تفاصيل مشروعك مباشرة.",
-      "Reach Holoolk Tech on WhatsApp or by email, or send us your project details directly.",
-    ),
+    ...seoFor("contact", locale),
   });
 }
 

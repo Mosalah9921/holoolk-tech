@@ -7,17 +7,13 @@ import { HeroVisual, heroImages } from "@/components/hero/HeroVisual";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { formatDate, lp, tr, type Locale } from "@/i18n";
 
 export function blogMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/blog",
-    title: t("مركز المعرفة", "Insights"),
-    description: t(
-      "أدلة ومقالات عملية تساعد أصحاب الأنشطة على اتخاذ قرارات أفضل بشأن مواقعهم وحضورهم الرقمي.",
-      "Practical guides that help business owners make better decisions about their websites and digital presence.",
-    ),
+    ...seoFor("blog", locale),
   });
 }
 

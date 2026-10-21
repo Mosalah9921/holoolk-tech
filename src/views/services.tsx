@@ -9,17 +9,13 @@ import { Workflow } from "lucide-react";
 import Link from "next/link";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 export function servicesMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/services",
-    title: t("خدماتنا", "Services"),
-    description: t(
-      "من الفكرة حتى النمو: مواقع الشركات، والمتاجر الإلكترونية، وتصميم الواجهات، وصفحات الهبوط، والأنظمة السحابية، والدعم المستمر.",
-      "From idea to growth: company websites, online stores, UI/UX design, landing pages, cloud-based web systems and ongoing support.",
-    ),
+    ...seoFor("services", locale),
   });
 }
 

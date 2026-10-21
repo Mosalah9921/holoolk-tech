@@ -12,6 +12,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { Process } from "@/components/sections/Process";
 import { pageMeta } from "@/i18n/meta";
+import { serviceKeywords, serviceSeo } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 /** صفحة لكل خدمة — بتتولّد تلقائياً من content/services.ts */
@@ -20,7 +21,8 @@ export const serviceParams = () => getServices("ar").map((s) => ({ id: s.id }));
 export function serviceMeta(locale: Locale, id: string) {
   const s = getServices(locale).find((x) => x.id === id);
   if (!s) return {};
-  return pageMeta(locale, { path: `/services/${s.id}`, title: s.title, description: s.description });
+  const seo = serviceSeo[s.id]?.[locale];
+  return pageMeta(locale, { path: `/services/${s.id}`, title: seo?.title ?? s.title, description: seo?.description ?? s.description, keywords: serviceKeywords[s.id]?.[locale] });
 }
 
 export default function ServiceView({ locale, id }: { locale: Locale; id: string }) {

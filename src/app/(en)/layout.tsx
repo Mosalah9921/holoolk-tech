@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { brandKeywords, siteKeywords } from "@/content/seo";
 import { siteConfig, siteIndexable } from "@/config/site";
 import { Analytics } from "@/components/seo/Analytics";
 import { preloadFont } from "@/lib/font-preload";
@@ -17,12 +18,17 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.nameEn} — IT Solutions`,
+    default: `${siteConfig.nameEn} | Web Design & Development in Egypt`,
     template: `%s | ${siteConfig.nameEn}`,
   },
   description: siteConfig.descriptionEn,
-  keywords: ["web development Egypt", "website design", "web design Cairo", "online store development", "booking system", "custom web applications", "Next.js agency", "Arabic website design", "Holoolk Tech"],
-  authors: [{ name: siteConfig.nameEn }],
+  keywords: [...siteKeywords.en, ...brandKeywords.en],
+  authors: [{ name: siteConfig.nameEn, url: siteConfig.url }],
+  creator: siteConfig.nameEn,
+  publisher: siteConfig.nameEn,
+  applicationName: siteConfig.nameEn,
+  category: "technology",
+  formatDetection: { telephone: false, email: false, address: false },
   robots: { index: siteIndexable, follow: siteIndexable },
 };
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ogImage, siteConfig } from "@/config/site";
 import { lp, type Locale } from "@/i18n";
+import { brandKeywords } from "@/content/seo";
 
 /**
  * صورة المشاركة لكل لغة.
@@ -35,6 +36,9 @@ export function pageMeta(
     type = "website",
     publishedTime,
     noindex = false,
+    keywords,
+    shareTitle,
+    shareDescription,
   }: {
     title: string;
     description: string;
@@ -43,6 +47,11 @@ export function pageMeta(
     type?: "website" | "article";
     publishedTime?: string;
     noindex?: boolean;
+    /** كلمات مفتاحية خاصة بالصفحة (بتتضاف لكلمات البراند الأساسية) */
+    keywords?: string[];
+    /** عنوان/وصف مخصص للمشاركة على فيسبوك وواتساب (لو مختلف عن جوجل) */
+    shareTitle?: string;
+    shareDescription?: string;
   },
 ): Metadata {
   const url = lp(locale, path);
@@ -51,10 +60,13 @@ export function pageMeta(
   if (!absoluteTitle && title.length + brand.length + 3 > 65) absoluteTitle = true;
   const fullTitle = absoluteTitle ? title : `${title} | ${brand}`;
   description = clampDescription(description);
+  const ogTitle = shareTitle ?? fullTitle;
+  const ogDescription = shareDescription ? clampDescription(shareDescription, 200) : description;
   const image = ogImageFor(locale);
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
+    keywords: [...(keywords ?? []), ...brandKeywords[locale]],
     alternates: {
       canonical: url,
       languages: { "ar-EG": path, en: lp("en", path), "x-default": path },
@@ -65,12 +77,12 @@ export function pageMeta(
       alternateLocale: locale === "en" ? ["ar_EG"] : ["en_US"],
       siteName: brand,
       url,
-      title: fullTitle,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       images: [image],
       ...(publishedTime ? { publishedTime } : {}),
     },
-    twitter: { card: "summary_large_image", title: fullTitle, description, images: [image.url] },
+    twitter: { card: "summary_large_image", title: ogTitle, description: ogDescription, images: [image.url] },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
 }

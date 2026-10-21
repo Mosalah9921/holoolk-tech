@@ -10,17 +10,13 @@ import { About } from "@/components/sections/About";
 import { MobileCollapse } from "@/components/ui/MobileCollapse";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 export function aboutMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/about",
-    title: t("من نحن", "About us"),
-    description: t(
-      "شركة حلول تقنية متخصصة في تطوير الويب بمعايير عالمية، تتواصل فيها مباشرة مع فريق التنفيذ بشفافية كاملة.",
-      "An IT solutions company specializing in web development, built to world-class standards, where you work directly with the delivery team, with full transparency.",
-    ),
+    ...seoFor("about", locale),
   });
 }
 

@@ -4,17 +4,13 @@ import { HeroHighlights } from "@/components/hero/HeroHighlights";
 import { FreeAudit } from "@/components/sections/FreeAudit";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { tr, type Locale } from "@/i18n";
 
 export function auditMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/tools/audit",
-    title: t("تقييم مجاني لموقعك", "Free website audit"),
-    description: t(
-      "أرسل رابط موقعك، واحصل خلال 48 ساعة على تقرير موجز بأبرز نقاط التحسين.",
-      "Send us your website link and get a short report on the most important improvements within 48 hours.",
-    ),
+    ...seoFor("audit", locale),
   });
 }
 

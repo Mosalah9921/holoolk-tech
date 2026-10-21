@@ -8,9 +8,9 @@ export const siteConfig = {
   tagline: "حلول رقمية تقود عملك نحو المستقبل",
   taglineEn: "Digital solutions that drive your business forward",
   description:
-    "شركة حلول تقنية متخصصة في تطوير المواقع والمتاجر الإلكترونية والأنظمة السحابية: أنظمة حجز ولوحات تحكم وبوابات أعمال آمنة لنمو أعمالك.",
+    "حلولك تيك شركة تصميم وبرمجة مواقع في مصر: مواقع شركات، متاجر إلكترونية، صفحات هبوط ولوحات تحكم سريعة وآمنة ومتجاوبة مع الجوال، بعرض مكتوب ودعم بعد الإطلاق.",
   descriptionEn:
-    "An IT solutions company building fast, secure websites, online stores and cloud systems: booking systems, dashboards and business portals that help your business grow.",
+    "Holoolk Tech is a web design and development company in Egypt building fast, secure, mobile-first business websites, online stores, landing pages and dashboards.",
   /** الدومين الرسمي (بيتحدد في next.config.ts) */
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.holoolktech.com",
   locale: "ar_EG",

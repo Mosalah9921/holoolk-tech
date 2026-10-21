@@ -26,17 +26,13 @@ import { ButtonLink } from "@/components/ui/Button";
 import { CtaBand } from "@/components/home/CtaBand";
 import { TimeZoneBoard } from "@/components/remote/TimeZoneBoard";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 export function internationalMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/international",
-    title: t("للعملاء خارج مصر", "International clients"),
-    description: t(
-      "نعمل عن بُعد مع الشركات في الخليج وأوروبا وخارجها: مواقع بالعربية والإنجليزية وأي لغة يحتاجها سوقك، ساعات عمل متقاطعة، اتفاق مكتوب ودفعات مرحلية.",
-      "Remote web development for businesses in the Gulf, Europe and beyond: multilingual websites, overlapping hours, a written agreement and milestone payments.",
-    ),
+    ...seoFor("international", locale),
   });
 }
 

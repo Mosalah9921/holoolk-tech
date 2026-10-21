@@ -4,17 +4,13 @@ import { HeroHighlights } from "@/components/hero/HeroHighlights";
 import { Section } from "@/components/ui/Section";
 import { BookingScheduler } from "@/components/book/BookingScheduler";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { tr, type Locale } from "@/i18n";
 
 export function bookMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/book",
-    title: t("احجز استشارة مجانية", "Book a free consultation"),
-    description: t(
-      "اختر اليوم والساعة المناسبين لجلسة استشارية مجانية مدتها 30 دقيقة مع حلولك تيك.",
-      "Pick a day and time that suits you for a free 30-minute consultation with Holoolk Tech.",
-    ),
+    ...seoFor("book", locale),
   });
 }
 

@@ -12,17 +12,13 @@ import { PaymentTerms } from "@/components/pricing/PaymentTerms";
 import { ProposalScope } from "@/components/pricing/ProposalScope";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
+import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 export function pricingMeta(locale: Locale) {
-  const t = tr(locale);
   return pageMeta(locale, {
     path: "/pricing",
-    title: t("الباقات", "Packages"),
-    description: t(
-      "باقات مرنة لمواقع الشركات وصفحات الهبوط والمتاجر الإلكترونية، مع مقارنة تفصيلية للمزايا.",
-      "Flexible packages for company websites, landing pages and online stores, with a detailed feature comparison.",
-    ),
+    ...seoFor("pricing", locale),
   });
 }
 

@@ -13,6 +13,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { MobileCollapse } from "@/components/ui/MobileCollapse";
 import { CtaBand } from "@/components/home/CtaBand";
 import { pageMeta } from "@/i18n/meta";
+import { solutionKeywords, solutionSeoTitle } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
 
 export const solutionParams = () => getSolutions("ar").map((s) => ({ id: s.id }));
@@ -22,8 +23,9 @@ export function solutionMeta(locale: Locale, id: string) {
   if (!s) return {};
   return pageMeta(locale, {
     path: `/solutions/${s.id}`,
-    title: locale === "en" ? `Solutions for ${s.name}` : `حلول ${s.name}`,
+    title: solutionSeoTitle[s.id]?.[locale] ?? (locale === "en" ? `Solutions for ${s.name}` : `حلول ${s.name}`),
     description: s.intro,
+    keywords: solutionKeywords[s.id]?.[locale],
   });
 }
 
