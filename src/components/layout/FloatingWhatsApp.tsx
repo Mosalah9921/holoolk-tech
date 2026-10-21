@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import { cn, whatsappLink } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import type { Locale } from "@/i18n";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 /**
  * زر واتساب عائم — ثابت في الركن السفلي (يسار في العربي، يمين في الإنجليزي تلقائياً عبر end).
@@ -17,7 +18,7 @@ import type { Locale } from "@/i18n";
 const MOBILE_HIDDEN_ON = /^(\/en)?\/(start|contact|book)\/?$/;
 export function FloatingWhatsApp({ locale = "ar", message, label }: { locale?: Locale; message?: string; label?: string }) {
   const en = locale === "en";
-  message ??= en ? "Hello Holoolk Tech, I'd like to discuss a new digital project." : "مرحباً حلولك تيك، أود الاستفسار ومناقشة مشروع رقمي جديد.";
+  message ??= waInquiry(locale);
   label ??= en ? "Chat with us on WhatsApp" : "تواصل معنا عبر واتساب";
   const [hidden, setHidden] = useState(false);
   const [scrollHidden, setScrollHidden] = useState(false);

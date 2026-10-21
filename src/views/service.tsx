@@ -14,6 +14,7 @@ import { Process } from "@/components/sections/Process";
 import { pageMeta } from "@/i18n/meta";
 import { serviceKeywords, serviceSeo } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 /** صفحة لكل خدمة — بتتولّد تلقائياً من content/services.ts */
 export const serviceParams = () => getServices("ar").map((s) => ({ id: s.id }));
@@ -33,7 +34,7 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
 
   const pkg = getPackages(locale).find((p) => p.id === service.packageId);
   const others = services.filter((s) => s.id !== service.id);
-  const waMessage = t(`مرحباً حلولك تيك، أرغب في الاستفسار عن خدمة "${service.title}".`, `Hello Holoolk Tech, I'd like to ask about your "${service.title}" service.`);
+  const waMessage = waInquiry(locale, t(`أرغب في الاستفسار عن خدمة «${service.title}».`, `I'd like to ask about your "${service.title}" service.`));
 
   /** بيانات منظمة لجوجل: الخدمة + مقدّمها */
   const serviceLd = {

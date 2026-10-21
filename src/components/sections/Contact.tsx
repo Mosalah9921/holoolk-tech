@@ -11,6 +11,7 @@ import { cn, whatsappLink } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import { Container } from "@/components/ui/Container";
 import { buttonClasses } from "@/components/ui/Button";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 const inputClasses =
   "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-500 transition-colors focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-500/10";
@@ -29,7 +30,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
       icon: MessageCircle,
       label: t("واتساب", "WhatsApp"),
       value: siteConfig.contact.phoneDisplay,
-      href: whatsappLink(siteConfig.contact.whatsapp),
+      href: whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale)),
       ltr: true,
     },
     { icon: Mail, label: t("البريد الإلكتروني", "Email"), value: siteConfig.contact.email, href: `mailto:${siteConfig.contact.email}`, ltr: true },
@@ -105,7 +106,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
             </p>
 
             <a
-              href={whatsappLink(siteConfig.contact.whatsapp, t("مرحباً حلولك تيك، أرغب في بدء مشروع موقع إلكتروني.", "Hello Holoolk Tech, I'd like to start a website project."))}
+              href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أرغب في بدء مشروع موقع إلكتروني ومناقشة التفاصيل معكم.", "I'd like to start a website project and discuss the details with you.")))}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("contact", { source: "final_cta" })}

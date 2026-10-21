@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { Section } from "@/components/ui/Section";
 import { LogoMark } from "@/components/ui/Logo";
 import { whatsappLink } from "@/lib/utils";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 /** مين إحنا + ليه تختارنا — في سكشن واحد */
 export function About({ locale = "ar" }: { locale?: Locale }) {
@@ -39,7 +40,7 @@ export function About({ locale = "ar" }: { locale?: Locale }) {
             </div>
             <p className="mt-3 text-sm leading-7 text-slate-600">{teamStatement}</p>
             <a
-              href={whatsappLink(siteConfig.contact.whatsapp, t("مرحباً حلولك تيك، أود الاستفسار عن مشروع.", "Hello Holoolk Tech, I'd like to ask about a project."))}
+              href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale))}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex rounded-xl bg-[#25D366]/10 px-3.5 py-2 text-xs font-bold text-[#0F6E5E] hover:bg-[#25D366]/20"

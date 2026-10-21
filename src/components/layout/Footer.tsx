@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { lp, tr, type Locale } from "@/i18n";
 import { Logo } from "@/components/ui/Logo";
 import { LangSwitchLink } from "@/components/layout/LangSwitchLink";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 /** حسابات التواصل الاجتماعي — يظهر فقط ما له رابط في site.ts، والواتساب دائماً */
 const socialMeta: Record<keyof typeof siteConfig.socials, { label: { ar: string; en: string }; icon: LucideIcon; hover: string }> = {
@@ -17,7 +18,7 @@ const socialMeta: Record<keyof typeof siteConfig.socials, { label: { ar: string;
 export function Footer({ locale = "ar" }: { locale?: Locale }) {
   const t = tr(locale);
   const en = locale === "en";
-  const waMessage = t("مرحباً حلولك تيك، أود الاستفسار ومناقشة مشروع رقمي جديد.", "Hello Holoolk Tech, I'd like to discuss a new digital project.");
+  const waMessage = waInquiry(locale);
   const socials = [
     ...(Object.keys(socialMeta) as (keyof typeof socialMeta)[])
       .filter((k) => siteConfig.socials[k])

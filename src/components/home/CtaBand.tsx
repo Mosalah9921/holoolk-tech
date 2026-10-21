@@ -3,6 +3,7 @@ import { ArrowLeft, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { whatsappLink } from "@/lib/utils";
 import { lp, tr, type Locale } from "@/i18n";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 /** شريط الدعوة الختامي — يظهر في نهاية معظم الصفحات */
 export function CtaBand({ locale = "ar", title, text }: { locale?: Locale; title?: string; text?: string }) {
@@ -31,7 +32,7 @@ export function CtaBand({ locale = "ar", title, text }: { locale?: Locale; title
               <ArrowLeft className="size-5" aria-hidden />
             </Link>
             <a
-              href={whatsappLink(siteConfig.contact.whatsapp, t("مرحباً حلولك تيك 👋 أرغب في مناقشة فكرة مشروع رقمي والحصول على خطة عمل وتقدير مبدئي.", "Hello Holoolk Tech 👋 I'd like to discuss a digital project idea and get a plan and an initial estimate."))}
+              href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أرغب في مناقشة فكرة مشروعي والحصول على خطة عمل وعرض مبدئي.", "I'd like to discuss my project idea and get an initial plan and proposal.")))}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl border border-white/20 px-7 font-bold whitespace-nowrap text-white transition-colors hover:bg-white/10"

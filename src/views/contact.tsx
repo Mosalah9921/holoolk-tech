@@ -8,6 +8,7 @@ import { Contact } from "@/components/sections/Contact";
 import { pageMeta } from "@/i18n/meta";
 import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 export function contactMeta(locale: Locale) {
   return pageMeta(locale, {
@@ -25,7 +26,7 @@ export default function ContactView({ locale }: { locale: Locale }) {
       title: t("واتساب", "WhatsApp"),
       text: t("أسرع وسيلة للتواصل، ونرد خلال ساعات العمل.", "The fastest way to reach us. We reply during business hours."),
       value: c.phoneDisplay,
-      href: whatsappLink(c.whatsapp, t("مرحباً حلولك تيك،", "Hello Holoolk Tech,")),
+      href: whatsappLink(c.whatsapp, waInquiry(locale)),
       ltr: true,
     },
     { icon: Mail, title: t("البريد الإلكتروني", "Email"), text: t("للعروض الرسمية والمراسلات التفصيلية.", "For formal proposals and detailed correspondence."), value: c.email, href: `mailto:${c.email}`, ltr: true },

@@ -28,6 +28,7 @@ import { TimeZoneBoard } from "@/components/remote/TimeZoneBoard";
 import { pageMeta } from "@/i18n/meta";
 import { seoFor } from "@/content/seo";
 import { lp, tr, type Locale } from "@/i18n";
+import { waInquiry } from "@/lib/whatsapp-messages";
 
 export function internationalMeta(locale: Locale) {
   return pageMeta(locale, {
@@ -216,7 +217,7 @@ export default function InternationalView({ locale }: { locale: Locale }) {
           {t("احجز مكالمة تعارف", "Book an intro call")}
         </ButtonLink>
         <ButtonLink
-          href={whatsappLink(siteConfig.contact.whatsapp, t("مرحباً حلولك تيك، أنا من خارج مصر وأرغب في مناقشة مشروع.", "Hello Holoolk Tech, I'm based outside Egypt and I'd like to discuss a project."))}
+          href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أتواصل معكم من خارج مصر، وأرغب في مناقشة مشروع موقع إلكتروني.", "I'm based outside Egypt and I'd like to discuss a website project.")))}
           target="_blank"
           rel="noopener noreferrer"
           variant="secondary"
