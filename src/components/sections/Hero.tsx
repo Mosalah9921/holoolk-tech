@@ -77,7 +77,7 @@ export function Hero({ locale = "ar" }: { locale?: Locale }) {
           {/* min-h للعربي على الموبايل: بيحجز مساحة الخط Cairo قبل ما يحمّل، فالأزرار متتحركش (CLS) */}
           <h1
             id="hero-title"
-            className="mt-6 text-[2.3rem] leading-[1.3] font-black tracking-tight text-balance text-slate-900 rtl:max-[479px]:min-h-[3lh] sm:text-5xl sm:leading-[1.25] lg:text-[3.2rem]"
+            className="mt-6 text-[2.3rem] leading-[1.3] font-black tracking-tight text-balance text-slate-900 rtl:max-[479px]:min-h-[3lh] ltr:max-[429px]:min-h-[3lh] sm:text-5xl sm:leading-[1.25] lg:text-[3.2rem]"
           >
             {t("مواقع ومنصات رقمية", "Websites")}{" "}
             <span className="text-gradient">{t("مبنية حول طريقة عملك.", "built around your business.")}</span>
