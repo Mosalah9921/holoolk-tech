@@ -34,7 +34,7 @@ export default function ServiceView({ locale, id }: { locale: Locale; id: string
 
   const pkg = getPackages(locale).find((p) => p.id === service.packageId);
   const others = services.filter((s) => s.id !== service.id);
-  const waMessage = waInquiry(locale, t(`أرغب في الاستفسار عن خدمة «${service.title}».`, `I'd like to ask about your "${service.title}" service.`));
+  const waMessage = waInquiry(locale, t(`اطّلعت على خدمة «${service.title}» في موقعكم، وأودّ معرفة تفاصيلها.`, `I saw your "${service.title}" service on your website and I'd like to know more.`));
 
   /** بيانات منظمة لجوجل: الخدمة + مقدّمها */
   const serviceLd = {

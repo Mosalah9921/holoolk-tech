@@ -32,7 +32,7 @@ export function CtaBand({ locale = "ar", title, text }: { locale?: Locale; title
               <ArrowLeft className="size-5" aria-hidden />
             </Link>
             <a
-              href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أرغب في مناقشة فكرة مشروعي والحصول على خطة عمل وعرض مبدئي.", "I'd like to discuss my project idea and get an initial plan and proposal.")))}
+              href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("لديّ فكرة مشروع، وأودّ الحصول على خطة مبدئية وعرض سعر.", "I have a project idea and I'd like an initial plan and a quote.")))}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl border border-white/20 px-7 font-bold whitespace-nowrap text-white transition-colors hover:bg-white/10"

@@ -110,7 +110,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
             </p>
 
             <a
-              href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أرغب في بدء مشروع موقع إلكتروني ومناقشة التفاصيل معكم.", "I'd like to start a website project and discuss the details with you.")))}
+              href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أرغب في بدء مشروع موقع إلكتروني، وأودّ مناقشة التفاصيل معكم.", "I'd like to start a website project and discuss the details with you.")))}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("contact", { source: "final_cta" })}

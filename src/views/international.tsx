@@ -217,7 +217,7 @@ export default function InternationalView({ locale }: { locale: Locale }) {
           {t("احجز مكالمة تعارف", "Book an intro call")}
         </ButtonLink>
         <ButtonLink
-          href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أتواصل معكم من خارج مصر، وأرغب في مناقشة مشروع موقع إلكتروني.", "I'm based outside Egypt and I'd like to discuss a website project.")))}
+          href={whatsappLink(siteConfig.contact.whatsapp, waInquiry(locale, t("أتواصل معكم من خارج مصر، وأودّ مناقشة مشروع موقع إلكتروني.", "I'm based outside Egypt and I'd like to discuss a website project.")))}
           target="_blank"
           rel="noopener noreferrer"
           variant="secondary"
