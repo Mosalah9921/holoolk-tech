@@ -1,5 +1,5 @@
 "use client";
-import { sendToInbox } from "@/config/forms";
+import { isValidEmail, isValidPhone, sendToInbox } from "@/config/forms";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -170,7 +170,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
       !!d.industry && (d.industry !== "other" || d.industryOther.trim().length > 1),
       true,
       !!d.timeline && !!d.content,
-      d.name.trim().length > 1 && d.phone.replace(/\D/g, "").length >= 8,
+      d.name.trim().length > 1 && isValidPhone(d.phone) && (!d.email.trim() || isValidEmail(d.email)),
       true,
     ],
     [d],
@@ -305,7 +305,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
                 </div>
                 {d.industry === "other" && (
                   <Field label={tl("ما مجال نشاطك؟", "What’s your industry?")} className="mt-5">
-                    <input autoFocus value={d.industryOther} onChange={(e) => set("industryOther", e.target.value)} className={inputCls} placeholder={tl("مثال: مكتب سياحة", "e.g. Travel agency")} />
+                    <input autoFocus maxLength={60} value={d.industryOther} onChange={(e) => set("industryOther", e.target.value)} className={inputCls} placeholder={tl("مثال: مكتب سياحة", "e.g. Travel agency")} />
                   </Field>
                 )}
               </>
@@ -358,19 +358,19 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
             {step === 4 && (
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label={tl("الاسم", "Name")} required>
-                  <input value={d.name} onChange={(e) => set("name", e.target.value)} autoComplete="name" className={inputCls} placeholder={tl("الاسم الكامل", "Full name")} />
+                  <input maxLength={80} value={d.name} onChange={(e) => set("name", e.target.value)} autoComplete="name" className={inputCls} placeholder={tl("الاسم الكامل", "Full name")} />
                 </Field>
                 <Field label={tl("اسم النشاط أو الشركة", "Business or company name")}>
-                  <input value={d.business} onChange={(e) => set("business", e.target.value)} autoComplete="organization" className={inputCls} placeholder={tl("اختياري", "Optional")} />
+                  <input maxLength={100} value={d.business} onChange={(e) => set("business", e.target.value)} autoComplete="organization" className={inputCls} placeholder={tl("اختياري", "Optional")} />
                 </Field>
                 <Field label={tl("رقم الهاتف (واتساب)", "Phone number (WhatsApp)")} required>
-                  <input value={d.phone} onChange={(e) => set("phone", e.target.value)} type="tel" dir="ltr" autoComplete="tel" className={cn(inputCls, "rtl:text-end")} placeholder={tl("01xxxxxxxxx", "+20 1xx xxx xxxx")} />
+                  <input maxLength={20} value={d.phone} onChange={(e) => set("phone", e.target.value)} type="tel" dir="ltr" autoComplete="tel" className={cn(inputCls, "rtl:text-end")} placeholder={tl("01xxxxxxxxx", "+20 1xx xxx xxxx")} />
                 </Field>
                 <Field label={tl("البريد الإلكتروني", "Email")}>
-                  <input value={d.email} onChange={(e) => set("email", e.target.value)} type="email" dir="ltr" autoComplete="email" className={cn(inputCls, "rtl:text-end")} placeholder="name@example.com" />
+                  <input maxLength={120} value={d.email} onChange={(e) => set("email", e.target.value)} type="email" dir="ltr" autoComplete="email" className={cn(inputCls, "rtl:text-end")} placeholder="name@example.com" />
                 </Field>
                 <Field label={tl("ملاحظات إضافية", "Additional notes")} className="sm:col-span-2">
-                  <textarea value={d.notes} onChange={(e) => set("notes", e.target.value)} rows={4} className={cn(inputCls, "resize-none leading-7")} placeholder={tl("مواقع تعجبك، أفكار، أو أي تفاصيل تساعدنا…", "Websites you like, ideas, or any details that help us…")} />
+                  <textarea maxLength={1000} value={d.notes} onChange={(e) => set("notes", e.target.value)} rows={4} className={cn(inputCls, "resize-none leading-7")} placeholder={tl("مواقع تعجبك، أفكار، أو أي تفاصيل تساعدنا…", "Websites you like, ideas, or any details that help us…")} />
                 </Field>
               </div>
             )}
@@ -402,7 +402,7 @@ export function ProjectWizard({ locale = "ar" }: { locale?: Locale }) {
 
           {touched && !valid[step] && (
             <p role="alert" className="mt-5 text-sm font-semibold text-rose-600">
-              {step === 4 ? tl("يُرجى إدخال الاسم ورقم هاتف صحيح.", "Please enter your name and a valid phone number.") : tl("يُرجى إكمال الاختيار للمتابعة.", "Please make a selection to continue.")}
+              {step === 4 ? (d.email.trim() && !isValidEmail(d.email) && d.name.trim().length > 1 && isValidPhone(d.phone) ? tl("يُرجى كتابة البريد الإلكتروني بشكل صحيح، أو ترك الخانة فارغة.", "Please enter a valid email address, or leave it empty.") : tl("يُرجى إدخال الاسم ورقم هاتف صحيح.", "Please enter your name and a valid phone number.")) : tl("يُرجى إكمال الاختيار للمتابعة.", "Please make a selection to continue.")}
             </p>
           )}
         </div>

@@ -319,13 +319,13 @@ export function BookingScheduler({ locale = "ar" }: { locale?: Locale }) {
           <span className="mb-1.5 block text-sm font-semibold text-slate-700">
             {t("الاسم", "Name")} <span className="text-brand-600">*</span>
           </span>
-          <input value={name} onChange={(e) => setName(e.target.value)} name="name" required aria-required="true" autoComplete="name" className={inputCls} placeholder={t("الاسم الكامل", "Full name")} />
+          <input value={name} onChange={(e) => setName(e.target.value)} maxLength={80} name="name" required aria-required="true" autoComplete="name" className={inputCls} placeholder={t("الاسم الكامل", "Full name")} />
         </label>
         <label className="mt-4 block">
           <span className="mb-1.5 block text-sm font-semibold text-slate-700">
             {t("رقم الهاتف (واتساب)", "Phone number (WhatsApp)")} <span className="text-brand-600">*</span>
           </span>
-          <input value={phone} onChange={(e) => setPhone(e.target.value)} name="phone" required aria-required="true" type="tel" dir="ltr" autoComplete="tel" className={cn(inputCls, "rtl:text-end")} placeholder={t("01xxxxxxxxx", "+20 1xx xxx xxxx")} />
+          <input value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={20} name="phone" required aria-required="true" type="tel" dir="ltr" autoComplete="tel" className={cn(inputCls, "rtl:text-end")} placeholder={t("01xxxxxxxxx", "+20 1xx xxx xxxx")} />
         </label>
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm">

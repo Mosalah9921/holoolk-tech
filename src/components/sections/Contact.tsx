@@ -1,5 +1,5 @@
 "use client";
-import { sendToInbox } from "@/config/forms";
+import { isValidPhone, sendToInbox } from "@/config/forms";
 
 import { useState } from "react";
 import { ArrowLeft, Clock3, Mail, MapPin, MessageCircle } from "lucide-react";
@@ -51,6 +51,10 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
     if (new FormData(e.currentTarget).get("company_site")) return setSent(true);
     if (!form.name.trim() || !form.message.trim()) {
       setError(t("يُرجى إدخال الاسم وتفاصيل المشروع.", "Please enter your name and project details."));
+      return;
+    }
+    if (form.phone.trim() && !isValidPhone(form.phone)) {
+      setError(t("يُرجى إدخال رقم هاتف صحيح، أو ترك الخانة فارغة.", "Please enter a valid phone number, or leave it empty."));
       return;
     }
     setError("");
@@ -156,12 +160,13 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
             <input type="text" name="company_site" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -start-[9999px] size-px opacity-0" />
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field label={t("الاسم", "Name")} htmlFor="name" required>
-                <input id="name" name="name" required aria-required="true" autoComplete="name" value={form.name} onChange={update("name")} placeholder={t("الاسم أو اسم الشركة", "Your name or company")} className={inputClasses} />
+                <input id="name" name="name" maxLength={80} required aria-required="true" autoComplete="name" value={form.name} onChange={update("name")} placeholder={t("الاسم أو اسم الشركة", "Your name or company")} className={inputClasses} />
               </Field>
               <Field label={t("رقم الهاتف", "Phone")} htmlFor="phone">
                 <input
                   id="phone"
                   name="phone"
+                  maxLength={20}
                   type="tel"
                   dir="ltr"
                   autoComplete="tel"
@@ -189,6 +194,7 @@ export function Contact({ locale = "ar" }: { locale?: Locale }) {
               <textarea
                 id="message"
                 name="message"
+                maxLength={1500}
                 required
                 aria-required="true"
                 rows={4}

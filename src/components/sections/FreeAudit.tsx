@@ -8,6 +8,7 @@ import { whatsappLink } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import { Section } from "@/components/ui/Section";
 import { tr, type Locale } from "@/i18n";
+import { sendToInbox } from "@/config/forms";
 
 const checks = [
   { icon: Gauge, label: { ar: "سرعة التحميل", en: "Loading speed" } },
@@ -35,6 +36,7 @@ export function FreeAudit({ bare = false, locale = "ar" }: { bare?: boolean; loc
     ).join("\n");
     window.open(whatsappLink(siteConfig.contact.whatsapp, text), "_blank", "noopener,noreferrer");
     trackEvent("lead", { source: "free_audit", locale });
+    sendToInbox({ _subject: locale === "en" ? `Free audit request — ${name}` : `طلب تقييم مجاني — ${name}`, name, website: url, locale });
     setSent(true);
   }
 
@@ -84,11 +86,11 @@ export function FreeAudit({ bare = false, locale = "ar" }: { bare?: boolean; loc
             <form onSubmit={handleSubmit} className="space-y-4">
               <label className="block">
                 <span className="mb-1.5 block text-sm font-semibold text-slate-700">{t("رابط الموقع", "Website URL")}</span>
-                <input required type="url" dir="ltr" inputMode="url" placeholder="https://example.com" value={url} onChange={(e) => setUrl(e.target.value)} className={inputCls} />
+                <input required maxLength={200} type="url" dir="ltr" inputMode="url" placeholder="https://example.com" value={url} onChange={(e) => setUrl(e.target.value)} className={inputCls} />
               </label>
               <label className="block">
                 <span className="mb-1.5 block text-sm font-semibold text-slate-700">{t("الاسم", "Name")}</span>
-                <input required autoComplete="name" placeholder={t("الاسم أو اسم الشركة", "Your name or company")} value={name} onChange={(e) => setName(e.target.value)} className={inputCls} />
+                <input required maxLength={80} autoComplete="name" placeholder={t("الاسم أو اسم الشركة", "Your name or company")} value={name} onChange={(e) => setName(e.target.value)} className={inputCls} />
               </label>
               <button
                 data-cta-band
