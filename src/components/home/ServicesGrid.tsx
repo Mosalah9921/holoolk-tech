@@ -6,7 +6,11 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { lp, tr, type Locale } from "@/i18n";
 
-/** الرئيسية: أهم 4 خدمات فقط — والتفاصيل الكاملة في صفحة /services */
+/**
+ * الرئيسية: أهم 4 خدمات — نفس البطاقات بالظبط في العربي والإنجليزي وعلى كل المقاسات.
+ * على الموبايل البطاقة بتبقى أصغر (من غير قايمة النقاط) بدل ما نخفي خدمة كاملة.
+ * cta: نص الزرار لو البطاقة بتودّي لمكان غير صفحة خدمة (الاستشارات ← حجز استشارة).
+ */
 const highlights = [
   {
     image: "/images/home/web-ecommerce.webp",
@@ -51,6 +55,7 @@ const highlights = [
     },
     points: { ar: ["ربط بوابات الشحن والدفع", "أتمتة العمليات", "استشارات تقنية متخصصة"], en: ["Shipping and payment integrations", "Process automation", "Expert technical advice"] },
     href: "/book",
+    cta: { ar: "احجز استشارة مجانية", en: "Book a free consultation" },
   },
 ];
 
@@ -66,20 +71,19 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
       />
 
       <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {highlights.map(({ image, title: tt, tag, description: ds, points: pt, href: h }, i) => {
+        {highlights.map(({ image, title: tt, tag, description: ds, points: pt, href: h, cta }) => {
           const title = tt[locale];
           const description = ds[locale];
           const points = pt[locale];
           const href = lp(locale, h);
           return (
-          // على الموبايل: 3 خدمات بس، والباقي في صفحة الخدمات
-          <li key={title} className={i >= 3 ? "max-sm:hidden" : undefined}>
+          <li key={title}>
             <Link
               href={href}
-              className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-800/[0.07] focus-visible:-translate-y-1"
+              className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-5 transition-all sm:p-7 duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-800/[0.07] focus-visible:-translate-y-1"
             >
               {/* أيقونة ثلاثية الأبعاد على منصة متدرجة */}
-              <span className="relative -mx-2 -mt-2 flex h-36 items-center justify-center overflow-hidden rounded-2xl bg-linear-to-b from-brand-50 via-slate-50 to-white">
+              <span className="relative -mx-1 -mt-1 flex h-28 items-center sm:-mx-2 sm:-mt-2 sm:h-36 justify-center overflow-hidden rounded-2xl bg-linear-to-b from-brand-50 via-slate-50 to-white">
                 <span aria-hidden className="absolute inset-x-10 bottom-3 h-5 rounded-[50%] bg-brand-800/10 blur-md transition-all duration-500 group-hover:inset-x-14 group-hover:bg-brand-800/5" />
                 <Image
                   src={image}
@@ -87,7 +91,7 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
                   width={560}
                   height={560}
                   sizes="128px"
-                  className="relative h-32 w-auto object-contain transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105"
+                  className="relative h-24 w-auto object-contain sm:h-32 transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105"
                 />
               </span>
 
@@ -99,7 +103,7 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
               )}
               <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
 
-              <ul className="mt-5 flex-1 space-y-2.5 border-t border-slate-100 pt-5">
+              <ul className="mt-5 flex-1 space-y-2.5 border-t border-slate-100 pt-5 max-sm:hidden">
                 {points.map((p) => (
                   <li key={p} className="flex items-start gap-2.5 text-sm leading-6 font-medium text-slate-700">
                     <Check className="mt-1 size-4 shrink-0 text-brand-500" aria-hidden />
@@ -108,8 +112,8 @@ export function ServicesGrid({ locale = "ar" }: { locale?: Locale }) {
                 ))}
               </ul>
 
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-brand-700">
-                {t("اعرف المزيد", "Learn more")}
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-bold text-brand-700 sm:pt-6">
+                {cta ? cta[locale] : t("اعرف المزيد", "Learn more")}
                 <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-1" aria-hidden />
               </span>
             </Link>
